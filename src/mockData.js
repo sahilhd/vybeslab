@@ -25,6 +25,17 @@ export const categories = [
 
 export const mockFeeds = [
   {
+    id: 0,
+    title: '🔥 FEEDS Demo Stream - Click to Play! 🔥',
+    creator: '@feedsdemo',
+    thumbnail: '/images/demo-thumbnail.jpg',
+    viewCount: '8.9K',
+    isPremium: true,
+    category: 'VIBES',
+    description: '🎮 Interactive demo of the FEEDS platform! Click to experience the cyberpunk streaming future.',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun_640x360.mp4'
+  },
+  {
     id: 1,
     title: 'Bike vibing Portland',
     creator: '@bikevibes',
