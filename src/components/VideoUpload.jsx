@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { uploadFile, generateVideoThumbnail } from '../utils/cloudStorage';
-import config from '../config/production';
+// import { uploadFile, generateVideoThumbnail } from '../utils/cloudStorage';
+// import config from '../config/production';
 
 const VideoUpload = ({ onVideoUpload }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -43,48 +43,12 @@ const VideoUpload = ({ onVideoUpload }) => {
     try {
       let videoUrl, thumbnailUrl;
 
-      // Check if cloud storage is configured
-      if (config.features.enableUploads && config.storage.provider) {
-        // Production: Upload to cloud storage
-        console.log('Uploading to cloud storage...');
-        
-        // Upload video
-        const videoResult = await uploadFile(selectedVideo, {
-          folder: 'feeds-videos',
-          tags: [feedData.category, 'user-upload']
-        });
-        videoUrl = videoResult.url;
-
-        // Upload or generate thumbnail
-        if (selectedThumbnail) {
-          const thumbnailResult = await uploadFile(selectedThumbnail, {
-            folder: 'feeds-thumbnails',
-            tags: [feedData.category, 'thumbnail']
-          });
-          thumbnailUrl = thumbnailResult.url;
-        } else {
-          // Auto-generate thumbnail from video
-          try {
-            const thumbnailBlob = await generateVideoThumbnail(selectedVideo);
-            const thumbnailResult = await uploadFile(thumbnailBlob, {
-              folder: 'feeds-thumbnails',
-              tags: [feedData.category, 'auto-thumbnail']
-            });
-            thumbnailUrl = thumbnailResult.url;
-          } catch (thumbError) {
-            console.warn('Thumbnail generation failed:', thumbError);
-            thumbnailUrl = '/images/default-thumbnail.jpg';
-          }
-        }
-
-      } else {
-        // Development: Use object URLs (temporary)
-        console.log('Using local object URLs (development mode)');
-        videoUrl = URL.createObjectURL(selectedVideo);
-        thumbnailUrl = selectedThumbnail 
-          ? URL.createObjectURL(selectedThumbnail)
-          : '/images/default-thumbnail.jpg';
-      }
+      // For now, use local object URLs (demo mode)
+      console.log('Using local object URLs (demo mode)');
+      videoUrl = URL.createObjectURL(selectedVideo);
+      thumbnailUrl = selectedThumbnail 
+        ? URL.createObjectURL(selectedThumbnail)
+        : '/images/demo-thumbnail.jpg';
 
       const newFeed = {
         id: Date.now(),

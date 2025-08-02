@@ -33,7 +33,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'VIBES',
     description: '🎮 Interactive demo of the FEEDS platform! Click to experience the cyberpunk streaming future.',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun_640x360.mp4'
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
   },
   {
     id: 1,
@@ -46,7 +46,7 @@ export const mockFeeds = [
     description: 'Cruising through the streets of Portland on a sunny day',
     // Example: To use local video, put file in public/videos/ and change to:
     // videoUrl: '/videos/your-video.mp4'
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny_320x180.mp4'
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
   },
   {
     id: 2,
@@ -58,7 +58,7 @@ export const mockFeeds = [
     category: 'FASHION',
     description: 'Law of assertion shopping spree in Manhattan',
     // Example of local video: videoUrl: '/videos/shopping-nyc.mp4'
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream_640x360.mp4'
+    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ export const mockFeeds = [
     isPremium: false,
     category: 'VIBES',
     description: 'Underground rave scene in San Francisco',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes_640x360.mp4'
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
   },
   {
     id: 4,
@@ -80,7 +80,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'FOOD & DRINK',
     description: 'Celebrity chef cooking show live from the kitchen',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes_720p_1s_4s.mp4'
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'TRAVEL',
     description: 'Tropical beach vibes with cocktails',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun_640x360.mp4'
+    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
   },
   {
     id: 6,
@@ -102,7 +102,7 @@ export const mockFeeds = [
     isPremium: false,
     category: 'GAMING',
     description: 'High stakes blackjack from Las Vegas',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides_640x360.mp4'
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
   }
 ];
 
