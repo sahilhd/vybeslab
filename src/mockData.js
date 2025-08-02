@@ -33,7 +33,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'VIBES',
     description: '🎮 Interactive demo of the FEEDS platform! Click to experience the cyberpunk streaming future.',
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754160462/A_hyperrealistic_cinematic_202506261720_lakaga.mp4'
   },
   {
     id: 1,
