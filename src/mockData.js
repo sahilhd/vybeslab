@@ -44,9 +44,8 @@ export const mockFeeds = [
     isPremium: false,
     category: 'IRL',
     description: 'Cruising through the streets of Portland on a sunny day',
-    // Example: To use local video, put file in public/videos/ and change to:
-    // videoUrl: '/videos/your-video.mp4'
-    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
+    // YouTube video example - you can use any YouTube URL
+    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   },
   {
     id: 2,

@@ -56,16 +56,27 @@ const StreamView = ({ feeds }) => {
 
               {/* Video */}
               {feed.videoUrl ? (
-                <video 
-                  controls 
-                  autoPlay 
-                  muted
-                  className="w-full h-full object-cover"
-                  poster={feed.thumbnail}
-                >
-                  <source src={feed.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                feed.videoUrl.includes('youtube.com') || feed.videoUrl.includes('youtu.be') ? (
+                  <iframe
+                    src={feed.videoUrl.includes('embed') ? feed.videoUrl : feed.videoUrl.replace('watch?v=', 'embed/')}
+                    title={feed.title}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <video 
+                    controls 
+                    autoPlay 
+                    muted
+                    className="w-full h-full object-cover"
+                    poster={feed.thumbnail}
+                  >
+                    <source src={feed.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-dark-blue">
                   <div className="text-center p-8">
