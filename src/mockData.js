@@ -46,7 +46,7 @@ export const mockFeeds = [
     description: 'Cruising through the streets of Portland on a sunny day',
     // Example: To use local video, put file in public/videos/ and change to:
     // videoUrl: '/videos/your-video.mp4'
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
+    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
   },
   {
     id: 2,
@@ -57,8 +57,8 @@ export const mockFeeds = [
     isPremium: true,
     category: 'FASHION',
     description: 'Law of assertion shopping spree in Manhattan',
-    // Example of local video: videoUrl: '/videos/shopping-nyc.mp4'
-    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
+    // Demo placeholder - replace with actual video
+    videoUrl: null
   },
   {
     id: 3,
@@ -69,7 +69,8 @@ export const mockFeeds = [
     isPremium: false,
     category: 'VIBES',
     description: 'Underground rave scene in San Francisco',
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
+    // Demo placeholder - replace with actual video
+    videoUrl: null
   },
   {
     id: 4,
@@ -80,7 +81,8 @@ export const mockFeeds = [
     isPremium: true,
     category: 'FOOD & DRINK',
     description: 'Celebrity chef cooking show live from the kitchen',
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
+    // Demo placeholder - replace with actual video  
+    videoUrl: null
   },
   {
     id: 5,
@@ -91,7 +93,8 @@ export const mockFeeds = [
     isPremium: true,
     category: 'TRAVEL',
     description: 'Tropical beach vibes with cocktails',
-    videoUrl: 'https://www.w3schools.com/html/movie.mp4'
+    // Demo placeholder - replace with actual video
+    videoUrl: null
   },
   {
     id: 6,
@@ -102,7 +105,8 @@ export const mockFeeds = [
     isPremium: false,
     category: 'GAMING',
     description: 'High stakes blackjack from Las Vegas',
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
+    // Demo placeholder - replace with actual video
+    videoUrl: null
   }
 ];
 

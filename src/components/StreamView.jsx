@@ -55,16 +55,27 @@ const StreamView = ({ feeds }) => {
               )}
 
               {/* Video */}
-              <video 
-                controls 
-                autoPlay 
-                muted
-                className="w-full h-full object-cover"
-                poster={feed.thumbnail}
-              >
-                <source src={feed.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {feed.videoUrl ? (
+                <video 
+                  controls 
+                  autoPlay 
+                  muted
+                  className="w-full h-full object-cover"
+                  poster={feed.thumbnail}
+                >
+                  <source src={feed.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-dark-blue">
+                  <div className="text-center p-8">
+                    <div className="text-6xl mb-4">🎬</div>
+                    <h3 className="text-2xl font-pixel text-neon-cyan mb-2">Video Coming Soon</h3>
+                    <p className="text-gray-400 font-mono">This creator hasn't uploaded their stream yet.</p>
+                    <p className="text-neon-magenta font-mono text-sm mt-2">Try the "🔥 FEEDS Demo Stream" for a working example!</p>
+                  </div>
+                </div>
+              )}
 
               {/* Video Controls Overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
