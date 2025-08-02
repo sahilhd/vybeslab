@@ -58,7 +58,7 @@ const StreamView = ({ feeds }) => {
               {feed.videoUrl ? (
                 feed.videoUrl.includes('youtube.com') || feed.videoUrl.includes('youtu.be') ? (
                   <iframe
-                    src={feed.videoUrl.includes('embed') ? feed.videoUrl : feed.videoUrl.replace('watch?v=', 'embed/')}
+                    src={feed.videoUrl.includes('embed') ? feed.videoUrl : feed.videoUrl.replace('watch?v=', 'embed/').replace('youtu.be/', 'youtube.com/embed/')}
                     title={feed.title}
                     className="w-full h-full"
                     frameBorder="0"

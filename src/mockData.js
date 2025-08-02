@@ -33,7 +33,8 @@ export const mockFeeds = [
     isPremium: true,
     category: 'VIBES',
     description: '🎮 Interactive demo of the FEEDS platform! Click to experience the cyberpunk streaming future.',
-    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754160462/A_hyperrealistic_cinematic_202506261720_lakaga.mp4'
+    // Your custom YouTube video - starts at 15 seconds for a quick demo
+    videoUrl: 'https://youtu.be/ALf6Bc-3PS4?si=7hyfIhelCXTdIpDW&start=15'
   },
   {
     id: 1,
@@ -44,8 +45,8 @@ export const mockFeeds = [
     isPremium: false,
     category: 'IRL',
     description: 'Cruising through the streets of Portland on a sunny day',
-    // YouTube video example - you can use any YouTube URL
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    // Your custom YouTube video - starts at 30 seconds
+    videoUrl: 'https://youtu.be/ALf6Bc-3PS4?si=7hyfIhelCXTdIpDW&start=30'
   },
   {
     id: 2,
