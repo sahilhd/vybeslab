@@ -26,86 +26,79 @@ export const categories = [
 export const mockFeeds = [
   {
     id: 0,
-    title: '🔥 FEEDS Demo Stream - Click to Play! 🔥',
-    creator: '@feedsdemo',
-    thumbnail: '/images/demo-thumbnail.jpg',
-    viewCount: '8.9K',
+    title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
+    creator: '@lifestylevibes',
+    thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400',
+    viewCount: '12.4K',
     isPremium: true,
-    category: 'VIBES',
-    description: '🎮 Interactive demo of the FEEDS platform! Click to experience the cyberpunk streaming future.',
-    // Your custom YouTube video - starts at 15 seconds for a quick demo
-    videoUrl: 'https://youtu.be/ALf6Bc-3PS4?si=7hyfIhelCXTdIpDW&start=15'
+    category: 'FASHION',
+    description: '🎯 Premium shopping experience at Visvim in Carmel-by-the-Sea. Exploring the latest drops and exclusive pieces in this iconic store.',
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251899/Shopping_at_Visvim_in_Carmel_1_ul2svu.mp4'
   },
   {
     id: 1,
-    title: 'Bike vibing Portland',
-    creator: '@bikevibes',
-    thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
-    viewCount: '2.3K',
-    isPremium: false,
-    category: 'IRL',
-    description: 'Cruising through the streets of Portland on a sunny day',
-    // Your custom YouTube video - starts at 30 seconds
-    videoUrl: 'https://youtu.be/ALf6Bc-3PS4?si=7hyfIhelCXTdIpDW&start=30'
+    title: '⛳ Putting at The Hay in Pebble Beach',
+    creator: '@golfpro',
+    thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
+    viewCount: '8.9K',
+    isPremium: true,
+    category: 'SPORTS',
+    description: '🏌️‍♂️ Perfecting my putting game at The Hay, the iconic par-3 course at Pebble Beach. Beautiful coastal views and challenging greens.',
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
   },
   {
     id: 2,
-    title: 'Shopping in NYC with Emma #lawofassertation',
-    creator: '@emmaasserts',
-    thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400',
-    viewCount: '8.7K',
-    isPremium: true,
+    title: '🛍️ Visiting the Malbon Store in Carmel',
+    creator: '@golfstyle',
+    thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+    viewCount: '6.7K',
+    isPremium: false,
     category: 'FASHION',
-    description: 'Law of assertion shopping spree in Manhattan',
-    // Demo placeholder - replace with actual video
-    videoUrl: null
+    description: '🎯 Exploring the Malbon store in Carmel - premium golf lifestyle and streetwear. The perfect blend of golf culture and fashion.',
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Visiting_the_Malbon_Store_in_Carmel_tmdnwq.mp4'
   },
   {
     id: 3,
-    title: 'rave fun party SF! #VaynesClub',
-    creator: '@ravebaby',
+    title: '🛍️ Shopping at Visvim in Carmel - Part 2',
+    creator: '@lifestylevibes',
     thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
-    viewCount: '12.1K',
-    isPremium: false,
-    category: 'VIBES',
-    description: 'Underground rave scene in San Francisco',
-    // Demo placeholder - replace with actual video
-    videoUrl: null
+    viewCount: '9.2K',
+    isPremium: true,
+    category: 'FASHION',
+    description: '🎯 Continuing the Visvim shopping experience in Carmel. More exclusive pieces and premium lifestyle content.',
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Shopping_at_Visvim_in_Carmel_2_bvwuu7.mp4'
   },
   {
     id: 4,
-    title: 'Benny Blanco COOKS #AstheTest',
-    creator: '@bennyblanco',
+    title: '⛳ Golf Course Tour - Pebble Beach',
+    creator: '@golfpro',
     thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
-    viewCount: '25.4K',
+    viewCount: '15.8K',
     isPremium: true,
-    category: 'FOOD & DRINK',
-    description: 'Celebrity chef cooking show live from the kitchen',
-    // Demo placeholder - replace with actual video  
+    category: 'SPORTS',
+    description: '🏌️‍♂️ Exclusive tour of the legendary Pebble Beach Golf Links. Walking through one of the most beautiful golf courses in the world.',
     videoUrl: null
   },
   {
     id: 5,
-    title: 'Just vibing in la playa + Mojito',
-    creator: '@beachvibes',
+    title: '🛍️ Golf Lifestyle Shopping Spree',
+    creator: '@golfstyle',
     thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400',
-    viewCount: '5.8K',
-    isPremium: true,
-    category: 'TRAVEL',
-    description: 'Tropical beach vibes with cocktails',
-    // Demo placeholder - replace with actual video
+    viewCount: '7.3K',
+    isPremium: false,
+    category: 'FASHION',
+    description: '🎯 Shopping for the latest golf lifestyle gear and premium golf apparel. From clubs to clothing, we cover it all.',
     videoUrl: null
   },
   {
     id: 6,
-    title: 'Blackjack & the Wynn #TheCenturyboyy',
-    creator: '@centuryboy',
+    title: '⛳ Pro Golf Tips & Techniques',
+    creator: '@golfpro',
     thumbnail: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400',
-    viewCount: '15.2K',
-    isPremium: false,
-    category: 'GAMING',
-    description: 'High stakes blackjack from Las Vegas',
-    // Demo placeholder - replace with actual video
+    viewCount: '18.5K',
+    isPremium: true,
+    category: 'SPORTS',
+    description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
     videoUrl: null
   }
 ];
@@ -113,77 +106,77 @@ export const mockFeeds = [
 export const topFeeds = [
   {
     id: 1,
-    title: 'Joanne Party HEA',
-    viewCount: '3.5M views',
-    category: 'VIBES'
-  },
-  {
-    id: 2,
-    title: 'Weekend at LAV',
-    viewCount: '1.2M views',
+    title: '🛍️ Shopping at Visvim in Carmel',
+    viewCount: '12.4K views',
     category: 'FASHION'
   },
   {
+    id: 2,
+    title: '⛳ Putting at The Hay - Pebble Beach',
+    viewCount: '8.9K views',
+    category: 'SPORTS'
+  },
+  {
     id: 3,
-    title: 'amazing w vangboyz',
-    viewCount: '892K views',
-    category: 'MUSIC'
+    title: '🛍️ Malbon Store Tour - Carmel',
+    viewCount: '6.7K views',
+    category: 'FASHION'
   },
   {
     id: 4,
-    title: 'Sick Queens Workout',
-    viewCount: '654K views',
-    category: 'FITNESS'
+    title: '⛳ Golf Course Tour - Pebble Beach',
+    viewCount: '15.8K views',
+    category: 'SPORTS'
   },
   {
     id: 5,
-    title: 'OCHS Shoot',
-    viewCount: '445K views',
-    category: 'ART'
+    title: '🛍️ Visvim Shopping - Part 2',
+    viewCount: '9.2K views',
+    category: 'FASHION'
   },
   {
     id: 6,
-    title: 'French Laundry Next',
-    viewCount: '287K views',
-    category: 'FOOD'
+    title: '⛳ Pro Golf Tips & Techniques',
+    viewCount: '18.5K views',
+    category: 'SPORTS'
   }
 ];
 
 export const topCreators = [
   {
     id: 1,
-    username: '@piffermakky',
-    subscribers: '643K subscribers',
+    username: '@lifestylevibes',
+    subscribers: '45.2K subscribers',
     avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80'
   },
   {
     id: 2,
-    username: '@fransiagonza',
-    subscribers: '287K subscribers',
+    username: '@golfpro',
+    subscribers: '38.7K subscribers',
     avatar: 'https://images.unsplash.com/photo-1494790108755-2616b9191e56?w=80'
   },
   {
     id: 3,
-    username: '@fabiairateom',
-    subscribers: '195K subscribers',
+    username: '@golfstyle',
+    subscribers: '29.5K subscribers',
     avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80'
   },
   {
     id: 4,
-    username: '@julicataressa',
-    subscribers: '156K subscribers',
+    username: '@carmelvibes',
+    subscribers: '22.1K subscribers',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80'
   },
   {
     id: 5,
-    username: '@piliSidne',
-    subscribers: '134K subscribers',
+    username: '@pebblebeachpro',
+    subscribers: '18.9K subscribers',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80'
   },
   {
     id: 6,
-    username: '@rog',
-    subscribers: '89K subscribers',
+    username: '@golflifestyle',
+    subscribers: '15.3K subscribers',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80'
   }
 ]; 
