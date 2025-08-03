@@ -7569,6 +7569,227 @@ Read file: src/mockData.js
 
 ---
 
+Now let me update the top feeds and creators to match the golf/shopping theme:
+
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 18, lines removed: 18
+
+```diff
+@@ -107,37 +107,37 @@
+    {
+      id: 1,
+-     title: 'Joanne Party HEA',
+-     viewCount: '3.5M views',
+-     category: 'VIBES'
++     title: '🛍️ Shopping at Visvim in Carmel',
++     viewCount: '12.4K views',
++     category: 'FASHION'
+    },
+    {
+      id: 2,
+-     title: 'Weekend at LAV',
+-     viewCount: '1.2M views',
+-     category: 'FASHION'
++     title: '⛳ Putting at The Hay - Pebble Beach',
++     viewCount: '8.9K views',
++     category: 'SPORTS'
+    },
+    {
+      id: 3,
+-     title: 'amazing w vangboyz',
+-     viewCount: '892K views',
+-     category: 'MUSIC'
++     title: '🛍️ Malbon Store Tour - Carmel',
++     viewCount: '6.7K views',
++     category: 'FASHION'
+    },
+    {
+      id: 4,
+-     title: 'Sick Queens Workout',
+-     viewCount: '654K views',
+-     category: 'FITNESS'
++     title: '⛳ Golf Course Tour - Pebble Beach',
++     viewCount: '15.8K views',
++     category: 'SPORTS'
+    },
+    {
+      id: 5,
+-     title: 'OCHS Shoot',
+-     viewCount: '445K views',
+-     category: 'ART'
++     title: '🛍️ Visvim Shopping - Part 2',
++     viewCount: '9.2K views',
++     category: 'FASHION'
+    },
+    {
+      id: 6,
+-     title: 'French Laundry Next',
+-     viewCount: '287K views',
+-     category: 'FOOD'
++     title: '⛳ Pro Golf Tips & Techniques',
++     viewCount: '18.5K views',
++     category: 'SPORTS'
+    }
+  ];
+```
+
+</details>
+
+---
+
+Now let me update the top creators to match the golf/shopping theme:
+
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 12, lines removed: 12
+
+```diff
+@@ -146,36 +146,36 @@
+    {
+      id: 1,
+-     username: '@piffermakky',
+-     subscribers: '643K subscribers',
++     username: '@lifestylevibes',
++     subscribers: '45.2K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80'
+    },
+    {
+      id: 2,
+-     username: '@fransiagonza',
+-     subscribers: '287K subscribers',
++     username: '@golfpro',
++     subscribers: '38.7K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b9191e56?w=80'
+    },
+    {
+      id: 3,
+-     username: '@fabiairateom',
+-     subscribers: '195K subscribers',
++     username: '@golfstyle',
++     subscribers: '29.5K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80'
+    },
+    {
+      id: 4,
+-     username: '@julicataressa',
+-     subscribers: '156K subscribers',
++     username: '@carmelvibes',
++     subscribers: '22.1K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80'
+    },
+    {
+      id: 5,
+-     username: '@piliSidne',
+-     subscribers: '134K subscribers',
++     username: '@pebblebeachpro',
++     subscribers: '18.9K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80'
+    },
+    {
+      id: 6,
+-     username: '@rog',
+-     subscribers: '89K subscribers',
++     username: '@golflifestyle',
++     subscribers: '15.3K subscribers',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80'
+    }
+```
+
+</details>
+
+---
+
+Perfect! Now let me also update the StreamView component to handle Cloudinary videos properly (since we're switching from YouTube back to Cloudinary):
+
+
+---
+
+The model made no changes to the file.
+
+---
+
+The StreamView component is already set up correctly to handle both YouTube and Cloudinary videos. Let me create a summary of what we've accomplished:
+
+## 🎉 **Perfect! Your Golf & Shopping FEEDS Platform is Ready!**
+
+### ✅ **What I Just Updated:**
+
+1. **Main Demo Feed** (id: 0): ��️ **Shopping at Visvim in Carmel - Premium Experience**
+   - Your highlighted video for reviewers
+   - Premium content with high view count
+   - Fashion category
+
+2. **Golf Content** (id: 1): ⛳ **Putting at The Hay in Pebble Beach**
+   - Your golf putting video
+   - Sports category
+   - Premium content
+
+3. **Shopping Content** (id: 2): 🛍️ **Visiting the Malbon Store in Carmel**
+   - Your Malbon store video
+   - Fashion category
+   - Golf lifestyle focus
+
+4. **More Shopping** (id: 3): ��️ **Shopping at Visvim in Carmel - Part 2**
+   - Your second Visvim video
+   - Premium content
+
+5. **Updated Categories**: Now includes SPORTS, FASHION, LIFESTYLE
+6. **Updated Top Feeds**: All golf and shopping related
+7. **Updated Top Creators**: Golf and lifestyle focused usernames
+
+### 🎯 **Your Content Strategy:**
+
+- **Primary Demo**: Visvim shopping (id: 0) - highlighted for reviewers
+- **Golf Content**: Pebble Beach putting (id: 1) - premium sports content
+- **Lifestyle Shopping**: Malbon store (id: 2) - golf lifestyle fashion
+- **Extended Content**: Visvim part 2 (id: 3) - more premium shopping
+
+### �� **Next Steps:**
+
+1. **Test Locally**: `npm run dev`
+2. **Click on "🛍️ Shopping at Visvim in Carmel"** - this is your main demo
+3. **Test all videos** to ensure they play correctly
+4. **Deploy to Production**:
+   ```bash
+   git add .
+   git commit -m "🎯 Update FEEDS platform with golf and shopping content"
+   git push origin main
+   ```
+
+### 🎬 **Your Video Lineup:**
+
+1. **��️ Visvim Shopping** (Premium) - Main demo for reviewers
+2. **⛳ Pebble Beach Golf** (Premium) - Sports content
+3. **🛍️ Malbon Store** (Free) - Golf lifestyle
+4. **��️ Visvim Part 2** (Premium) - Extended shopping content
+
+Your FEEDS platform now perfectly showcases golf lifestyle and premium shopping content! 🏌️‍♂️🛍️✨
+
+**Ready to deploy?** Your platform will be live on Railway in minutes!
+
+---
+
+_**User**_
+
+can you adjust the buy buton to include a glasses emoji and when someone clicks it it takes them to a page where they can buy various glasses, create the page according to the style of the site and mention some glasses like mentra and othe open source glasses 
+
+---
+
+_**Assistant**_
+
 
 
 ---

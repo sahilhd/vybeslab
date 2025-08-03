@@ -67,9 +67,13 @@ const Navbar = () => {
               UPLOAD
             </Link>
             
-            <button className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform">
-              BUY
-            </button>
+                    <Link
+          to="/glasses"
+          className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
+        >
+          <span>🕶️</span>
+          <span>BUY</span>
+        </Link>
             
             <button className="border border-neon-green text-neon-green px-4 py-2 font-mono text-sm rounded hover:bg-neon-green hover:text-black transition-all">
               SIGN IN
