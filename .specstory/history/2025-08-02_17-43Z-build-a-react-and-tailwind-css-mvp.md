@@ -11590,17 +11590,556 @@ great can you add a button on the profile page, where this a wdiget for ai and r
 
 _**Assistant**_
 
+Perfect! I'll add an AI widget button to the profile page and replace the Activity tab with AI in the mobile navigation. This will make the AI accessible directly from the mobile profile view.
 
-
----
-
-
+First, let me update the ProfilePage to include an AI button:
 
 ---
 
+<details><summary>Edit file: src/components/ProfilePage.jsx</summary>
 
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -4,4 +4,5 @@
+  import GalleryGrid from './GalleryGrid';
+  import BottomTabBar from './BottomTabBar';
++ import FeedsAI from './FeedsAI';
+  
+  const ProfilePage = () => {
+```
+
+</details>
 
 ---
+
+<details><summary>Edit file: src/components/ProfilePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -10,4 +10,5 @@
+    const [isLiked, setIsLiked] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
++   const [isAIOpen, setIsAIOpen] = useState(false);
+  
+    return (
+```
+
+</details>
+
+---
+
+Now let me add an AI button in the action buttons section:
+
+---
+
+<details><summary>Edit file: src/components/ProfilePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 10, lines removed: 3
+
+```diff
+@@ -35,16 +35,23 @@
+            <button 
+              onClick={() => setIsLiked(!isLiked)}
+-             className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[80px] justify-center"
++             className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[70px] justify-center"
+            >
+              <svg className={`w-5 h-5 ${isLiked ? 'text-red-500 fill-current' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+-             <span className="text-sm">❤️</span>
++           </button>
++ 
++           {/* AI Button */}
++           <button 
++             onClick={() => setIsAIOpen(true)}
++             className="flex items-center space-x-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg px-4 py-3 min-w-[70px] justify-center border border-cyan-400 hover:scale-105 transition-transform"
++           >
++             <span className="text-black font-mono font-bold text-sm">AI</span>
+            </button>
+  
+            {/* Mute Button */}
+            <button 
+              onClick={() => setIsMuted(!isMuted)}
+-             className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[80px] justify-center"
++             className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[70px] justify-center"
+            >
+              {isMuted ? (
+```
+
+**Chunk 2**
+Lines added: 3, lines removed: 2
+
+```diff
+@@ -59,9 +66,10 @@
+              )}
+            </button>
++         </div>
+  
+-           {/* Subscribe Button */}
++         {/* Subscribe Button - Full Width Below */}
+          <button 
+            onClick={() => setIsSubscribed(!isSubscribed)}
+-             className={`flex items-center space-x-2 rounded-lg px-6 py-3 flex-1 ml-4 justify-center font-bold ${
++           className={`w-full flex items-center justify-center space-x-2 rounded-lg px-6 py-3 font-bold ${
+              isSubscribed 
+                ? 'bg-green-500 text-black' 
+```
+
+**Chunk 3**
+Lines added: undefined, lines removed: 1
+
+```diff
+@@ -74,5 +82,4 @@
+            </span>
+          </button>
+-         </div>
+        </div>
+  
+```
+
+</details>
+
+---
+
+Now let me add the FeedsAI component to the ProfilePage:
+
+---
+
+<details><summary>Edit file: src/components/ProfilePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 6, lines removed: undefined
+
+```diff
+@@ -89,4 +89,10 @@
+        {/* Bottom Tab Bar */}
+        <BottomTabBar />
++ 
++       {/* Feeds AI Chat Widget */}
++       <FeedsAI 
++         isOpen={isAIOpen} 
++         onClose={() => setIsAIOpen(false)}
++       />
+      </div>
+    );
+```
+
+</details>
+
+---
+
+Now let me update the BottomTabBar to replace "Activity" with "AI":
+
+---
+
+<details><summary>Edit file: src/components/BottomTabBar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 6, lines removed: 7
+
+```diff
+@@ -36,12 +36,11 @@
+      },
+      {
+-       id: 'activity',
+-       label: 'Activity',
+-       path: '/activity',
++       id: 'ai',
++       label: 'AI',
++       path: '/ai',
+        icon: (isActive) => (
+-         <svg className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5V17z" />
+-           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.293 12.707a1 1 0 010-1.414l2-2a1 1 0 011.414 0l2 2a1 1 0 010 1.414l-2 2a1 1 0 01-1.414 0l-2-2z" />
+-         </svg>
++         <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${isActive ? 'bg-cyan-500 border-cyan-400 text-black' : 'bg-gray-700 border-gray-500 text-gray-400'}`}>
++           <span className="font-mono font-bold text-xs">AI</span>
++         </div>
+        )
+      },
+```
+
+</details>
+
+---
+
+Now I need to import the FeedsAI component and add state management for the AI widget to the BottomTabBar:
+
+---
+
+<details><summary>Edit file: src/components/BottomTabBar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: undefined
+
+```diff
+@@ -1,3 +1,5 @@
+  import { Link, useLocation } from 'react-router-dom';
++ import { useState } from 'react';
++ import FeedsAI from './FeedsAI';
+  
+  const BottomTabBar = () => {
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/BottomTabBar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -5,4 +5,5 @@
+  const BottomTabBar = () => {
+    const location = useLocation();
++   const [isAIOpen, setIsAIOpen] = useState(false);
+  
+    const tabs = [
+```
+
+</details>
+
+---
+
+Now I need to update the AI tab to trigger the modal instead of navigating:
+
+---
+
+<details><summary>Edit file: src/components/BottomTabBar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 18, lines removed: 1
+
+```diff
+@@ -68,5 +68,22 @@
+        <div className="flex items-center justify-around py-2 px-4">
+          {tabs.map((tab) => {
+-           const isActive = location.pathname === tab.path;
++           const isActive = tab.id === 'ai' ? isAIOpen : location.pathname === tab.path;
++           
++           if (tab.id === 'ai') {
++             return (
++               <button
++                 key={tab.id}
++                 onClick={() => setIsAIOpen(true)}
++                 className="flex flex-col items-center py-2 px-3 min-w-[60px]"
++               >
++                 <div className="mb-1">
++                   {tab.icon(isActive)}
++                 </div>
++                 <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
++                   {tab.label}
++                 </span>
++               </button>
++             );
++           }
+            
+            return (
+```
+
+</details>
+
+---
+
+Now let me add the FeedsAI component to the BottomTabBar:
+
+---
+
+<details><summary>Edit file: src/components/BottomTabBar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -65,4 +65,5 @@
+  
+    return (
++     <>
+        <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-black/90 backdrop-blur-sm border-t border-gray-800">
+          <div className="flex items-center justify-around py-2 px-4">
+```
+
+**Chunk 2**
+Lines added: 7, lines removed: undefined
+
+```diff
+@@ -104,4 +105,11 @@
+          </div>
+        </div>
++ 
++       {/* Feeds AI Chat Widget */}
++       <FeedsAI 
++         isOpen={isAIOpen} 
++         onClose={() => setIsAIOpen(false)}
++       />
++     </>
+    );
+  };
+```
+
+</details>
+
+---
+
+Now let me also update the MobileBottomNav to include the AI option as well:
+
+---
+
+<details><summary>Edit file: src/components/MobileBottomNav.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: undefined
+
+```diff
+@@ -1,3 +1,5 @@
+  import { Link, useLocation } from 'react-router-dom';
++ import { useState } from 'react';
++ import FeedsAI from './FeedsAI';
+  
+  const MobileBottomNav = () => {
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/MobileBottomNav.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -5,4 +5,5 @@
+  const MobileBottomNav = () => {
+    const location = useLocation();
++   const [isAIOpen, setIsAIOpen] = useState(false);
+  
+    const tabs = [
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/MobileBottomNav.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 10, lines removed: undefined
+
+```diff
+@@ -28,4 +28,14 @@
+        )
+      },
++     {
++       id: 'ai',
++       label: 'AI',
++       path: '/ai',
++       icon: (isActive) => (
++         <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${isActive ? 'bg-neon-cyan border-neon-cyan text-black' : 'bg-gray-700 border-gray-500 text-gray-400'}`}>
++           <span className="font-mono font-bold text-xs">AI</span>
++         </div>
++       )
++     },
+      {
+        id: 'glasses',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/MobileBottomNav.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 18, lines removed: 1
+
+```diff
+@@ -69,5 +69,22 @@
+        <div className="flex items-center justify-around py-2 px-4 max-w-md mx-auto">
+          {tabs.map((tab) => {
+-           const isActive = location.pathname === tab.path;
++           const isActive = tab.id === 'ai' ? isAIOpen : location.pathname === tab.path;
++           
++           if (tab.id === 'ai') {
++             return (
++               <button
++                 key={tab.id}
++                 onClick={() => setIsAIOpen(true)}
++                 className="flex flex-col items-center py-2 px-3 min-w-[60px]"
++               >
++                 <div className="mb-1">
++                   {tab.icon(isActive)}
++                 </div>
++                 <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
++                   {tab.label}
++                 </span>
++               </button>
++             );
++           }
+            
+            return (
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/MobileBottomNav.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -66,4 +66,5 @@
+    // Only show on mobile and tablet
+    return (
++     <>
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-cyber-black/95 backdrop-blur-sm border-t border-neon-blue/50 z-50">
+          <div className="flex items-center justify-around py-2 px-4 max-w-md mx-auto">
+```
+
+**Chunk 2**
+Lines added: 7, lines removed: undefined
+
+```diff
+@@ -105,4 +106,11 @@
+          </div>
+        </div>
++ 
++       {/* Feeds AI Chat Widget */}
++       <FeedsAI 
++         isOpen={isAIOpen} 
++         onClose={() => setIsAIOpen(false)}
++       />
++     </>
+    );
+  };
+```
+
+</details>
+
+---
+
+Perfect! 🎉 **AI Widget Added to Mobile Profile!**
+
+## ✅ **What I Just Implemented:**
+
+### **📱 ProfilePage AI Integration:**
+- **AI Button**: Added between Like and Mute buttons with cyan gradient design
+- **Responsive Layout**: Subscribe button moved to full-width below action buttons
+- **Direct AI Access**: Click AI button to open Feeds AI chat directly from profile
+
+### **🔄 Bottom Navigation Updates:**
+
+#### **BottomTabBar (ProfilePage):**
+- ✅ **Replaced "Activity"** with **"AI"** tab
+- ✅ **Smart AI Icon**: Cyan circle with "AI" text
+- ✅ **Modal Trigger**: Tapping AI opens chat widget (no navigation)
+- ✅ **Active State**: Shows when AI is open
+
+#### **MobileBottomNav (HomePage/StreamView):**
+- ✅ **Added AI Tab**: Between Upload and Shop
+- ✅ **5-Tab Layout**: Home | Upload | AI | Shop | Profile
+- ✅ **Consistent Design**: Matches profile page AI styling
+
+### **🎨 Design Features:**
+
+#### **ProfilePage AI Button:**
+- ✅ **Gradient Background**: `from-cyan-600 to-blue-600`
+- ✅ **Border**: `border-cyan-400`
+- ✅ **Hover Effect**: `hover:scale-105`
+- ✅ **Font**: Monospace "AI" text in black
+
+#### **Mobile Tab AI Icons:**
+- ✅ **Rounded Design**: 8x8 circle with border
+- ✅ **Active State**: Cyan background with black text
+- ✅ **Inactive State**: Gray background with gray text
+- ✅ **Monospace Font**: Bold "AI" text
+
+### **🚀 How to Test:**
+
+#### **Method 1 - Profile Page:**
+1. **Go to Profile** (click profile icon or /profile)
+2. **Tap AI button** (cyan button between like/mute)
+3. **Ask about products** from your streams
+
+#### **Method 2 - Mobile Navigation:**
+1. **On any mobile page** (HomePage, StreamView)
+2. **Tap AI tab** in bottom navigation
+3. **Chat with Feeds AI** about products
+
+#### **Method 3 - Profile Bottom Tab:**
+1. **On ProfilePage mobile view**
+2. **Tap AI tab** in bottom navigation 
+3. **Direct AI access** without floating button
+
+### **📋 Complete AI Access Points:**
+
+1. **Desktop**: Navbar AI button (🤖 AI)
+2. **Mobile Floating**: AITriggerButton (glowing cyan circle)
+3. **Profile Actions**: AI button in action bar
+4. **Mobile Navigation**: AI tab in bottom nav
+5. **Profile Navigation**: AI tab replacing Activity
+
+## 🎯 **Perfect User Experience:**
+
+### **Profile View Mobile Flow:**
+```
+Profile Page → AI Button → "During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?" → Product Card with $50 price
+```
+
+### **Navigation Flow:**
+```
+Bottom Tab: Home | Upload | AI | Shop | Profile
+Tap AI → Instant Feeds AI Chat → Product Recognition
+```
+
+Your users can now access the AI shopping assistant **seamlessly from every mobile touchpoint**, with the profile page offering **direct AI integration** for personalized product queries about their own streams! 🛍️✨
+
+---
+
+_**User**_
+
+next to trending feeds, I want you to add 2 more options which is premium feeds and my circle as a way to see and click to see different 
+
+---
+
+_**Assistant**_
 
 
 
