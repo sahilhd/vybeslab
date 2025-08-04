@@ -23,7 +23,7 @@ const HomePage = ({ feeds }) => {
 
       {/* Main Content */}
       <div className="flex-1 ml-64 mr-80 p-6">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-pixel neon-text text-neon-cyan mb-2">
@@ -33,9 +33,11 @@ const HomePage = ({ feeds }) => {
           </div>
 
           {/* Feeds Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4" style={{ gridAutoRows: '1fr' }}>
             {filteredFeeds.map((feed) => (
-              <FeedCard key={feed.id} feed={feed} />
+              <div className="h-full">
+                <FeedCard key={feed.id} feed={feed} />
+              </div>
             ))}
           </div>
 

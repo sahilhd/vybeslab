@@ -12,7 +12,7 @@ const FeedCard = ({ feed }) => {
         )}
 
         {/* Thumbnail Image */}
-        <div className="relative aspect-video">
+        <div className="relative aspect-video flex-shrink-0">
           <img 
             src={feed.thumbnail} 
             alt={feed.title}
@@ -35,11 +35,11 @@ const FeedCard = ({ feed }) => {
         </div>
 
         {/* Feed Info */}
-        <div className="p-4 flex-1 flex flex-col justify-between">
-          <h3 className="font-mono text-white text-sm mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2">
+        <div className="p-4 flex-grow flex flex-col justify-between min-h-[80px]">
+          <h3 className="font-mono text-white text-sm mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2 flex-grow">
             {feed.title}
           </h3>
-          <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center justify-between">
             <span className="text-neon-cyan font-mono text-xs">{feed.creator}</span>
             <span className="text-gray-400 font-mono text-xs">{feed.category}</span>
           </div>

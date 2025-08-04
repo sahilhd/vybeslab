@@ -8420,6 +8420,61 @@ Now let me also update the FeedCard component to ensure consistent card sizing a
 
 ---
 
+<details><summary>Edit file: src/components/FeedCard.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 2
+
+```diff
+@@ -3,6 +3,6 @@
+  const FeedCard = ({ feed }) => {
+    return (
+-     <Link to={`/stream/${feed.id}`} className="block group">
+-       <div className="feed-thumbnail bg-dark-blue rounded-lg overflow-hidden border border-neon-blue/50 hover:border-neon-cyan transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/20">
++     <Link to={`/stream/${feed.id}`} className="block group h-full">
++       <div className="feed-thumbnail bg-dark-blue rounded-lg overflow-hidden border border-neon-blue/50 hover:border-neon-cyan transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/20 h-full flex flex-col">
+          {/* Premium Badge */}
+          {feed.isPremium && (
+```
+
+</details>
+
+---
+
+Cancelled
+
+---
+
+_**User**_
+
+the grids are still not aligned, it should align like the other image I also sent 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
 
 
 ---
