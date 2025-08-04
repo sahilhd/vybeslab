@@ -12,7 +12,7 @@ const VisionQuest = () => {
       title: 'Nike Air Jordan Hunt',
       brand: 'Nike',
       brandIcon: '👟',
-      description: 'Spot Nike Air Jordan sneakers in any livestream and earn exclusive rewards!',
+      description: 'Stream yourself shopping for Nike Air Jordan sneakers and earn exclusive rewards!',
       reward: 500,
       difficulty: 'EASY',
       category: 'FASHION',
@@ -26,7 +26,7 @@ const VisionQuest = () => {
       title: 'Visvim Premium Discovery',
       brand: 'Visvim',
       brandIcon: '🏷️',
-      description: 'Identify Visvim premium pieces during shopping experiences for mega rewards!',
+      description: 'Stream your Visvim shopping experience in Carmel for mega rewards!',
       reward: 1000,
       difficulty: 'MEDIUM',
       category: 'LUXURY',
@@ -37,17 +37,31 @@ const VisionQuest = () => {
     },
     {
       id: 3,
+      title: 'Erewhon Wellness Quest',
+      brand: 'Erewhon',
+      brandIcon: '🥤',
+      description: 'Stream yourself grabbing a drink at Erewhon and earn wellness points!',
+      reward: 600,
+      difficulty: 'EASY',
+      category: 'WELLNESS',
+      estimatedTime: '5-10 min',
+      videoTarget: '/stream/2', // Could be a wellness/food stream
+      detectProduct: 'Erewhon Smoothie',
+      color: 'from-green-500 to-emerald-600'
+    },
+    {
+      id: 4,
       title: 'Golf Equipment Pro Quest',
       brand: 'Titleist',
       brandIcon: '⛳',
-      description: 'Find Titleist golf equipment in golf livestreams and unlock pro status!',
+      description: 'Stream yourself using Titleist golf equipment and unlock pro status!',
       reward: 750,
       difficulty: 'HARD',
       category: 'SPORTS',
       estimatedTime: '15-20 min',
       videoTarget: '/stream/1', // Golf stream
       detectProduct: 'Titleist Golf Equipment',
-      color: 'from-green-500 to-teal-600'
+      color: 'from-blue-500 to-teal-600'
     }
   ];
 
@@ -89,8 +103,8 @@ const VisionQuest = () => {
             VISION QUEST
           </h1>
           <p className="text-gray-400 font-mono text-sm max-w-2xl mx-auto">
-            Complete branded challenges by spotting products in livestreams. 
-            Our AI agents will detect your discoveries and reward you instantly!
+            Complete branded challenges by streaming yourself shopping, dining, or exploring. 
+            Our AI agents will validate your activities and reward you instantly!
           </p>
           
           {/* Progress Stats */}
@@ -161,8 +175,8 @@ const VisionQuest = () => {
                   className="w-full cyber-button font-mono py-3 rounded-lg hover:scale-105 transition-transform group-hover:shadow-lg group-hover:shadow-neon-cyan/30"
                 >
                   <span className="flex items-center justify-center space-x-2">
-                    <span>🚀</span>
-                    <span>START QUEST</span>
+                    <span>📱</span>
+                    <span>START STREAMING</span>
                   </span>
                 </button>
               </div>
@@ -175,10 +189,10 @@ const VisionQuest = () => {
           <h2 className="text-2xl font-pixel text-neon-cyan mb-6">ACHIEVEMENTS</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
-              { icon: '🏆', name: 'First Quest', unlocked: completedQuests.length >= 1 },
-              { icon: '🔥', name: 'Streak Hunter', unlocked: completedQuests.length >= 2 },
-              { icon: '💎', name: 'Premium Spotter', unlocked: completedQuests.some(q => q.category === 'LUXURY') },
-              { icon: '⚡', name: 'Quest Master', unlocked: completedQuests.length >= 3 }
+              { icon: '🏆', name: 'First Stream', unlocked: completedQuests.length >= 1 },
+              { icon: '🔥', name: 'Stream Streak', unlocked: completedQuests.length >= 2 },
+              { icon: '💎', name: 'Luxury Streamer', unlocked: completedQuests.some(q => q.category === 'LUXURY') },
+              { icon: '⚡', name: 'Stream Master', unlocked: completedQuests.length >= 4 }
             ].map((achievement, index) => (
               <div 
                 key={index}
@@ -206,13 +220,13 @@ const VisionQuest = () => {
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">2️⃣</div>
-              <h4 className="font-mono text-neon-cyan mb-2">WATCH STREAM</h4>
-              <p className="text-gray-400 text-sm">Our AI monitors for target products/brands</p>
+              <h4 className="font-mono text-neon-cyan mb-2">START STREAMING</h4>
+              <p className="text-gray-400 text-sm">Stream yourself shopping, dining, or exploring</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">3️⃣</div>
-              <h4 className="font-mono text-neon-cyan mb-2">EARN REWARDS</h4>
-              <p className="text-gray-400 text-sm">Get instant points when products are detected</p>
+              <h4 className="font-mono text-neon-cyan mb-2">AI VALIDATION</h4>
+              <p className="text-gray-400 text-sm">Our AI validates your activities and awards points</p>
             </div>
           </div>
         </div>

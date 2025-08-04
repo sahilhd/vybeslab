@@ -140,12 +140,12 @@ const ProfilePage = () => {
             </div>
           ) : (
             <div className="text-center py-2">
-              <div className="text-gray-500 text-xs">No quests completed yet</div>
+              <div className="text-gray-500 text-xs">No stream quests completed yet</div>
               <Link 
                 to="/quests"
                 className="text-green-400 font-mono text-xs hover:text-green-300 transition-colors"
               >
-                Start your first quest!
+                Start streaming to earn points!
               </Link>
             </div>
           )}

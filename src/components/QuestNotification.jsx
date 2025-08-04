@@ -40,8 +40,8 @@ const QuestNotification = ({ quest, onComplete, onClose }) => {
       case 'detecting':
         return {
           icon: '🔍',
-          title: 'AI SCANNING...',
-          message: `Looking for ${quest.detectProduct}`,
+          title: 'AI ANALYZING...',
+          message: `Validating your ${quest.detectProduct} activity`,
           color: 'text-yellow-400',
           bgColor: 'from-yellow-500/20 to-orange-500/20',
           animation: 'animate-pulse'
@@ -49,8 +49,8 @@ const QuestNotification = ({ quest, onComplete, onClose }) => {
       case 'found':
         return {
           icon: '✅',
-          title: 'PRODUCT DETECTED!',
-          message: `${quest.detectProduct} found!`,
+          title: 'ACTIVITY VALIDATED!',
+          message: `${quest.detectProduct} confirmed in your stream!`,
           color: 'text-neon-green',
           bgColor: 'from-green-500/20 to-neon-green/20',
           animation: 'animate-bounce'
@@ -131,7 +131,7 @@ const QuestNotification = ({ quest, onComplete, onClose }) => {
             }}
             className="w-full mt-3 bg-neon-cyan text-black font-mono text-sm py-2 rounded hover:bg-neon-cyan/80 transition-colors"
           >
-            CONTINUE QUEST
+            CONTINUE STREAMING
           </button>
         )}
       </div>
