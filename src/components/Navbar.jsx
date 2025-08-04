@@ -61,9 +61,12 @@ const Navbar = () => {
             </button>
 
             {/* Profile Icon */}
-            <div className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center">
+            <Link 
+              to="/profile"
+              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center hover:bg-neon-magenta/80 transition-colors"
+            >
               <span className="text-white font-mono text-xs">👤</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
