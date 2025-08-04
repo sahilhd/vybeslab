@@ -1,7 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import FeedsAI from './FeedsAI';
 
 const BottomTabBar = () => {
   const location = useLocation();
+  const [isAIOpen, setIsAIOpen] = useState(false);
 
   const tabs = [
     {
@@ -35,14 +38,13 @@ const BottomTabBar = () => {
       )
     },
     {
-      id: 'activity',
-      label: 'Activity',
-      path: '/activity',
+      id: 'ai',
+      label: 'AI',
+      path: '/ai',
       icon: (isActive) => (
-        <svg className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5V17z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.293 12.707a1 1 0 010-1.414l2-2a1 1 0 011.414 0l2 2a1 1 0 010 1.414l-2 2a1 1 0 01-1.414 0l-2-2z" />
-        </svg>
+        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${isActive ? 'bg-cyan-500 border-cyan-400 text-black' : 'bg-gray-700 border-gray-500 text-gray-400'}`}>
+          <span className="font-mono font-bold text-xs">AI</span>
+        </div>
       )
     },
     {
@@ -62,28 +64,53 @@ const BottomTabBar = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-black/90 backdrop-blur-sm border-t border-gray-800">
-      <div className="flex items-center justify-around py-2 px-4">
-        {tabs.map((tab) => {
-          const isActive = location.pathname === tab.path;
-          
-          return (
-            <Link
-              key={tab.id}
-              to={tab.path}
-              className="flex flex-col items-center py-2 px-3 min-w-[60px]"
-            >
-              <div className="mb-1">
-                {tab.icon(isActive)}
-              </div>
-              <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
-                {tab.label}
-              </span>
-            </Link>
-          );
-        })}
+    <>
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-black/90 backdrop-blur-sm border-t border-gray-800">
+        <div className="flex items-center justify-around py-2 px-4">
+          {tabs.map((tab) => {
+            const isActive = tab.id === 'ai' ? isAIOpen : location.pathname === tab.path;
+            
+            if (tab.id === 'ai') {
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setIsAIOpen(true)}
+                  className="flex flex-col items-center py-2 px-3 min-w-[60px]"
+                >
+                  <div className="mb-1">
+                    {tab.icon(isActive)}
+                  </div>
+                  <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
+                    {tab.label}
+                  </span>
+                </button>
+              );
+            }
+            
+            return (
+              <Link
+                key={tab.id}
+                to={tab.path}
+                className="flex flex-col items-center py-2 px-3 min-w-[60px]"
+              >
+                <div className="mb-1">
+                  {tab.icon(isActive)}
+                </div>
+                <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
+                  {tab.label}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+
+      {/* Feeds AI Chat Widget */}
+      <FeedsAI 
+        isOpen={isAIOpen} 
+        onClose={() => setIsAIOpen(false)}
+      />
+    </>
   );
 };
 

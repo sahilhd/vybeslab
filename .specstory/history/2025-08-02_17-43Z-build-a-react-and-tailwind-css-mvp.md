@@ -11155,6 +11155,457 @@ Let me update the AI to handle this specific query pattern and add the grey coll
 
 ---
 
+<details><summary>Edit file: src/mockProductData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 14, lines removed: undefined
+
+```diff
+@@ -2,4 +2,18 @@
+    {
+      id: 1,
++     name: "Visvim Grey Collared Shirt",
++     brand: "Visvim",
++     price: "$50",
++     category: "Apparel",
++     image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop",
++     tags: ["shirt", "collared", "grey", "gray", "visvim", "apparel", "button-up"],
++     streamAppearance: "Shopping at Visvim in Carmel",
++     confidence: 98,
++     description: "Classic grey collared shirt with premium cotton construction",
++     streamTimestamp: "02:34",
++     streamContext: "Featured prominently during the store walkthrough section"
++   },
++   {
++     id: 2,
+      name: "Visvim FBT Prime Sneakers",
+      brand: "Visvim",
+```
+
+</details>
+
+---
+
+Now let me update the remaining product IDs since I shifted them:
+
+---
+
+<details><summary>Edit file: src/mockProductData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -27,5 +27,5 @@
+    },
+    {
+-     id: 2,
++     id: 3,
+      name: "Malbon Golf Polo Shirt",
+      brand: "Malbon",
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockProductData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -39,5 +39,5 @@
+    },
+    {
+-     id: 3,
++     id: 4,
+      name: "Smart Glasses Pro",
+      brand: "Mentra",
+```
+
+</details>
+
+---
+
+Let me continue updating the IDs for the remaining products:
+
+---
+
+<details><summary>Edit file: src/mockProductData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -51,5 +51,5 @@
+    },
+    {
+-     id: 4,
++     id: 5,
+      name: "Pebble Beach Golf Cap",
+      brand: "Pebble Beach",
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -63,5 +63,5 @@
+    },
+    {
+-     id: 5,
++     id: 6,
+      name: "Visvim Denim Jacket",
+      brand: "Visvim",
+```
+
+**Chunk 3**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -75,5 +75,5 @@
+    },
+    {
+-     id: 6,
++     id: 7,
+      name: "TaylorMade Golf Putter",
+      brand: "TaylorMade",
+```
+
+**Chunk 4**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -87,5 +87,5 @@
+    },
+    {
+-     id: 7,
++     id: 8,
+      name: "Carmel Vintage Tote Bag",
+      brand: "Local Artisan",
+```
+
+**Chunk 5**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -99,5 +99,5 @@
+    },
+    {
+-     id: 8,
++     id: 9,
+      name: "Malbon Golf Glove",
+      brand: "Malbon",
+```
+
+**Chunk 6**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -111,5 +111,5 @@
+    },
+    {
+-     id: 9,
++     id: 10,
+      name: "Pebble Beach Logo Sweater",
+      brand: "Pebble Beach",
+```
+
+**Chunk 7**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -123,5 +123,5 @@
+    },
+    {
+-     id: 10,
++     id: 11,
+      name: "Artisanal Coffee Mug",
+      brand: "La Playa Cafe",
+```
+
+</details>
+
+---
+
+Now let me enhance the AI's `generateAIResponse` function to handle your specific query pattern and provide more detailed, stream-specific responses:
+
+---
+
+<details><summary>Edit file: src/components/FeedsAI.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 15, lines removed: undefined
+
+```diff
+@@ -41,4 +41,19 @@
+    const generateAIResponse = (userMessage) => {
+      const query = userMessage.toLowerCase();
++     
++     // Handle specific stream-based queries (like your example)
++     if (query.includes('visit') && query.includes('visvim') && query.includes('carmel')) {
++       const product = simulateProductSearch(query);
++       
++       if (product && product.streamAppearance.includes('Visvim in Carmel')) {
++         return {
++           type: 'product',
++           content: `Based on my analysis of your "Shopping at Visvim in Carmel" stream, I found this item:`,
++           product: product,
++           confidence: product.confidence,
++           streamSpecific: true
++         };
++       }
++     }
+      
+      // Check if it's a product price inquiry
+```
+
+**Chunk 2**
+Lines added: 9, lines removed: 3
+
+```diff
+@@ -47,14 +62,20 @@
+        
+        if (product) {
++         // More detailed response based on stream data
++         const streamContext = product.streamTimestamp 
++           ? `at timestamp ${product.streamTimestamp}` 
++           : 'during the stream';
++         
+          return {
+            type: 'product',
+-           content: `I found that product! Here's what I saw in the stream:`,
++           content: `Perfect! I found this from my stream data analysis. This item appeared ${streamContext}:`,
+            product: product,
+-           confidence: 95
++           confidence: product.confidence,
++           streamSpecific: true
+          };
+        } else {
+          return {
+            type: 'text',
+-           content: 'I couldn\'t find that specific product in the current streams. Try asking about glasses, jackets, or golf equipment - I saw those recently! 🔍'
++           content: 'I couldn\'t find that specific product in the current streams. Try asking about glasses, shirts, jackets, or golf equipment - I saw those recently! 🔍'
+          };
+        }
+```
+
+**Chunk 3**
+Lines added: 13, lines removed: 5
+
+```diff
+@@ -68,14 +89,22 @@
+          content: 'I spotted this item in the stream:',
+          product: product,
+-         confidence: 88
++         confidence: product.confidence || 88
++       };
++     }
++     
++     // Stream-specific questions
++     if (query.includes('stream') || query.includes('video') || query.includes('watch')) {
++       return {
++         type: 'text',
++         content: 'I\'ve analyzed all your recent streams! Ask me about specific products like "During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?" and I\'ll pull up the exact details! 📺'
+        };
+      }
+      
+      // Default responses
+      const responses = [
+-       'I can help you find products from any stream! Try asking "What was the price of those glasses?" or "How much was that jacket?"',
+-       'I\'m analyzing the streams for product information. Ask me about specific items you saw!',
+-       'My AI vision is always watching the streams for cool products. What caught your eye? 👁️',
+-       'I can recall any product from the streams with prices and details. Just describe what you saw!'
++       'I can help you find products from any stream! Try asking "During my visit to [stream name], how much was [product]?"',
++       'I\'m analyzing your stream data for product information. Ask me about specific items you featured!',
++       'My AI vision has cataloged products from all your streams. What specific item are you looking for? 👁️',
++       'I can recall any product from your streams with prices and details. Try mentioning the specific stream and product!'
+      ];
+      
+```
+
+</details>
+
+---
+
+Now let me enhance the product card display to show more stream-specific information:
+
+---
+
+<details><summary>Edit file: src/components/FeedsAI.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 11, lines removed: 1
+
+```diff
+@@ -210,6 +210,16 @@
+                            <div className="mt-2 pt-2 border-t border-gray-700">
+                              <p className="text-gray-400 text-xs">
+-                               📺 Seen in: {message.product.streamAppearance}
++                               📺 Stream: {message.product.streamAppearance}
+                              </p>
++                             {message.product.streamTimestamp && (
++                               <p className="text-neon-green text-xs mt-1">
++                                 ⏱️ Timestamp: {message.product.streamTimestamp}
++                               </p>
++                             )}
++                             {message.product.streamContext && (
++                               <p className="text-gray-500 text-xs mt-1">
++                                 💡 {message.product.streamContext}
++                               </p>
++                             )}
+                            </div>
+                          )}
+```
+
+</details>
+
+---
+
+Now let me also update the quick action suggestions to include your example:
+
+---
+
+<details><summary>Edit file: src/components/FeedsAI.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 5, lines removed: 1
+
+```diff
+@@ -277,5 +277,9 @@
+            {/* Quick Actions */}
+            <div className="mt-2 flex flex-wrap gap-1">
+-             {['Price of glasses?', 'Show me jackets', 'Golf equipment cost?'].map((suggestion) => (
++             {[
++               'During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?', 
++               'Price of glasses?', 
++               'Show me jackets'
++             ].map((suggestion) => (
+                <button
+                  key={suggestion}
+```
+
+</details>
+
+---
+
+Perfect! 🎉 **AI Enhanced for Your Specific Example!**
+
+## ✅ **What I Just Enhanced:**
+
+### **🎯 Your Exact Scenario Simulated:**
+
+**User Query**: *"During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?"*
+
+**AI Response**: *"Based on my analysis of your 'Shopping at Visvim in Carmel' stream, I found this item:"*
+
+### **📺 Stream-Specific Product Added:**
+- **Product**: Visvim Grey Collared Shirt  
+- **Price**: $50 (exactly as you specified)
+- **Stream**: Shopping at Visvim in Carmel
+- **Timestamp**: 02:34
+- **Context**: "Featured prominently during the store walkthrough section"
+- **Confidence**: 98%
+
+### **🧠 Enhanced AI Intelligence:**
+
+#### **Stream Context Awareness:**
+- ✅ Recognizes "visit to [stream name]" pattern
+- ✅ Matches products to specific streams
+- ✅ Shows timestamp information
+- ✅ Provides stream context details
+
+#### **Smarter Responses:**
+- ✅ "Based on my analysis of your stream data..."
+- ✅ "This item appeared at timestamp 02:34"
+- ✅ Stream-specific product matching
+- ✅ More natural conversation flow
+
+### **🎨 Enhanced Product Cards:**
+- ✅ **Stream name** with 📺 icon
+- ✅ **Timestamp** with ⏱️ icon (02:34)
+- ✅ **Stream context** with 💡 icon
+- ✅ **98% confidence** for exact matches
+
+### **📋 Quick Action Updated:**
+- ✅ Your exact example query as a clickable suggestion
+- ✅ Easy testing for reviewers/demos
+
+## 🚀 **Ready to Test Your Example:**
+
+### **Method 1 - Click Quick Action:**
+1. Open Feeds AI (floating button or navbar)
+2. Click the long suggestion button
+3. See the exact grey shirt with $50 price
+
+### **Method 2 - Type Manually:**
+1. Type: *"During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?"*
+2. Get detailed stream-specific response
+
+### **Expected AI Response:**
+```
+AI: "Based on my analysis of your 'Shopping at Visvim in Carmel' stream, I found this item:"
+
+[Product Card Shows:]
+- Image: Grey collared shirt
+- Visvim Grey Collared Shirt - $50
+- 98% MATCH
+- 📺 Stream: Shopping at Visvim in Carmel  
+- ⏱️ Timestamp: 02:34
+- 💡 Featured prominently during the store walkthrough section
+```
+
+## 💡 **Cloudinary Integration Ready:**
+
+**If you want to upload your own grey shirt image:**
+1. Upload to Cloudinary
+2. Copy the URL
+3. Replace the image URL in `mockProductData.js` line with your Cloudinary URL
+4. The AI will show your exact image!
+
+Your Feeds AI now perfectly simulates the **intelligent product recall** feature with realistic stream data analysis! 🛍️✨
+
+---
+
+_**User**_
+
+great can you add a button on the profile page, where this a wdiget for ai and replace that witht the activity widget, so then you can use the AI from the profile view for mobile as well
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
 
 
 ---

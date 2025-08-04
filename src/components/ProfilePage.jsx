@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import UserHeader from './UserHeader';
 import GalleryGrid from './GalleryGrid';
 import BottomTabBar from './BottomTabBar';
+import FeedsAI from './FeedsAI';
 
 const ProfilePage = () => {
   const [isSubscribed, setIsSubscribed] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isAIOpen, setIsAIOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white font-mono relative max-w-md mx-auto">
@@ -32,18 +34,25 @@ const ProfilePage = () => {
           {/* Like Button */}
           <button 
             onClick={() => setIsLiked(!isLiked)}
-            className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[80px] justify-center"
+            className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[70px] justify-center"
           >
             <svg className={`w-5 h-5 ${isLiked ? 'text-red-500 fill-current' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            <span className="text-sm">❤️</span>
+          </button>
+
+          {/* AI Button */}
+          <button 
+            onClick={() => setIsAIOpen(true)}
+            className="flex items-center space-x-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg px-4 py-3 min-w-[70px] justify-center border border-cyan-400 hover:scale-105 transition-transform"
+          >
+            <span className="text-black font-mono font-bold text-sm">AI</span>
           </button>
 
           {/* Mute Button */}
           <button 
             onClick={() => setIsMuted(!isMuted)}
-            className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[80px] justify-center"
+            className="flex items-center space-x-2 bg-gray-800 rounded-lg px-4 py-3 min-w-[70px] justify-center"
           >
             {isMuted ? (
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,22 +65,22 @@ const ProfilePage = () => {
               </svg>
             )}
           </button>
-
-          {/* Subscribe Button */}
-          <button 
-            onClick={() => setIsSubscribed(!isSubscribed)}
-            className={`flex items-center space-x-2 rounded-lg px-6 py-3 flex-1 ml-4 justify-center font-bold ${
-              isSubscribed 
-                ? 'bg-green-500 text-black' 
-                : 'bg-gray-800 text-white border border-green-500'
-            }`}
-          >
-            <span className="text-lg">✦</span>
-            <span className="text-sm font-mono">
-              {isSubscribed ? 'SUBSCRIBED!' : 'SUBSCRIBE'}
-            </span>
-          </button>
         </div>
+
+        {/* Subscribe Button - Full Width Below */}
+        <button 
+          onClick={() => setIsSubscribed(!isSubscribed)}
+          className={`w-full flex items-center justify-center space-x-2 rounded-lg px-6 py-3 font-bold ${
+            isSubscribed 
+              ? 'bg-green-500 text-black' 
+              : 'bg-gray-800 text-white border border-green-500'
+          }`}
+        >
+          <span className="text-lg">✦</span>
+          <span className="text-sm font-mono">
+            {isSubscribed ? 'SUBSCRIBED!' : 'SUBSCRIBE'}
+          </span>
+        </button>
       </div>
 
       {/* Gallery Grid */}
@@ -79,6 +88,12 @@ const ProfilePage = () => {
 
       {/* Bottom Tab Bar */}
       <BottomTabBar />
+
+      {/* Feeds AI Chat Widget */}
+      <FeedsAI 
+        isOpen={isAIOpen} 
+        onClose={() => setIsAIOpen(false)}
+      />
     </div>
   );
 };
