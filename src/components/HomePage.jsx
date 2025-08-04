@@ -25,7 +25,7 @@ const HomePage = ({ feeds }) => {
       <div className="flex-1 ml-64 mr-80 p-6">
         <div className="max-w-5xl">
           {/* Header */}
-          <div className="mb-8">
+          <div className="mb-6">
             <h1 className="text-3xl font-pixel neon-text text-neon-cyan mb-2">
               &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; TRENDING FEEDS &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
             </h1>
@@ -51,8 +51,8 @@ const HomePage = ({ feeds }) => {
       </div>
 
       {/* Right Sidebar */}
-      <div className="fixed right-0 top-16 bottom-0 w-80 p-6 overflow-y-auto z-40">
-        <div className="space-y-6">
+      <div className="fixed right-0 top-16 bottom-0 w-80 px-6 pt-6 pb-6 overflow-y-auto z-40">
+        <div className="space-y-6" style={{ marginTop: '24px' }}>
           <TopFeeds />
           <TopCreators />
         </div>
