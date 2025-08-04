@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 const FeedCard = ({ feed }) => {
   return (
-    <Link to={`/stream/${feed.id}`} className="block group">
-      <div className="feed-thumbnail bg-dark-blue rounded-lg overflow-hidden border border-neon-blue/50 hover:border-neon-cyan transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/20">
+    <Link to={`/stream/${feed.id}`} className="block group h-full">
+      <div className="feed-thumbnail bg-dark-blue rounded-lg overflow-hidden border border-neon-blue/50 hover:border-neon-cyan transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/20 h-full flex flex-col">
         {/* Premium Badge */}
         {feed.isPremium && (
           <div className="absolute top-2 left-2 z-10 premium-badge px-2 py-1 rounded text-xs font-mono text-white">
@@ -35,11 +35,11 @@ const FeedCard = ({ feed }) => {
         </div>
 
         {/* Feed Info */}
-        <div className="p-4">
+        <div className="p-4 flex-1 flex flex-col justify-between">
           <h3 className="font-mono text-white text-sm mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2">
             {feed.title}
           </h3>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-auto">
             <span className="text-neon-cyan font-mono text-xs">{feed.creator}</span>
             <span className="text-gray-400 font-mono text-xs">{feed.category}</span>
           </div>

@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentGenre, setCurrentGenre] = useState('VISUAL');
-
-  const genres = ['VISUAL', 'AUDIO', 'TEXT'];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cyber-black border-b-2 border-neon-blue shadow-lg shadow-neon-blue/20">
@@ -36,24 +33,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Genre Switcher */}
+          {/* Action Buttons */}
           <div className="flex items-center space-x-4">
-            <div className="flex bg-dark-blue border border-neon-blue rounded overflow-hidden">
-              {genres.map((genre) => (
-                <button
-                  key={genre}
-                  onClick={() => setCurrentGenre(genre)}
-                  className={`px-4 py-2 font-mono text-sm transition-all ${
-                    currentGenre === genre
-                      ? 'bg-neon-blue text-white shadow-lg shadow-neon-blue/50'
-                      : 'text-neon-cyan hover:bg-neon-blue/20'
-                  }`}
-                >
-                  {genre}
-                </button>
-              ))}
-            </div>
-
             {/* Language Switcher */}
             <div className="text-neon-cyan font-mono">
               语用化
