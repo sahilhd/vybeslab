@@ -60,6 +60,14 @@ const Navbar = () => {
               <span>AI</span>
             </button>
 
+            <Link 
+              to="/quests"
+              className="border border-neon-magenta text-neon-magenta px-4 py-2 font-mono text-sm rounded hover:bg-neon-magenta hover:text-black transition-all flex items-center space-x-2"
+            >
+              <span>🎯</span>
+              <span>QUESTS</span>
+            </Link>
+
             <Link
               to="/glasses"
               className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
@@ -133,6 +141,14 @@ const Navbar = () => {
                 UPLOAD
               </Link>
               
+              <Link
+                to="/quests"
+                className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
+              >
+                <span>🎯</span>
+                <span>QUESTS</span>
+              </Link>
+
               <Link
                 to="/glasses"
                 className="cyber-button px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"

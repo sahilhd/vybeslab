@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UserHeader from './UserHeader';
 import GalleryGrid from './GalleryGrid';
@@ -10,6 +10,21 @@ const ProfilePage = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isAIOpen, setIsAIOpen] = useState(false);
+  const [completedQuests, setCompletedQuests] = useState([]);
+  const [questStats, setQuestStats] = useState({ totalPoints: 0, totalCompleted: 0 });
+
+  useEffect(() => {
+    // Load completed quests from localStorage
+    const completed = JSON.parse(localStorage.getItem('completedQuests') || '[]');
+    setCompletedQuests(completed);
+    
+    // Calculate stats
+    const totalPoints = completed.reduce((sum, quest) => sum + quest.reward, 0);
+    setQuestStats({
+      totalPoints,
+      totalCompleted: completed.length
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white font-mono relative max-w-md mx-auto">
@@ -81,6 +96,60 @@ const ProfilePage = () => {
             {isSubscribed ? 'SUBSCRIBED!' : 'SUBSCRIBE'}
           </span>
         </button>
+      </div>
+
+      {/* Quest Progress Section */}
+      <div className="px-6 mb-6">
+        <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-green-400 font-mono text-sm font-bold">🎯 VISION QUEST PROGRESS</h3>
+            <Link 
+              to="/quests"
+              className="text-green-400 font-mono text-xs hover:text-green-300 transition-colors"
+            >
+              VIEW ALL →
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-3 mb-3">
+            <div className="bg-black rounded p-3 text-center">
+              <div className="text-green-400 font-mono text-lg font-bold">{questStats.totalPoints}</div>
+              <div className="text-gray-400 text-xs">TOTAL POINTS</div>
+            </div>
+            <div className="bg-black rounded p-3 text-center">
+              <div className="text-cyan-400 font-mono text-lg font-bold">{questStats.totalCompleted}</div>
+              <div className="text-gray-400 text-xs">COMPLETED</div>
+            </div>
+          </div>
+
+          {/* Recent Achievements */}
+          {completedQuests.length > 0 ? (
+            <div>
+              <div className="text-gray-400 text-xs mb-2">RECENT QUEST:</div>
+              <div className="bg-black rounded p-2 flex items-center space-x-3">
+                <span className="text-xl">{completedQuests[completedQuests.length - 1]?.brandIcon || '🏆'}</span>
+                <div className="flex-1">
+                  <div className="text-white text-xs font-mono">
+                    {completedQuests[completedQuests.length - 1]?.title || 'No quests completed'}
+                  </div>
+                  <div className="text-green-400 text-xs">
+                    +{completedQuests[completedQuests.length - 1]?.reward || 0} pts
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-2">
+              <div className="text-gray-500 text-xs">No quests completed yet</div>
+              <Link 
+                to="/quests"
+                className="text-green-400 font-mono text-xs hover:text-green-300 transition-colors"
+              >
+                Start your first quest!
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Gallery Grid */}

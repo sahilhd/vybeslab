@@ -12141,13 +12141,383 @@ next to trending feeds, I want you to add 2 more options which is premium feeds 
 
 _**Assistant**_
 
+Perfect! I'll add Premium Feeds and My Circle as filter options next to Trending Feeds. This will create a tab-like interface for users to switch between different feed types.
 
+Let me update the HomePage to include these new filter options:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -10,4 +10,5 @@
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
++   const [selectedFeedType, setSelectedFeedType] = useState('TRENDING');
+  
+    const filteredFeeds = selectedCategory === 'ALL' 
+```
+
+</details>
 
 ---
 
-
+Now let me update the filtering logic to handle both category and feed type:
 
 ---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 22, lines removed: 3
+
+```diff
+@@ -12,7 +12,26 @@
+    const [selectedFeedType, setSelectedFeedType] = useState('TRENDING');
+  
+-   const filteredFeeds = selectedCategory === 'ALL' 
+-     ? feeds 
+-     : feeds.filter(feed => feed.category === selectedCategory);
++   const getFilteredFeeds = () => {
++     let filtered = feeds;
++     
++     // Filter by category first
++     if (selectedCategory !== 'ALL') {
++       filtered = filtered.filter(feed => feed.category === selectedCategory);
++     }
++     
++     // Then filter by feed type
++     if (selectedFeedType === 'PREMIUM') {
++       filtered = filtered.filter(feed => feed.isPremium === true);
++     } else if (selectedFeedType === 'MY_CIRCLE') {
++       // Mock data for "My Circle" - could be based on followed creators or special tags
++       const myCircleCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
++       filtered = filtered.filter(feed => myCircleCreators.includes(feed.creator));
++     }
++     // 'TRENDING' shows all feeds (already filtered by category if needed)
++     
++     return filtered;
++   };
++ 
++   const filteredFeeds = getFilteredFeeds();
+  
+    return (
+```
+
+</details>
+
+---
+
+Now let me add the feed type selector to the header section:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 19, lines removed: 2
+
+```diff
+@@ -86,10 +86,27 @@
+            {/* Header */}
+            <div className="mb-6 mt-12 lg:mt-0">
++             {/* Feed Type Selector */}
++             <div className="flex items-center space-x-4 mb-4">
++               {['TRENDING', 'PREMIUM', 'MY_CIRCLE'].map((type) => (
++                 <button
++                   key={type}
++                   onClick={() => setSelectedFeedType(type)}
++                   className={`px-4 py-2 rounded font-mono text-sm transition-all ${
++                     selectedFeedType === type
++                       ? 'bg-neon-cyan text-black shadow-lg shadow-neon-cyan/30'
++                       : 'border border-neon-blue text-neon-cyan hover:bg-neon-blue/20'
++                   }`}
++                 >
++                   {type === 'MY_CIRCLE' ? 'MY CIRCLE' : `${type} FEEDS`}
++                 </button>
++               ))}
++             </div>
++ 
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-pixel neon-text text-neon-cyan mb-2 break-words">
+                <span className="hidden lg:inline">
+-                 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; TRENDING FEEDS &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
++                 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; {selectedFeedType === 'MY_CIRCLE' ? 'MY CIRCLE' : `${selectedFeedType} FEEDS`} &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+                </span>
+                <span className="lg:hidden">
+-                 TRENDING FEEDS
++                 {selectedFeedType === 'MY_CIRCLE' ? 'MY CIRCLE' : `${selectedFeedType} FEEDS`}
+                </span>
+              </h1>
+```
+
+</details>
+
+---
+
+Now let me add a visual indicator showing the number of feeds for each type and some empty state handling:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 8, lines removed: undefined
+
+```diff
+@@ -113,6 +113,14 @@
+              <div className="border-b border-neon-blue w-full"></div>
+            </div>
++ 
++           {/* Feed Count */}
++           <div className="mb-4">
++             <p className="text-gray-400 font-mono text-sm">
++               {filteredFeeds.length} {filteredFeeds.length === 1 ? 'feed' : 'feeds'} found
++             </p>
++           </div>
+  
+            {/* Feeds Grid - Responsive */}
++           {filteredFeeds.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" style={{ gridAutoRows: '1fr' }}>
+                {filteredFeeds.map((feed) => (
+```
+
+**Chunk 2**
+Lines added: 18, lines removed: undefined
+
+```diff
+@@ -122,4 +130,22 @@
+                ))}
+              </div>
++           ) : (
++             <div className="text-center py-12">
++               <div className="text-6xl mb-4">
++                 {selectedFeedType === 'PREMIUM' ? '💎' : selectedFeedType === 'MY_CIRCLE' ? '👥' : '📺'}
++               </div>
++               <h3 className="text-xl font-pixel text-neon-cyan mb-2">
++                 No {selectedFeedType === 'MY_CIRCLE' ? 'My Circle' : selectedFeedType.toLowerCase()} feeds found
++               </h3>
++               <p className="text-gray-400 font-mono text-sm max-w-md mx-auto">
++                 {selectedFeedType === 'PREMIUM' 
++                   ? 'No premium content available right now. Check back later for exclusive feeds!'
++                   : selectedFeedType === 'MY_CIRCLE'
++                   ? 'No feeds from your circle. Follow more creators to see their content here!'
++                   : 'No trending feeds match your current filters.'
++                 }
++               </p>
++             </div>
++           )}
+  
+            {/* Load More Button */}
+```
+
+</details>
+
+---
+
+Let me also add some premium content to the mock data to make the Premium Feeds filter more interesting. Let me check and update the mockData:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Perfect! I can see that some feeds already have `isPremium: true`. Let me check how many premium feeds we currently have:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Great! I can see we have several premium feeds. Now let me also add mobile responsiveness to the feed type selector for smaller screens:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 7, lines removed: 2
+
+```diff
+@@ -87,16 +87,21 @@
+            <div className="mb-6 mt-12 lg:mt-0">
+              {/* Feed Type Selector */}
+-             <div className="flex items-center space-x-4 mb-4">
++             <div className="flex items-center space-x-2 sm:space-x-4 mb-4 overflow-x-auto">
+                {['TRENDING', 'PREMIUM', 'MY_CIRCLE'].map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setSelectedFeedType(type)}
+-                   className={`px-4 py-2 rounded font-mono text-sm transition-all ${
++                   className={`px-3 sm:px-4 py-2 rounded font-mono text-xs sm:text-sm transition-all whitespace-nowrap flex-shrink-0 ${
+                      selectedFeedType === type
+                        ? 'bg-neon-cyan text-black shadow-lg shadow-neon-cyan/30'
+                        : 'border border-neon-blue text-neon-cyan hover:bg-neon-blue/20'
+                    }`}
+                  >
++                   <span className="hidden sm:inline">
+                      {type === 'MY_CIRCLE' ? 'MY CIRCLE' : `${type} FEEDS`}
++                   </span>
++                   <span className="sm:hidden">
++                     {type === 'TRENDING' ? '🔥 TRENDING' : type === 'PREMIUM' ? '💎 PREMIUM' : '👥 CIRCLE'}
++                   </span>
+                  </button>
+                ))}
+```
+
+</details>
+
+---
+
+Now let me also add some visual indicators to make the different feed types more distinctive:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 1
+
+```diff
+@@ -155,9 +155,11 @@
+  
+            {/* Load More Button */}
++           {filteredFeeds.length > 0 && (
+              <div className="mt-8 text-center">
+                <button className="cyber-button px-6 lg:px-8 py-3 font-mono rounded-lg hover:scale-105 transition-transform text-sm lg:text-base">
+-               LOAD MORE FEEDS
++                 LOAD MORE {selectedFeedType === 'MY_CIRCLE' ? 'CIRCLE' : selectedFeedType} FEEDS
+                </button>
+              </div>
++           )}
+  
+            {/* Mobile Bottom Content - Top Feeds & Creators */}
+```
+
+</details>
+
+---
+
+Perfect! 🎉 **Premium Feeds & My Circle Added!**
+
+## ✅ **What I Just Implemented:**
+
+### **📑 Three Feed Types:**
+
+#### **🔥 TRENDING FEEDS** (Default)
+- **Shows**: All feeds (filtered by category if selected)
+- **Purpose**: Main content discovery
+- **Count**: All 7 feeds currently
+
+#### **💎 PREMIUM FEEDS**
+- **Shows**: Only feeds with `isPremium: true`
+- **Purpose**: Exclusive, high-value content
+- **Count**: 5 premium feeds (Visvim shopping, Pebble Beach golf, etc.)
+
+#### **👥 MY CIRCLE**
+- **Shows**: Feeds from followed creators
+- **Creators**: @lifestylevibes, @golfpro, @golfstyle
+- **Purpose**: Personalized content from your network
+- **Count**: 6 feeds from circle creators
+
+### **🎨 Design Features:**
+
+#### **Tab-Style Selector:**
+- ✅ **Active State**: Cyan background with black text + shadow glow
+- ✅ **Inactive State**: Cyan border with hover effects
+- ✅ **Mobile Icons**: 🔥 TRENDING, 💎 PREMIUM, 👥 CIRCLE
+- ✅ **Desktop Text**: "TRENDING FEEDS", "PREMIUM FEEDS", "MY CIRCLE"
+
+#### **Dynamic Header:**
+- ✅ **Updates Title**: Shows current feed type in cyberpunk style
+- ✅ **Mobile Responsive**: Shorter titles on small screens
+- ✅ **Feed Counter**: "X feeds found" below selector
+
+#### **Empty States:**
+- ✅ **Premium**: 💎 "No premium content available right now"
+- ✅ **My Circle**: 👥 "No feeds from your circle. Follow more creators!"
+- ✅ **Trending**: 📺 "No trending feeds match your filters"
+
+### **📱 Mobile Optimizations:**
+- ✅ **Horizontal Scroll**: Tabs scroll on very small screens
+- ✅ **Compact Icons**: Emoji + short text for mobile
+- ✅ **Responsive Spacing**: Smaller padding on mobile
+- ✅ **Touch Friendly**: Adequate tap targets
+
+### **🚀 How to Test:**
+
+#### **Premium Feeds:**
+1. **Click "💎 PREMIUM"** tab
+2. **See 5 premium feeds** with premium badges
+3. **Notice**: Only high-value content (Visvim, Pebble Beach)
+
+#### **My Circle:**
+1. **Click "👥 MY CIRCLE"** tab  
+2. **See 6 feeds** from your followed creators
+3. **Creators**: @lifestylevibes, @golfpro, @golfstyle
+
+#### **Combined Filtering:**
+1. **Select "PREMIUM"** + **Category "FASHION"**
+2. **See**: Only premium fashion feeds (Visvim shopping)
+3. **Smart Filtering**: Both conditions must match
+
+### **💡 Smart Filter Logic:**
+```javascript
+// Category filter FIRST
+if (selectedCategory !== 'ALL') {
+  filtered = feeds.filter(feed => feed.category === selectedCategory);
+}
+
+// Then feed type filter
+if (selectedFeedType === 'PREMIUM') {
+  filtered = filtered.filter(feed => feed.isPremium === true);
+} else if (selectedFeedType === 'MY_CIRCLE') {
+  filtered = filtered.filter(feed => myCircleCreators.includes(feed.creator));
+}
+```
+
+## 🎯 **User Experience:**
+
+### **Content Discovery Flow:**
+```
+TRENDING → Browse all content
+PREMIUM → High-value exclusive content  
+MY CIRCLE → Personalized content from followed creators
+```
+
+### **Visual Feedback:**
+- **Feed counts** show immediately after selection
+- **Empty states** guide users when no content matches
+- **Dynamic headers** reinforce current selection
+- **Load more buttons** adapt to current filter
+
+Your users can now **discover content in three distinct ways** - broad trending content, premium exclusive material, and personalized content from their social circle! 🌟✨
+
+---
+
+_**User**_
+
+on the navbar can you add a new feature called vision quest, this feature is a way for “I want to simulate our Vision Quests feature. Create a new page /quests with 3 branded challenges. Each quest card should show a title, brand icon, reward points, and a “Start Quest” button. When clicked, redirect to a video page and simulate the AI agent detecting a brand/product with a pop-up notification and quest completion reward. Add a progress tracker on the user’s profile. Make this mobile-optimized and feel gamified.”
+
+---
+
+_**Assistant**_
 
 
 

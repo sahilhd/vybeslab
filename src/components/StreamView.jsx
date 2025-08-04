@@ -2,17 +2,49 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MobileBottomNav from './MobileBottomNav';
 import AITriggerButton from './AITriggerButton';
+import QuestNotification from './QuestNotification';
 
 const StreamView = ({ feeds }) => {
   const { id } = useParams();
   const [feed, setFeed] = useState(null);
   const [progress, setProgress] = useState(67); // Mock progress
   const [isLive, setIsLive] = useState(true);
+  const [activeQuest, setActiveQuest] = useState(null);
+  const [showQuestNotification, setShowQuestNotification] = useState(false);
 
   useEffect(() => {
     const foundFeed = feeds.find(f => f.id === parseInt(id));
     setFeed(foundFeed);
+
+    // Check for active quest when component loads
+    const questData = localStorage.getItem('activeQuest');
+    if (questData) {
+      const quest = JSON.parse(questData);
+      setActiveQuest(quest);
+      
+      // Start AI detection simulation after a delay
+      const detectionTimer = setTimeout(() => {
+        setShowQuestNotification(true);
+      }, 2000); // Start detection 2 seconds after page load
+
+      return () => clearTimeout(detectionTimer);
+    }
   }, [id, feeds]);
+
+  const handleQuestComplete = (quest) => {
+    // Save completed quest to localStorage
+    const completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[]');
+    completedQuests.push(quest);
+    localStorage.setItem('completedQuests', JSON.stringify(completedQuests));
+    
+    // Clear active quest
+    localStorage.removeItem('activeQuest');
+  };
+
+  const handleCloseQuestNotification = () => {
+    setShowQuestNotification(false);
+    setActiveQuest(null);
+  };
 
   if (!feed) {
     return (
@@ -221,6 +253,15 @@ const StreamView = ({ feeds }) => {
       
       {/* AI Assistant */}
       <AITriggerButton currentStreamId={id} />
+
+      {/* Quest Notification */}
+      {showQuestNotification && activeQuest && (
+        <QuestNotification 
+          quest={activeQuest}
+          onComplete={handleQuestComplete}
+          onClose={handleCloseQuestNotification}
+        />
+      )}
     </div>
   );
 };
