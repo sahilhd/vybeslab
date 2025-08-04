@@ -1,0 +1,122 @@
+export const mockProductDatabase = [
+  {
+    id: 1,
+    name: "Visvim FBT Prime Sneakers",
+    brand: "Visvim",
+    price: "$720",
+    category: "Footwear",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
+    tags: ["shoes", "sneakers", "visvim", "footwear", "premium"],
+    streamAppearance: "Shopping at Visvim in Carmel",
+    confidence: 95,
+    description: "Hand-crafted premium sneakers with traditional Japanese construction"
+  },
+  {
+    id: 2,
+    name: "Malbon Golf Polo Shirt",
+    brand: "Malbon",
+    price: "$165",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1558882224-dda166733046?w=400&h=300&fit=crop",
+    tags: ["polo", "golf", "shirt", "malbon", "apparel"],
+    streamAppearance: "Visiting the Malbon Store in Carmel",
+    confidence: 92,
+    description: "Premium golf polo with signature Malbon styling"
+  },
+  {
+    id: 3,
+    name: "Smart Glasses Pro",
+    brand: "Mentra",
+    price: "$299",
+    category: "Technology",
+    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop",
+    tags: ["glasses", "smart", "tech", "ar", "wearable"],
+    streamAppearance: "Tech Review Stream",
+    confidence: 98,
+    description: "Open-source AR smart glasses with community-driven development"
+  },
+  {
+    id: 4,
+    name: "Pebble Beach Golf Cap",
+    brand: "Pebble Beach",
+    price: "$45",
+    category: "Accessories",
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop",
+    tags: ["hat", "cap", "golf", "pebble beach", "accessories"],
+    streamAppearance: "Putting at The Hay in Pebble Beach",
+    confidence: 89,
+    description: "Official Pebble Beach golf course merchandise cap"
+  },
+  {
+    id: 5,
+    name: "Visvim Denim Jacket",
+    brand: "Visvim",
+    price: "$980",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop",
+    tags: ["jacket", "denim", "visvim", "outerwear", "premium"],
+    streamAppearance: "Shopping at Visvim in Carmel - Part 2",
+    confidence: 94,
+    description: "Artisanal denim jacket with vintage-inspired details"
+  },
+  {
+    id: 6,
+    name: "TaylorMade Golf Putter",
+    brand: "TaylorMade",
+    price: "$350",
+    category: "Sports Equipment",
+    image: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=300&fit=crop",
+    tags: ["putter", "golf", "taylormade", "clubs", "equipment"],
+    streamAppearance: "Pro Golf Tips & Techniques",
+    confidence: 96,
+    description: "Professional-grade putter with precision milled face"
+  },
+  {
+    id: 7,
+    name: "Carmel Vintage Tote Bag",
+    brand: "Local Artisan",
+    price: "$85",
+    category: "Accessories",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
+    tags: ["bag", "tote", "vintage", "carmel", "accessories"],
+    streamAppearance: "Vintage shopping in Carmel",
+    confidence: 87,
+    description: "Handcrafted leather tote bag made by local Carmel artisans"
+  },
+  {
+    id: 8,
+    name: "Malbon Golf Glove",
+    brand: "Malbon",
+    price: "$35",
+    category: "Sports Equipment",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    tags: ["glove", "golf", "malbon", "equipment", "accessories"],
+    streamAppearance: "Golf Lifestyle Shopping Spree",
+    confidence: 91,
+    description: "Premium leather golf glove with Malbon branding"
+  },
+  {
+    id: 9,
+    name: "Pebble Beach Logo Sweater",
+    brand: "Pebble Beach",
+    price: "$125",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=300&fit=crop",
+    tags: ["sweater", "golf", "pebble beach", "apparel", "logo"],
+    streamAppearance: "Golf Course Tour - Pebble Beach",
+    confidence: 93,
+    description: "Classic golf sweater with embroidered Pebble Beach logo"
+  },
+  {
+    id: 10,
+    name: "Artisanal Coffee Mug",
+    brand: "La Playa Cafe",
+    price: "$28",
+    category: "Lifestyle",
+    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=400&h=300&fit=crop",
+    tags: ["mug", "coffee", "ceramic", "la playa", "lifestyle"],
+    streamAppearance: "Drinks at La Playa",
+    confidence: 85,
+    description: "Handmade ceramic mug from La Playa cafe in Carmel"
+  }
+]; 

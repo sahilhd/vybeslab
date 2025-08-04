@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MobileBottomNav from './MobileBottomNav';
+import AITriggerButton from './AITriggerButton';
 
 const StreamView = ({ feeds }) => {
   const { id } = useParams();
@@ -217,6 +218,9 @@ const StreamView = ({ feeds }) => {
 
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />
+      
+      {/* AI Assistant */}
+      <AITriggerButton currentStreamId={id} />
     </div>
   );
 };

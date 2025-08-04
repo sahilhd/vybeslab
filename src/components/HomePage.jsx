@@ -4,6 +4,7 @@ import FeedCard from './FeedCard';
 import TopFeeds from './TopFeeds';
 import TopCreators from './TopCreators';
 import MobileBottomNav from './MobileBottomNav';
+import AITriggerButton from './AITriggerButton';
 
 const HomePage = ({ feeds }) => {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -109,6 +110,9 @@ const HomePage = ({ feeds }) => {
 
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav />
+      
+      {/* AI Assistant */}
+      <AITriggerButton />
     </div>
   );
 };

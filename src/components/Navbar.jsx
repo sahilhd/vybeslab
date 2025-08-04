@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import FeedsAI from './FeedsAI';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAIOpen, setIsAIOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cyber-black border-b-2 border-neon-blue shadow-lg shadow-neon-blue/20">
@@ -50,6 +52,14 @@ const Navbar = () => {
               UPLOAD
             </Link>
             
+            <button
+              onClick={() => setIsAIOpen(true)}
+              className="border border-neon-cyan text-neon-cyan px-4 py-2 font-mono text-sm rounded hover:bg-neon-cyan hover:text-black transition-all flex items-center space-x-2"
+            >
+              <span>🤖</span>
+              <span>AI</span>
+            </button>
+
             <Link
               to="/glasses"
               className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
@@ -138,6 +148,12 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      
+      {/* Feeds AI Chat Widget */}
+      <FeedsAI 
+        isOpen={isAIOpen} 
+        onClose={() => setIsAIOpen(false)}
+      />
     </nav>
   );
 };
