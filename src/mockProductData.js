@@ -1,6 +1,20 @@
 export const mockProductDatabase = [
   {
     id: 1,
+    name: "Visvim Grey Collared Shirt",
+    brand: "Visvim",
+    price: "$50",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop",
+    tags: ["shirt", "collared", "grey", "gray", "visvim", "apparel", "button-up"],
+    streamAppearance: "Shopping at Visvim in Carmel",
+    confidence: 98,
+    description: "Classic grey collared shirt with premium cotton construction",
+    streamTimestamp: "02:34",
+    streamContext: "Featured prominently during the store walkthrough section"
+  },
+  {
+    id: 2,
     name: "Visvim FBT Prime Sneakers",
     brand: "Visvim",
     price: "$720",
@@ -12,7 +26,7 @@ export const mockProductDatabase = [
     description: "Hand-crafted premium sneakers with traditional Japanese construction"
   },
   {
-    id: 2,
+    id: 3,
     name: "Malbon Golf Polo Shirt",
     brand: "Malbon",
     price: "$165",
@@ -24,7 +38,7 @@ export const mockProductDatabase = [
     description: "Premium golf polo with signature Malbon styling"
   },
   {
-    id: 3,
+    id: 4,
     name: "Smart Glasses Pro",
     brand: "Mentra",
     price: "$299",
@@ -36,7 +50,7 @@ export const mockProductDatabase = [
     description: "Open-source AR smart glasses with community-driven development"
   },
   {
-    id: 4,
+    id: 5,
     name: "Pebble Beach Golf Cap",
     brand: "Pebble Beach",
     price: "$45",
@@ -48,7 +62,7 @@ export const mockProductDatabase = [
     description: "Official Pebble Beach golf course merchandise cap"
   },
   {
-    id: 5,
+    id: 6,
     name: "Visvim Denim Jacket",
     brand: "Visvim",
     price: "$980",
@@ -60,7 +74,7 @@ export const mockProductDatabase = [
     description: "Artisanal denim jacket with vintage-inspired details"
   },
   {
-    id: 6,
+    id: 7,
     name: "TaylorMade Golf Putter",
     brand: "TaylorMade",
     price: "$350",
@@ -72,7 +86,7 @@ export const mockProductDatabase = [
     description: "Professional-grade putter with precision milled face"
   },
   {
-    id: 7,
+    id: 8,
     name: "Carmel Vintage Tote Bag",
     brand: "Local Artisan",
     price: "$85",
@@ -84,7 +98,7 @@ export const mockProductDatabase = [
     description: "Handcrafted leather tote bag made by local Carmel artisans"
   },
   {
-    id: 8,
+    id: 9,
     name: "Malbon Golf Glove",
     brand: "Malbon",
     price: "$35",
@@ -96,7 +110,7 @@ export const mockProductDatabase = [
     description: "Premium leather golf glove with Malbon branding"
   },
   {
-    id: 9,
+    id: 10,
     name: "Pebble Beach Logo Sweater",
     brand: "Pebble Beach",
     price: "$125",
@@ -108,7 +122,7 @@ export const mockProductDatabase = [
     description: "Classic golf sweater with embroidered Pebble Beach logo"
   },
   {
-    id: 10,
+    id: 11,
     name: "Artisanal Coffee Mug",
     brand: "La Playa Cafe",
     price: "$28",

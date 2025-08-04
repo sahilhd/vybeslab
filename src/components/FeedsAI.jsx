@@ -41,21 +41,42 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
   const generateAIResponse = (userMessage) => {
     const query = userMessage.toLowerCase();
     
+    // Handle specific stream-based queries (like your example)
+    if (query.includes('visit') && query.includes('visvim') && query.includes('carmel')) {
+      const product = simulateProductSearch(query);
+      
+      if (product && product.streamAppearance.includes('Visvim in Carmel')) {
+        return {
+          type: 'product',
+          content: `Based on my analysis of your "Shopping at Visvim in Carmel" stream, I found this item:`,
+          product: product,
+          confidence: product.confidence,
+          streamSpecific: true
+        };
+      }
+    }
+    
     // Check if it's a product price inquiry
     if (query.includes('price') || query.includes('cost') || query.includes('much') || query.includes('$')) {
       const product = simulateProductSearch(query);
       
       if (product) {
+        // More detailed response based on stream data
+        const streamContext = product.streamTimestamp 
+          ? `at timestamp ${product.streamTimestamp}` 
+          : 'during the stream';
+        
         return {
           type: 'product',
-          content: `I found that product! Here's what I saw in the stream:`,
+          content: `Perfect! I found this from my stream data analysis. This item appeared ${streamContext}:`,
           product: product,
-          confidence: 95
+          confidence: product.confidence,
+          streamSpecific: true
         };
       } else {
         return {
           type: 'text',
-          content: 'I couldn\'t find that specific product in the current streams. Try asking about glasses, jackets, or golf equipment - I saw those recently! 🔍'
+          content: 'I couldn\'t find that specific product in the current streams. Try asking about glasses, shirts, jackets, or golf equipment - I saw those recently! 🔍'
         };
       }
     }
@@ -67,16 +88,24 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
         type: 'product',
         content: 'I spotted this item in the stream:',
         product: product,
-        confidence: 88
+        confidence: product.confidence || 88
+      };
+    }
+    
+    // Stream-specific questions
+    if (query.includes('stream') || query.includes('video') || query.includes('watch')) {
+      return {
+        type: 'text',
+        content: 'I\'ve analyzed all your recent streams! Ask me about specific products like "During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?" and I\'ll pull up the exact details! 📺'
       };
     }
     
     // Default responses
     const responses = [
-      'I can help you find products from any stream! Try asking "What was the price of those glasses?" or "How much was that jacket?"',
-      'I\'m analyzing the streams for product information. Ask me about specific items you saw!',
-      'My AI vision is always watching the streams for cool products. What caught your eye? 👁️',
-      'I can recall any product from the streams with prices and details. Just describe what you saw!'
+      'I can help you find products from any stream! Try asking "During my visit to [stream name], how much was [product]?"',
+      'I\'m analyzing your stream data for product information. Ask me about specific items you featured!',
+      'My AI vision has cataloged products from all your streams. What specific item are you looking for? 👁️',
+      'I can recall any product from your streams with prices and details. Try mentioning the specific stream and product!'
     ];
     
     return {
@@ -180,8 +209,18 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
                         {message.product.streamAppearance && (
                           <div className="mt-2 pt-2 border-t border-gray-700">
                             <p className="text-gray-400 text-xs">
-                              📺 Seen in: {message.product.streamAppearance}
+                              📺 Stream: {message.product.streamAppearance}
                             </p>
+                            {message.product.streamTimestamp && (
+                              <p className="text-neon-green text-xs mt-1">
+                                ⏱️ Timestamp: {message.product.streamTimestamp}
+                              </p>
+                            )}
+                            {message.product.streamContext && (
+                              <p className="text-gray-500 text-xs mt-1">
+                                💡 {message.product.streamContext}
+                              </p>
+                            )}
                           </div>
                         )}
                       </div>
@@ -237,7 +276,11 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
           
           {/* Quick Actions */}
           <div className="mt-2 flex flex-wrap gap-1">
-            {['Price of glasses?', 'Show me jackets', 'Golf equipment cost?'].map((suggestion) => (
+            {[
+              'During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?', 
+              'Price of glasses?', 
+              'Show me jackets'
+            ].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setInputValue(suggestion)}
