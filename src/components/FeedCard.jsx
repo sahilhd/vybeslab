@@ -35,12 +35,12 @@ const FeedCard = ({ feed }) => {
         </div>
 
         {/* Feed Info */}
-        <div className="p-4 flex-grow flex flex-col justify-between min-h-[80px]">
-          <h3 className="font-mono text-white text-sm mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2 flex-grow">
+        <div className="p-3 lg:p-4 flex-grow flex flex-col justify-between min-h-[80px]">
+          <h3 className="font-mono text-white text-xs sm:text-sm mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2 flex-grow leading-tight">
             {feed.title}
           </h3>
           <div className="flex items-center justify-between">
-            <span className="text-neon-cyan font-mono text-xs">{feed.creator}</span>
+            <span className="text-neon-cyan font-mono text-xs truncate max-w-[60%]">{feed.creator}</span>
             <span className="text-gray-400 font-mono text-xs">{feed.category}</span>
           </div>
         </div>

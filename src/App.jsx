@@ -6,6 +6,7 @@ import VideoUpload from './components/VideoUpload';
 import GlassesPage from './components/GlassesPage';
 import ProfilePage from './components/ProfilePage';
 import Navbar from './components/Navbar';
+import MobileBottomNav from './components/MobileBottomNav';
 import { mockFeeds } from './mockData';
 
 function App() {

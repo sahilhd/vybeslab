@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cyber-black border-b-2 border-neon-blue shadow-lg shadow-neon-blue/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
@@ -48,13 +50,13 @@ const Navbar = () => {
               UPLOAD
             </Link>
             
-                    <Link
-          to="/glasses"
-          className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
-        >
-          <span>🕶️</span>
-          <span>BUY</span>
-        </Link>
+            <Link
+              to="/glasses"
+              className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
+            >
+              <span>🕶️</span>
+              <span>BUY</span>
+            </Link>
             
             <button className="border border-neon-green text-neon-green px-4 py-2 font-mono text-sm rounded hover:bg-neon-green hover:text-black transition-all">
               SIGN IN
@@ -69,6 +71,72 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <div className="text-xl font-pixel neon-text text-neon-cyan">
+              FEEDS
+            </div>
+          </Link>
+
+          {/* Mobile Actions */}
+          <div className="flex items-center space-x-3">
+            {/* Search Icon */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-neon-cyan text-lg"
+            >
+              🔍
+            </button>
+            
+            {/* Profile Icon */}
+            <Link 
+              to="/profile"
+              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center"
+            >
+              <span className="text-white font-mono text-xs">👤</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile Search Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-neon-blue/50 bg-cyber-black p-4">
+            <div className="relative mb-4">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="SEARCH"
+                className="w-full bg-dark-blue border border-neon-blue rounded px-4 py-2 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan transition-colors"
+              />
+            </div>
+            
+            {/* Mobile Action Buttons */}
+            <div className="flex flex-wrap gap-2">
+              <Link
+                to="/upload"
+                className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex-1 text-center"
+              >
+                UPLOAD
+              </Link>
+              
+              <Link
+                to="/glasses"
+                className="cyber-button px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
+              >
+                <span>🕶️</span>
+                <span>BUY</span>
+              </Link>
+              
+              <button className="border border-neon-green text-neon-green px-3 py-2 font-mono text-xs rounded flex-1">
+                SIGN IN
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

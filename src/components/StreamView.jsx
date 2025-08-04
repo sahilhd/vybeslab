@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import MobileBottomNav from './MobileBottomNav';
 
 const StreamView = ({ feeds }) => {
   const { id } = useParams();
@@ -35,8 +36,8 @@ const StreamView = ({ feeds }) => {
         </Link>
       </div>
 
-      <div className="container mx-auto px-4 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 pb-20 lg:pb-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
           {/* Video Player */}
           <div className="lg:col-span-2">
             <div className="relative aspect-video bg-cyber-black rounded-lg overflow-hidden border-2 border-neon-blue">
@@ -213,6 +214,9 @@ const StreamView = ({ feeds }) => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav />
     </div>
   );
 };

@@ -2,8 +2,8 @@ import { topCreators } from '../mockData';
 
 const TopCreators = () => {
   return (
-    <div className="bg-cyber-black/90 border border-neon-blue rounded-lg p-4">
-      <h3 className="font-pixel text-neon-cyan text-lg mb-4 neon-text">TOP CREATORS</h3>
+    <div className="bg-cyber-black/90 border border-neon-blue rounded-lg p-3 lg:p-4">
+      <h3 className="font-pixel text-neon-cyan text-base lg:text-lg mb-3 lg:mb-4 neon-text">TOP CREATORS</h3>
       
       <div className="space-y-3">
         {topCreators.map((creator, index) => (
