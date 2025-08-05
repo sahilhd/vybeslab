@@ -27,16 +27,7 @@ const MobileBottomNav = () => {
         </svg>
       )
     },
-    {
-      id: 'ai',
-      label: 'AI',
-      path: '/ai',
-      icon: (isActive) => (
-        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${isActive ? 'bg-neon-cyan border-neon-cyan text-black' : 'bg-gray-700 border-gray-500 text-gray-400'}`}>
-          <span className="font-mono font-bold text-xs">AI</span>
-        </div>
-      )
-    },
+
     {
       id: 'glasses',
       label: 'Shop',
@@ -69,24 +60,7 @@ const MobileBottomNav = () => {
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-cyber-black/95 backdrop-blur-sm border-t border-neon-blue/50 z-50">
         <div className="flex items-center justify-around py-2 px-4 max-w-md mx-auto">
           {tabs.map((tab) => {
-            const isActive = tab.id === 'ai' ? isAIOpen : location.pathname === tab.path;
-            
-            if (tab.id === 'ai') {
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setIsAIOpen(true)}
-                  className="flex flex-col items-center py-2 px-3 min-w-[60px]"
-                >
-                  <div className="mb-1">
-                    {tab.icon(isActive)}
-                  </div>
-                  <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
-                    {tab.label}
-                  </span>
-                </button>
-              );
-            }
+            const isActive = location.pathname === tab.path;
             
             return (
               <Link
@@ -97,12 +71,27 @@ const MobileBottomNav = () => {
                 <div className="mb-1">
                   {tab.icon(isActive)}
                 </div>
-                <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'}`}>
+                <span className={`text-xs font-mono ${isActive ? 'text-white' : 'text-gray-500'} truncate`}>
                   {tab.label}
                 </span>
               </Link>
             );
           })}
+          
+          {/* AI Button */}
+          <button
+            onClick={() => setIsAIOpen(true)}
+            className="flex flex-col items-center py-2 px-3 min-w-[60px]"
+          >
+            <div className="mb-1">
+              <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${isAIOpen ? 'bg-neon-cyan border-neon-cyan text-black' : 'bg-gray-700 border-gray-500 text-gray-400'}`}>
+                <span className="font-mono font-bold text-xs">AI</span>
+              </div>
+            </div>
+            <span className={`text-xs font-mono ${isAIOpen ? 'text-white' : 'text-gray-500'} truncate`}>
+              AI
+            </span>
+          </button>
         </div>
       </div>
 

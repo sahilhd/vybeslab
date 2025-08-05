@@ -101,6 +101,14 @@ const Navbar = () => {
 
           {/* Mobile Actions */}
           <div className="flex items-center space-x-3">
+            {/* Quest Icon */}
+            <Link 
+              to="/quests"
+              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center"
+            >
+              <span className="text-white text-lg">🎯</span>
+            </Link>
+            
             {/* Search Icon */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -141,14 +149,6 @@ const Navbar = () => {
                 UPLOAD
               </Link>
               
-              <Link
-                to="/quests"
-                className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
-              >
-                <span>🎯</span>
-                <span>QUESTS</span>
-              </Link>
-
               <Link
                 to="/glasses"
                 className="cyber-button px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
