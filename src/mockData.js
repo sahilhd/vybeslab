@@ -51,6 +51,54 @@ export const categories = [
 export const mockFeeds = [
   {
     id: 0,
+    title: 'PARTYGIRL Ibiza',
+    creator: '@charlixcx',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2400
+    thumbnail: '/images/partygirl-ibiza.png',
+    viewCount: '24.7K',
+    isPremium: true,
+    category: 'LIFESTYLE',
+    description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
+    videoUrl: null
+  },
+  {
+    id: 1,
+    title: 'Front row at PRADA',
+    creator: '@rickythompson',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2401
+    thumbnail: '/images/prada-front-row.jpg',
+    viewCount: '18.9K',
+    isPremium: true,
+    category: 'FASHION',
+    description: '✨ Front row experience at the exclusive PRADA show. Behind-the-scenes access to luxury fashion at its finest.',
+    videoUrl: null
+  },
+  {
+    id: 2,
+    title: 'Aperol spritz with my besties',
+    creator: '@evelynha',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2404
+    thumbnail: '/images/aperol-spritz-besties.jpg',
+    viewCount: '16.3K',
+    isPremium: false,
+    category: 'LIFESTYLE',
+    description: '🍹 Perfect summer vibes with the best company. Aperol spritz sessions and good times with my closest friends.',
+    videoUrl: null
+  },
+  {
+    id: 3,
+    title: '18th hole Pebble Beach',
+    creator: '@threadguy',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2402
+    thumbnail: '/images/18th-hole-pebble.png',
+    viewCount: '21.2K',
+    isPremium: true,
+    category: 'SPORTS',
+    description: '⛳ Legendary 18th hole at Pebble Beach Golf Links. One of the most iconic holes in golf with stunning ocean views.',
+    videoUrl: null
+  },
+  {
+    id: 4,
     title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
     creator: '@lifestylevibes',
     // 🚀 YOUR CUSTOM IMAGE - IMG_2396
@@ -67,7 +115,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251899/Shopping_at_Visvim_in_Carmel_1_ul2svu.mp4'
   },
   {
-    id: 1,
+    id: 5,
     title: '⛳ Putting at The Hay in Pebble Beach',
     creator: '@golfpro',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4349
@@ -81,7 +129,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
   },
   {
-    id: 2,
+    id: 6,
     title: '🛍️ Visiting the Malbon Store in Carmel',
     creator: '@golfstyle',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4347
@@ -95,7 +143,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Visiting_the_Malbon_Store_in_Carmel_tmdnwq.mp4'
   },
   {
-    id: 3,
+    id: 7,
     title: '🛍️ Shopping at Visvim in Carmel - Part 2',
     creator: '@lifestylevibes',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4348 
@@ -109,7 +157,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Shopping_at_Visvim_in_Carmel_2_bvwuu7.mp4'
   },
   {
-    id: 4,
+    id: 8,
     title: '⛳ Golf Course Tour - Pebble Beach',
     creator: '@golfpro',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4346
@@ -123,7 +171,7 @@ export const mockFeeds = [
     videoUrl: null
   },
   {
-    id: 5,
+    id: 9,
     title: '🛍️ Golf Lifestyle Shopping Spree',
     creator: '@golfstyle',
     thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400',
@@ -134,7 +182,7 @@ export const mockFeeds = [
     videoUrl: null
   },
   {
-    id: 6,
+    id: 10,
     title: '⛳ Pro Golf Tips & Techniques',
     creator: '@golfpro',
     thumbnail: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400',
@@ -142,18 +190,6 @@ export const mockFeeds = [
     isPremium: true,
     category: 'SPORTS',
     description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
-    videoUrl: null
-  },
-  {
-    id: 7,
-    title: 'PARTYGIRL Ibiza',
-    creator: '@charlixcx',
-    // 🚀 YOUR CUSTOM IMAGE - IMG_2400
-    thumbnail: '/images/partygirl-ibiza.png',
-    viewCount: '24.7K',
-    isPremium: true,
-    category: 'LIFESTYLE',
-    description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
     videoUrl: null
   }
 ];
