@@ -23,12 +23,43 @@ export const categories = [
 // 3. Supported formats: MP4, WebM, OGV
 // 4. For thumbnails, you can also use local images in 'public/images/'
 
+// PRODUCTION DEPLOYMENT GUIDE:
+// 
+// 🚀 OPTION 1: LOCAL IMAGES (Good for MVP/Demo)
+// - Put images in public/images/
+// - Use: '/images/filename.jpg'
+// - Works in production ✅
+// - Simple but not optimized for scale
+//
+// 🌐 OPTION 2: CLOUDINARY (Best for Production Scale)
+// - Upload to Cloudinary account
+// - Use: 'https://res.cloudinary.com/your-cloud/image/upload/w_400,h_300,c_fill/image.jpg'
+// - Auto-optimization, CDN, responsive images
+// - Recommended for 20+ images or high traffic
+//
+// 📈 MIGRATION PATH:
+// 1. Start with local images for MVP
+// 2. Move to Cloudinary when scaling
+// 3. Just change the thumbnail URLs - no code changes needed!
+
+// THUMBNAIL OPTIONS:
+// Option 1: Local images (put in public/images/): '/images/my-thumbnail.jpg'
+// Option 2: Unsplash URLs: 'https://images.unsplash.com/photo-[ID]?w=400'
+// Option 3: Cloudinary URLs: 'https://res.cloudinary.com/[your-cloud]/image/upload/[path]'
+// Option 4: Any external URL: 'https://example.com/image.jpg'
+
 export const mockFeeds = [
   {
     id: 0,
     title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
     creator: '@lifestylevibes',
-    thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2396
+    thumbnail: '/images/visvim-shopping.png',
+    
+    // 📁 BACKUP OPTIONS:
+    // thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+    // thumbnail: 'https://res.cloudinary.com/your-cloud/image/upload/w_400,h_300,c_fill/visvim-shopping.jpg',
+    
     viewCount: '12.4K',
     isPremium: true,
     category: 'FASHION',
@@ -39,7 +70,10 @@ export const mockFeeds = [
     id: 1,
     title: '⛳ Putting at The Hay in Pebble Beach',
     creator: '@golfpro',
-    thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_4349
+    thumbnail: '/images/pebble-beach-golf.jpg',
+    // Alternative: Unsplash backup
+    // thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
     viewCount: '8.9K',
     isPremium: true,
     category: 'SPORTS',
@@ -50,7 +84,10 @@ export const mockFeeds = [
     id: 2,
     title: '🛍️ Visiting the Malbon Store in Carmel',
     creator: '@golfstyle',
-    thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_4347
+    thumbnail: '/images/malbon-visit.jpg',
+    // Alternative: Unsplash backup
+    // thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
     viewCount: '6.7K',
     isPremium: false,
     category: 'FASHION',
@@ -61,7 +98,10 @@ export const mockFeeds = [
     id: 3,
     title: '🛍️ Shopping at Visvim in Carmel - Part 2',
     creator: '@lifestylevibes',
-    thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_4348 
+    thumbnail: '/images/lifestyle-1.jpg',
+    // Alternative: Unsplash backup
+    // thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
     viewCount: '9.2K',
     isPremium: true,
     category: 'FASHION',
@@ -72,7 +112,10 @@ export const mockFeeds = [
     id: 4,
     title: '⛳ Golf Course Tour - Pebble Beach',
     creator: '@golfpro',
-    thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_4346
+    thumbnail: '/images/lifestyle-2.jpg',
+    // Alternative: Unsplash backup
+    // thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
     viewCount: '15.8K',
     isPremium: true,
     category: 'SPORTS',
