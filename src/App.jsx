@@ -27,7 +27,7 @@ function App() {
                              <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
               <Route path="/glasses" element={<GlassesPage />} />
               <Route path="/quests" element={<VisionQuest />} />
-              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
              </Routes>
       </main>
     </div>

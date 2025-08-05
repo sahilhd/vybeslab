@@ -5,7 +5,7 @@ import GalleryGrid from './GalleryGrid';
 import BottomTabBar from './BottomTabBar';
 import FeedsAI from './FeedsAI';
 
-const ProfilePage = () => {
+const ProfilePage = ({ feeds = [] }) => {
   const [isSubscribed, setIsSubscribed] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -153,7 +153,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Gallery Grid */}
-      <GalleryGrid />
+      <GalleryGrid feeds={feeds} />
 
       {/* Bottom Tab Bar */}
       <BottomTabBar />

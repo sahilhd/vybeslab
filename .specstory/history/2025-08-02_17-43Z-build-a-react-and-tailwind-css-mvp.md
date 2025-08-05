@@ -14518,13 +14518,131 @@ continiue
 
 _**Assistant**_
 
+Perfect! Now let me add the Quest button to the mobile top navigation bar next to the search and profile buttons. This will be much cleaner than overcrowding the bottom navigation.
 
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 8, lines removed: undefined
+
+```diff
+@@ -102,4 +102,12 @@
+            {/* Mobile Actions */}
+            <div className="flex items-center space-x-3">
++             {/* Quest Icon */}
++             <Link 
++               to="/quests"
++               className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center"
++             >
++               <span className="text-white text-lg">🎯</span>
++             </Link>
++             
+              {/* Search Icon */}
+              <button 
+```
+
+</details>
 
 ---
 
-
+Let me also remove the Quest button from the mobile dropdown menu since it's now easily accessible in the top bar:
 
 ---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: undefined, lines removed: 8
+
+```diff
+@@ -150,12 +150,4 @@
+                </Link>
+                
+-               <Link
+-                 to="/quests"
+-                 className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
+-               >
+-                 <span>🎯</span>
+-                 <span>QUESTS</span>
+-               </Link>
+- 
+                <Link
+                  to="/glasses"
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Vision Quest Button Added to Mobile Top Navigation!**
+
+## 🎯 **What I Just Fixed:**
+
+### **📱 Mobile Top Navigation Layout:**
+```
+FEEDS          🎯  🔍  👤
+Logo          Quest Search Profile
+```
+
+### **🔧 Changes Made:**
+
+#### **✅ Added Quest Button:**
+- **Position**: Mobile top navigation, left of search button
+- **Design**: Magenta background matching profile button style
+- **Icon**: 🎯 target emoji in white
+- **Size**: 8x8 (32px) square with rounded corners
+- **Action**: Direct link to `/quests` page
+
+#### **✅ Cleaned Up Navigation:**
+- **Removed**: Quest button from mobile dropdown menu (no longer needed)
+- **Kept**: Quest button in desktop navigation
+- **Bottom Nav**: Restored to clean 5-item layout (Home, Upload, Shop, Profile, AI)
+
+### **📱 Mobile Navigation Flow:**
+1. **Quick Access**: 🎯 Quest button always visible in top right
+2. **One Tap**: Direct access to Vision Quest page
+3. **Clean Layout**: No overcrowding in bottom navigation
+4. **Consistent**: Matches profile button styling
+
+### **🎨 Visual Design:**
+- **Magenta Theme**: Consistent with Vision Quest branding
+- **Target Emoji**: 🎯 clearly indicates quest/challenge functionality
+- **Accessible Size**: 32px touch target meets mobile standards
+- **Visual Hierarchy**: Positioned prominently but not intrusively
+
+## 🧪 **Test on Mobile:**
+
+### **📱 Mobile Access:**
+1. **Open site on mobile** → Look at top right of navigation
+2. **See**: FEEDS logo on left, 🎯 Quest + 🔍 Search + 👤 Profile on right
+3. **Tap 🎯** → Instantly opens Vision Quest page
+4. **Browse quests** → Select quest → Start streaming → Earn points!
+
+### **🎯 User Experience:**
+- **Discoverable**: Quest button prominently displayed
+- **Intuitive**: Target emoji clearly indicates challenges/quests
+- **Efficient**: One tap access from any page
+- **Consistent**: Works across all mobile pages
+
+**The Vision Quest feature is now perfectly accessible on mobile with a clean, intuitive design that doesn't overcrowd the navigation!** 🌟📱✨
+
+Users can now easily access Vision Quest challenges from the mobile top navigation bar with a simple tap of the 🎯 button.
+
+---
+
+_**User**_
+
+great, I also noticed that the videos on the profile page dont link to the same videos on the feeds page, the feedss page videos are linked to the correct title and grid pic, can you do the same for the profile page section 
+
+---
+
+_**Assistant**_
 
 
 

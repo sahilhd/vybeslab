@@ -1,35 +1,18 @@
 import { Link } from 'react-router-dom';
 
-const GalleryGrid = () => {
-  const galleryItems = [
-    {
-      id: 1,
-      title: "Shopping at Visvim Carmel",
-      thumbnail: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
-      isNew: true,
-      isFeatured: true
-    },
-    {
-      id: 2,
-      title: "Vintage shopping in Carmel",
-      thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Chilling at Pebble Beach",
-      thumbnail: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=300&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Some vibes the Malbon store",
-      thumbnail: "https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400&h=300&fit=crop"
-    },
-    {
-      id: 5,
-      title: "Drinks at La Playa",
-      thumbnail: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop"
-    }
-  ];
+const GalleryGrid = ({ feeds = [] }) => {
+  // Use actual feeds data but limit to profile's content (first 5 feeds for the profile user)
+  const profileFeeds = feeds.slice(0, 5);
+  
+  const galleryItems = profileFeeds.map((feed, index) => ({
+    id: feed.id,
+    title: feed.title,
+    thumbnail: feed.thumbnail,
+    isNew: index === 0, // Mark the first item as new
+    isFeatured: index === 0, // Make the first item featured
+    viewCount: feed.viewCount,
+    isPremium: feed.isPremium
+  }));
 
   return (
     <div className="px-6 pb-20">
@@ -51,12 +34,20 @@ const GalleryGrid = () => {
                 </div>
               )}
               
+              {/* Premium Badge */}
+              {item.isPremium && (
+                <div className="absolute top-3 right-3 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">
+                  PREMIUM
+                </div>
+              )}
+              
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               
-              {/* Title */}
+              {/* Title and Stats */}
               <div className="absolute bottom-3 left-3 right-3">
-                <p className="text-white text-sm font-mono">{item.title}</p>
+                <p className="text-white text-sm font-mono mb-1">{item.title}</p>
+                <p className="text-gray-300 text-xs font-mono">{item.viewCount} views</p>
               </div>
             </div>
           </Link>
@@ -78,9 +69,17 @@ const GalleryGrid = () => {
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 
+                {/* Premium Badge for grid items */}
+                {item.isPremium && (
+                  <div className="absolute top-2 right-2 bg-yellow-500 text-black px-1 py-0.5 rounded text-xs font-bold">
+                    P
+                  </div>
+                )}
+                
                 {/* Title */}
                 <div className="absolute bottom-2 left-2 right-2">
                   <p className="text-white text-xs font-mono leading-tight">{item.title}</p>
+                  <p className="text-gray-400 text-xs font-mono">{item.viewCount}</p>
                 </div>
               </div>
             </Link>
