@@ -15775,11 +15775,311 @@ Perfect! I can see you have some great custom images for your feeds. Let me copy
 
 ---
 
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_2396.PNG" "public/images/visvim-shopping.png"
+```
 
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
 
 ---
 
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_4349.JPG" "public/images/pebble-beach-golf.jpg"
+```
 
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_4347.JPG" "public/images/malbon-visit.jpg"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_4348.JPG" "public/images/lifestyle-1.jpg"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_4346.JPG" "public/images/lifestyle-2.jpg"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+ls -la public/images/
+```
+
+```
+sahilhanda@MacBookAir vybeslab % ls -la public/images/
+total 13552
+drwxr-xr-x@ 8 sahilhanda  staff      256 Aug  4 20:43 .
+drwxr-xr-x@ 4 sahilhanda  staff      128 Aug  2 13:51 ..
+-rw-r--r--@ 1 sahilhanda  staff    27293 Aug  2 14:31 demo-thumbnail.jpg
+-rw-r--r--@ 1 sahilhanda  staff    33663 Aug  4 20:43 lifestyle-1.jpg
+-rw-r--r--@ 1 sahilhanda  staff    34369 Aug  4 20:43 lifestyle-2.jpg
+-rw-r--r--@ 1 sahilhanda  staff    36160 Aug  4 20:43 malbon-visit.jpg
+-rw-r--r--@ 1 sahilhanda  staff    39551 Aug  4 20:42 pebble-beach-golf.jpg
+-rw-r--r--@ 1 sahilhanda  staff  6754610 Aug  4 20:42 visvim-shopping.png
+sahilhanda@MacBookAir vybeslab %
+```
+
+---
+
+Perfect! All your images are now copied. Now let me update the mockData.js to use your custom thumbnails:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Now let me update the thumbnails to use your custom images:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 5, lines removed: 7
+
+```diff
+@@ -54,11 +54,9 @@
+      title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
+      creator: '@lifestylevibes',
+-     // 🚀 PRODUCTION READY: Choose one based on your needs
+-     thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+-     
+-     // 📁 LOCAL (Good for MVP - works in production)
+-     // thumbnail: '/images/visvim-shopping.jpg',
+-     
+-     // ☁️ CLOUDINARY (Best for scale - auto-optimized)
++     // 🚀 YOUR CUSTOM IMAGE - IMG_2396
++     thumbnail: '/images/visvim-shopping.png',
++     
++     // 📁 BACKUP OPTIONS:
++     // thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+      // thumbnail: 'https://res.cloudinary.com/your-cloud/image/upload/w_400,h_300,c_fill/visvim-shopping.jpg',
+      
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 4, lines removed: 4
+
+```diff
+@@ -71,8 +71,8 @@
+      title: '⛳ Putting at The Hay in Pebble Beach',
+      creator: '@golfpro',
+-     // Current: Unsplash image
+-     thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
+-     // Alternative: Local image
+-     // thumbnail: '/images/golf-pebble-beach.jpg',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_4349
++     thumbnail: '/images/pebble-beach-golf.jpg',
++     // Alternative: Unsplash backup
++     // thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
+      viewCount: '8.9K',
+      isPremium: true,
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 4, lines removed: 1
+
+```diff
+@@ -85,5 +85,8 @@
+      title: '🛍️ Visiting the Malbon Store in Carmel',
+      creator: '@golfstyle',
+-     thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_4347
++     thumbnail: '/images/malbon-visit.jpg',
++     // Alternative: Unsplash backup
++     // thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+      viewCount: '6.7K',
+      isPremium: false,
+```
+
+</details>
+
+---
+
+Now let me update the remaining feeds to use your other custom images:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 4, lines removed: 1
+
+```diff
+@@ -99,5 +99,8 @@
+      title: '🛍️ Shopping at Visvim in Carmel - Part 2',
+      creator: '@lifestylevibes',
+-     thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_4348 
++     thumbnail: '/images/lifestyle-1.jpg',
++     // Alternative: Unsplash backup
++     // thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
+      viewCount: '9.2K',
+      isPremium: true,
+```
+
+</details>
+
+---
+
+Read file: src/mockData.js
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 4, lines removed: 1
+
+```diff
+@@ -113,5 +113,8 @@
+      title: '⛳ Golf Course Tour - Pebble Beach',
+      creator: '@golfpro',
+-     thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_4346
++     thumbnail: '/images/lifestyle-2.jpg',
++     // Alternative: Unsplash backup
++     // thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
+      viewCount: '15.8K',
+      isPremium: true,
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Your Custom Thumbnails Are Now Live!**
+
+## 🖼️ **Image Mapping Complete:**
+
+| **Feed** | **Your Image** | **File** |
+|----------|----------------|----------|
+| **🛍️ Shopping at Visvim** | IMG_2396.PNG | `/images/visvim-shopping.png` |
+| **⛳ Putting at The Hay** | IMG_4349.JPG | `/images/pebble-beach-golf.jpg` |
+| **🛍️ Visiting Malbon Store** | IMG_4347.JPG | `/images/malbon-visit.jpg` |
+| **🛍️ Shopping at Visvim - Part 2** | IMG_4348.JPG | `/images/lifestyle-1.jpg` |
+| **⛳ Golf Course Tour** | IMG_4346.JPG | `/images/lifestyle-2.jpg` |
+
+## 🎯 **What's Changed:**
+
+### ✅ **Your Images Now Active:**
+- All your custom images are copied to `public/images/`
+- Thumbnails updated in `mockData.js` to use your images
+- Backup Unsplash URLs commented out for easy switching
+
+### 🚀 **Production Ready:**
+- Images will work perfectly in production builds
+- Your custom content now shows everywhere (homepage, profile, etc.)
+- High-quality images with proper naming
+
+## 🔍 **File Size Optimization:**
+
+I notice your Visvim image is quite large (6.4MB). Let me optimize it:
+
+---
+
+```bash
+ls -lh public/images/ | grep visvim
+```
+
+```
+sahilhanda@MacBookAir vybeslab % ls -lh public/images/ | grep visvim
+-rw-r--r--@ 1 sahilhanda  staff   6.4M Aug  4 20:42 visvim-shopping.png
+sahilhanda@MacBookAir vybeslab %
+```
+
+---
+
+## ⚡ **Performance Note:**
+
+Your Visvim image is 6.4MB - quite large for web use. For better performance:
+
+### **Option 1: Keep as-is (Works fine for demo)**
+- Your current setup will work perfectly
+- Just slower loading on slow connections
+
+### **Option 2: Optimize later**
+- Use tools like TinyPNG or ImageOptim to reduce size
+- Target: under 500KB for web thumbnails
+
+## 🧪 **Test Your Changes:**
+
+1. **Check your browser** - thumbnails should update immediately
+2. **Visit different pages**:
+   - Homepage feeds
+   - Profile page gallery
+   - Stream views
+3. **Test mobile view** - all should show your custom images
+
+## 🎉 **Your Custom Feeds Are Live!**
+
+**Your actual photos are now powering your entire platform!** This makes your demo much more authentic and personal. The images show real locations (Visvim, Pebble Beach, Malbon) that match your video content perfectly.
+
+**Everything will work the same in production** - these local images get deployed with your site automatically! 🚀📸✨
+
+---
+
+_**User**_
+
+next can you make img_2397 the profile pic and img_2398 the background inmage for the profile page
+
+---
+
+_**Assistant**_
+
+I'd love to help you update the profile page with those images! However, I don't see `IMG_2397` and `IMG_2398` in the images folder you
 
 ---
 

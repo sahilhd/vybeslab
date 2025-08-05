@@ -123,7 +123,7 @@ const Navbar = () => {
               className="w-10 h-10 bg-gradient-to-r from-neon-green to-emerald-600 rounded-full shadow-lg shadow-neon-green/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-green/50 overflow-hidden"
             >
               <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face"
+                src="/images/profile-picture.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover rounded-full"
               />

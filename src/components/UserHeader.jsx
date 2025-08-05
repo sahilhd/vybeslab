@@ -5,7 +5,7 @@ const UserHeader = () => {
       <div 
         className="h-48 bg-cover bg-center relative"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=200&fit=crop')"
+          backgroundImage: "url('/images/profile-background.png')"
         }}
       >
         {/* Gradient Overlay */}
@@ -18,7 +18,7 @@ const UserHeader = () => {
         <div className="relative -mt-16 mb-4">
           <div className="w-24 h-24 rounded-full border-4 border-black overflow-hidden bg-gray-800">
             <img 
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=face"
+              src="/images/profile-picture.jpg"
               alt="Profile"
               className="w-full h-full object-cover"
             />
