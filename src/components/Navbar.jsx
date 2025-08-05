@@ -104,25 +104,29 @@ const Navbar = () => {
             {/* Quest Icon */}
             <Link 
               to="/quests"
-              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center"
+              className="w-10 h-10 bg-gradient-to-r from-neon-magenta to-purple-600 rounded-full shadow-lg shadow-neon-magenta/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-magenta/50"
             >
-              <span className="text-white text-lg">🎯</span>
+              <span className="text-white text-lg filter drop-shadow-sm">🎯</span>
             </Link>
             
             {/* Search Icon */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-neon-cyan text-lg"
+              className="w-10 h-10 bg-gradient-to-r from-neon-cyan to-blue-600 rounded-full shadow-lg shadow-neon-cyan/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-cyan/50"
             >
-              🔍
+              <span className="text-white text-lg filter drop-shadow-sm">🔍</span>
             </button>
             
             {/* Profile Icon */}
             <Link 
               to="/profile"
-              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center"
+              className="w-10 h-10 bg-gradient-to-r from-neon-green to-emerald-600 rounded-full shadow-lg shadow-neon-green/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-green/50 overflow-hidden"
             >
-              <span className="text-white font-mono text-xs">👤</span>
+              <img 
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face"
+                alt="Profile"
+                className="w-full h-full object-cover rounded-full"
+              />
             </Link>
           </div>
         </div>
