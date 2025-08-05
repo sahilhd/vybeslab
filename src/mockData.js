@@ -95,7 +95,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'SPORTS',
     description: '⛳ Legendary 18th hole at Pebble Beach Golf Links. One of the most iconic holes in golf with stunning ocean views.',
-    videoUrl: null
+    videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
   },
   {
     id: 4,
