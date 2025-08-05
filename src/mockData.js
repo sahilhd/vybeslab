@@ -143,6 +143,18 @@ export const mockFeeds = [
     category: 'SPORTS',
     description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
     videoUrl: null
+  },
+  {
+    id: 7,
+    title: 'PARTYGIRL Ibiza',
+    creator: '@charlixcx',
+    // 🚀 YOUR CUSTOM IMAGE - IMG_2400
+    thumbnail: '/images/partygirl-ibiza.png',
+    viewCount: '24.7K',
+    isPremium: true,
+    category: 'LIFESTYLE',
+    description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
+    videoUrl: null
   }
 ];
 
