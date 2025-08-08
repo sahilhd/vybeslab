@@ -16999,6 +16999,733 @@ next I want to make some slight UI changes, reference the image to help:
 
 _**Assistant**_
 
+Perfect! I can see the screenshot and understand the improvements you want. Let me implement these UI changes one by one:
+
+## 1. Move FEEDS logo more to the left
+## 2. Add GO LIVE button and create the page
+## 3. Add top premium banner 
+## 4. Improve the profile pic button
+
+Let me start with these changes:
+
+---
+
+The string to replace was not found in the file.
+
+---
+
+Let me read the current Navbar file to see the exact structure:
+
+---
+
+Read file: src/components/Navbar.jsx
+
+---
+
+Now let me implement all the changes. First, let's update the logo position and add the GO LIVE button:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 2
+
+```diff
+@@ -13,6 +13,6 @@
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between h-16">
+-           {/* Logo */}
+-           <Link to="/" className="flex items-center space-x-2">
++           {/* Logo - moved more to the left */}
++           <Link to="/" className="flex items-center space-x-2 -ml-6">
+              <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
+                FEEDS
+```
+
+</details>
+
+---
+
+Now let's add the GO LIVE button and improve the profile button:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 9, lines removed: undefined
+
+```diff
+@@ -44,4 +44,13 @@
+                语用化
+              </div>
++ 
++             {/* GO LIVE Button */}
++             <Link 
++               to="/live"
++               className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-red-500/30 hover:scale-105 transition-all duration-200 flex items-center space-x-2 animate-pulse"
++             >
++               <span className="w-2 h-2 bg-white rounded-full"></span>
++               <span>GO LIVE</span>
++             </Link>
+  
+              {/* Action Buttons */}
+```
+
+</details>
+
+---
+
+Now let's improve the profile button to show "PROFILE" text instead of just an image:
+
+---
+
+Read file: src/components/Navbar.jsx
+
+---
+
+Let me improve the profile button to be more prominent:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 9, lines removed: 4
+
+```diff
+@@ -90,10 +90,15 @@
+              </button>
+  
+-             {/* Profile Icon */}
++             {/* Profile Button */}
+              <Link 
+                to="/profile"
+-               className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center hover:bg-neon-magenta/80 transition-colors"
+-             >
+-               <span className="text-white font-mono text-xs">👤</span>
++               className="flex items-center space-x-2 bg-gradient-to-r from-neon-green to-emerald-600 px-4 py-2 rounded-full shadow-lg shadow-neon-green/30 hover:scale-105 transition-all duration-200"
++             >
++               <img 
++                 src="/images/profile-picture.jpg"
++                 alt="Profile"
++                 className="w-6 h-6 rounded-full object-cover border border-white/20"
++               />
++               <span className="text-white font-mono text-sm font-bold">PROFILE</span>
+              </Link>
+            </div>
+```
+
+</details>
+
+---
+
+Now let's create the GO LIVE page. First, let me create the GoLive component:
+
+---
+
+<details><summary>Edit file: src/components/GoLive.jsx</summary>
+
+Create a new GoLive component for the live streaming page with a cool UI design
+
+**Chunk 1**
+Lines added: 214, lines removed: 1
+
+```diff
+@@ -1,1 +1,214 @@
+- 
++ import { useState } from 'react';
++ import { Link } from 'react-router-dom';
++ import MobileBottomNav from './MobileBottomNav';
++ 
++ const GoLive = () => {
++   const [streamTitle, setStreamTitle] = useState('');
++   const [streamCategory, setStreamCategory] = useState('LIFESTYLE');
++   const [isLive, setIsLive] = useState(false);
++ 
++   const categories = [
++     'LIFESTYLE', 'FASHION', 'SPORTS', 'TECH', 'GAMING', 
++     'MUSIC', 'ART', 'FOOD & DRINK', 'TRAVEL', 'FITNESS'
++   ];
++ 
++   const handleGoLive = () => {
++     setIsLive(true);
++     // In a real app, this would start the stream
++   };
++ 
++   const handleEndStream = () => {
++     setIsLive(false);
++   };
++ 
++   if (isLive) {
++     return (
++       <div className="min-h-screen bg-cyber-black text-white pb-20 lg:pb-8">
++         {/* Live Stream Interface */}
++         <div className="fixed inset-0 bg-black flex flex-col">
++           {/* Stream Header */}
++           <div className="bg-gradient-to-r from-red-600 to-red-500 p-4 flex items-center justify-between">
++             <div className="flex items-center space-x-3">
++               <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
++               <span className="font-mono text-white font-bold">LIVE</span>
++               <span className="text-white/80 font-mono text-sm">{streamTitle}</span>
++             </div>
++             <button
++               onClick={handleEndStream}
++               className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded font-mono text-sm transition-colors"
++             >
++               END STREAM
++             </button>
++           </div>
++ 
++           {/* Video Preview Area */}
++           <div className="flex-1 bg-gray-900 flex items-center justify-center">
++             <div className="text-center">
++               <div className="text-6xl mb-4">📹</div>
++               <h2 className="text-2xl font-pixel text-neon-cyan mb-2">YOU'RE LIVE!</h2>
++               <p className="text-gray-400 font-mono">Camera feed would appear here</p>
++               <div className="mt-4 flex items-center justify-center space-x-4">
++                 <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-mono animate-pulse">
++                   🔴 STREAMING
++                 </div>
++                 <div className="text-neon-cyan font-mono">
++                   👥 24 viewers
++                 </div>
++               </div>
++             </div>
++           </div>
++ 
++           {/* Stream Controls */}
++           <div className="bg-cyber-black/95 p-4 flex items-center justify-center space-x-4">
++             <button className="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
++               🎤
++             </button>
++             <button className="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
++               📷
++             </button>
++             <button className="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
++               💬
++             </button>
++           </div>
++         </div>
++       </div>
++     );
++   }
++ 
++   return (
++     <div className="min-h-screen bg-cyber-black text-white pb-20 lg:pb-8">
++       {/* Back Button */}
++       <div className="fixed top-20 left-4 z-50">
++         <Link 
++           to="/" 
++           className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
++         >
++           <span>←</span>
++           <span>BACK</span>
++         </Link>
++       </div>
++ 
++       <div className="container mx-auto px-4 pt-24 max-w-4xl">
++         {/* Header */}
++         <div className="text-center mb-8">
++           <div className="text-6xl mb-4">🔴</div>
++           <h1 className="text-3xl md:text-4xl font-pixel neon-text text-red-500 mb-4">
++             GO LIVE
++           </h1>
++           <p className="text-gray-400 font-mono text-sm max-w-2xl mx-auto">
++             Start your live stream and connect with your audience in real-time. 
++             Share your experiences, moments, and creativity with the world.
++           </p>
++         </div>
++ 
++         {/* Stream Setup Form */}
++         <div className="max-w-2xl mx-auto">
++           <div className="bg-dark-blue border border-neon-blue rounded-lg p-6 mb-6">
++             <h2 className="text-xl font-pixel text-neon-cyan mb-6">STREAM SETUP</h2>
++             
++             {/* Stream Title */}
++             <div className="mb-6">
++               <label className="block text-neon-cyan font-mono text-sm mb-2">
++                 STREAM TITLE
++               </label>
++               <input
++                 type="text"
++                 value={streamTitle}
++                 onChange={(e) => setStreamTitle(e.target.value)}
++                 placeholder="What's happening right now?"
++                 className="w-full bg-cyber-black border border-neon-blue rounded px-4 py-3 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan focus:shadow-lg focus:shadow-neon-cyan/20"
++                 maxLength={100}
++               />
++               <div className="text-gray-400 text-xs mt-1 font-mono">
++                 {streamTitle.length}/100 characters
++               </div>
++             </div>
++ 
++             {/* Category Selection */}
++             <div className="mb-6">
++               <label className="block text-neon-cyan font-mono text-sm mb-2">
++                 CATEGORY
++               </label>
++               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
++                 {categories.map((category) => (
++                   <button
++                     key={category}
++                     onClick={() => setStreamCategory(category)}
++                     className={`p-2 rounded font-mono text-xs transition-all ${
++                       streamCategory === category
++                         ? 'bg-neon-cyan text-black shadow-lg shadow-neon-cyan/30'
++                         : 'border border-neon-blue text-neon-cyan hover:bg-neon-blue/20'
++                     }`}
++                   >
++                     {category}
++                   </button>
++                 ))}
++               </div>
++             </div>
++ 
++             {/* Camera Preview */}
++             <div className="mb-6">
++               <label className="block text-neon-cyan font-mono text-sm mb-2">
++                 CAMERA PREVIEW
++               </label>
++               <div className="aspect-video bg-gray-900 rounded-lg border border-gray-700 flex items-center justify-center">
++                 <div className="text-center">
++                   <div className="text-4xl mb-2">📷</div>
++                   <p className="text-gray-400 font-mono text-sm">Camera preview will appear here</p>
++                   <button className="mt-2 border border-neon-cyan text-neon-cyan px-3 py-1 rounded text-xs font-mono hover:bg-neon-cyan hover:text-black transition-colors">
++                     TEST CAMERA
++                   </button>
++                 </div>
++               </div>
++             </div>
++ 
++             {/* Stream Settings */}
++             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
++               <div className="bg-cyber-black rounded p-3">
++                 <div className="text-neon-green font-mono text-sm">QUALITY</div>
++                 <div className="text-white text-xs">1080p HD</div>
++               </div>
++               <div className="bg-cyber-black rounded p-3">
++                 <div className="text-neon-green font-mono text-sm">PRIVACY</div>
++                 <div className="text-white text-xs">Public Stream</div>
++               </div>
++             </div>
++ 
++             {/* Go Live Button */}
++             <button
++               onClick={handleGoLive}
++               disabled={!streamTitle.trim()}
++               className={`w-full py-4 rounded-lg font-mono font-bold text-lg transition-all duration-300 ${
++                 streamTitle.trim()
++                   ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30 hover:scale-105 animate-pulse'
++                   : 'bg-gray-700 text-gray-400 cursor-not-allowed'
++               }`}
++             >
++               <div className="flex items-center justify-center space-x-3">
++                 <span className="w-3 h-3 bg-white rounded-full"></span>
++                 <span>START LIVE STREAM</span>
++               </div>
++             </button>
++           </div>
++ 
++           {/* Tips */}
++           <div className="bg-dark-blue border border-neon-blue rounded-lg p-4">
++             <h3 className="text-neon-cyan font-mono text-sm mb-3">💡 STREAMING TIPS</h3>
++             <ul className="space-y-2 text-gray-300 text-xs font-mono">
++               <li>• Make sure you have a stable internet connection</li>
++               <li>• Good lighting makes a huge difference</li>
++               <li>• Interact with your viewers in real-time</li>
++               <li>• Choose an engaging stream title</li>
++               <li>• Stream consistently to build your audience</li>
++             </ul>
++           </div>
++         </div>
++       </div>
++ 
++       {/* Mobile Bottom Navigation */}
++       <MobileBottomNav />
++     </div>
++   );
++ };
++ 
++ export default GoLive; 
+```
+
+</details>
+
+---
+
+Now let's add the route for the GoLive component in App.jsx:
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -7,4 +7,5 @@
+  import ProfilePage from './components/ProfilePage';
+  import VisionQuest from './components/VisionQuest';
++ import GoLive from './components/GoLive';
+  import Navbar from './components/Navbar';
+  import MobileBottomNav from './components/MobileBottomNav';
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -29,4 +29,5 @@
+              <Route path="/glasses" element={<GlassesPage />} />
+              <Route path="/quests" element={<VisionQuest />} />
++             <Route path="/live" element={<GoLive />} />
+              <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
+               </Routes>
+```
+
+</details>
+
+---
+
+Now let's create a top premium banner. Let me add it to the HomePage component:
+
+---
+
+<details><summary>Edit file: src/components/TopPremiumBanner.jsx</summary>
+
+Create a new TopPremiumBanner component to show top subscribed premium users
+
+**Chunk 1**
+Lines added: 159, lines removed: 1
+
+```diff
+@@ -1,1 +1,159 @@
+- 
++ import { Link } from 'react-router-dom';
++ 
++ const TopPremiumBanner = () => {
++   const topPremiumUsers = [
++     {
++       id: 1,
++       username: '@charlixcx',
++       subscribers: '2.4M',
++       avatar: 'https://images.unsplash.com/photo-1494790108755-2616c6d96a50?w=40&h=40&fit=crop&crop=face',
++       isVerified: true,
++       tier: 'PLATINUM'
++     },
++     {
++       id: 2,
++       username: '@lifestylevibes',
++       subscribers: '890K',
++       avatar: '/images/profile-picture.jpg',
++       isVerified: true,
++       tier: 'GOLD'
++     },
++     {
++       id: 3,
++       username: '@rickythompson',
++       subscribers: '567K',
++       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face',
++       isVerified: true,
++       tier: 'GOLD'
++     },
++     {
++       id: 4,
++       username: '@evelynha',
++       subscribers: '234K',
++       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face',
++       isVerified: true,
++       tier: 'SILVER'
++     },
++     {
++       id: 5,
++       username: '@threadguy',
++       subscribers: '189K',
++       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face',
++       isVerified: true,
++       tier: 'SILVER'
++     }
++   ];
++ 
++   const getTierColor = (tier) => {
++     switch (tier) {
++       case 'PLATINUM': return 'from-purple-500 to-pink-500';
++       case 'GOLD': return 'from-yellow-400 to-orange-500';
++       case 'SILVER': return 'from-gray-300 to-gray-500';
++       default: return 'from-gray-400 to-gray-600';
++     }
++   };
++ 
++   const getTierIcon = (tier) => {
++     switch (tier) {
++       case 'PLATINUM': return '💎';
++       case 'GOLD': return '🏆';
++       case 'SILVER': return '🥈';
++       default: return '⭐';
++     }
++   };
++ 
++   return (
++     <div className="bg-gradient-to-r from-purple-900 to-indigo-900 border border-purple-500/30 rounded-lg p-4 mb-6 shadow-lg shadow-purple-500/20">
++       {/* Header */}
++       <div className="flex items-center justify-between mb-4">
++         <div className="flex items-center space-x-2">
++           <span className="text-2xl">👑</span>
++           <h3 className="font-pixel text-purple-300 text-lg">TOP PREMIUM</h3>
++         </div>
++         <div className="text-purple-400 font-mono text-xs">
++           Most Subscribed
++         </div>
++       </div>
++ 
++       {/* Premium Users List */}
++       <div className="space-y-3">
++         {topPremiumUsers.map((user, index) => (
++           <Link
++             key={user.id}
++             to="/profile"
++             className="flex items-center space-x-3 p-2 rounded-lg bg-black/30 hover:bg-black/50 transition-colors group"
++           >
++             {/* Rank */}
++             <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
++               {index === 0 ? (
++                 <div className="text-yellow-400 text-lg font-bold">👑</div>
++               ) : (
++                 <div className="text-purple-300 font-mono text-sm font-bold">
++                   #{index + 1}
++                 </div>
++               )}
++             </div>
++ 
++             {/* Avatar with Tier Border */}
++             <div className="relative flex-shrink-0">
++               <div className={`w-10 h-10 rounded-full p-0.5 bg-gradient-to-r ${getTierColor(user.tier)}`}>
++                 <img
++                   src={user.avatar}
++                   alt={user.username}
++                   className="w-full h-full rounded-full object-cover"
++                 />
++               </div>
++               {/* Tier Badge */}
++               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-black rounded-full flex items-center justify-center text-xs">
++                 {getTierIcon(user.tier)}
++               </div>
++             </div>
++ 
++             {/* User Info */}
++             <div className="flex-1 min-w-0">
++               <div className="flex items-center space-x-2">
++                 <span className="font-mono text-white text-sm font-bold truncate">
++                   {user.username}
++                 </span>
++                 {user.isVerified && (
++                   <span className="text-blue-400 text-xs">✓</span>
++                 )}
++               </div>
++               <div className="text-purple-300 font-mono text-xs">
++                 {user.subscribers} subscribers
++               </div>
++             </div>
++ 
++             {/* Tier Label */}
++             <div className="flex-shrink-0">
++               <div className={`px-2 py-1 rounded-full bg-gradient-to-r ${getTierColor(user.tier)} text-black text-xs font-mono font-bold`}>
++                 {user.tier}
++               </div>
++             </div>
++ 
++             {/* Hover Arrow */}
++             <div className="flex-shrink-0 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
++               →
++             </div>
++           </Link>
++         ))}
++       </div>
++ 
++       {/* Footer */}
++       <div className="mt-4 pt-3 border-t border-purple-500/20">
++         <div className="flex items-center justify-between text-xs font-mono">
++           <span className="text-purple-400">Updated every hour</span>
++           <Link 
++             to="/premium" 
++             className="text-purple-300 hover:text-white transition-colors flex items-center space-x-1"
++           >
++             <span>View All</span>
++             <span>→</span>
++           </Link>
++         </div>
++       </div>
++     </div>
++   );
++ };
++ 
++ export default TopPremiumBanner; 
+```
+
+</details>
+
+---
+
+Now let's add the TopPremiumBanner to the HomePage:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -4,4 +4,5 @@
+  import TopFeeds from './TopFeeds';
+  import TopCreators from './TopCreators';
++ import TopPremiumBanner from './TopPremiumBanner';
+  import MobileBottomNav from './MobileBottomNav';
+  import AITriggerButton from './AITriggerButton';
+```
+
+</details>
+
+---
+
+Now let's add the TopPremiumBanner to the right sidebar:
+
+---
+
+The string to replace was not found in the file.
+
+---
+
+Let me read the HomePage to find the correct sidebar structure:
+
+---
+
+Read file: src/components/HomePage.jsx
+
+---
+
+Read file: src/components/HomePage.jsx
+
+---
+
+Perfect! Now I can add the TopPremiumBanner to the right sidebar:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -175,4 +175,5 @@
+        <div className="hidden xl:block fixed right-0 top-16 bottom-0 w-80 px-6 pt-6 pb-6 overflow-y-auto z-40">
+          <div className="space-y-6" style={{ marginTop: '24px' }}>
++           <TopPremiumBanner />
+            <TopFeeds />
+            <TopCreators />
+```
+
+</details>
+
+---
+
+Perfect! ✨ **All UI Improvements Complete!**
+
+## 🎯 **Summary of Changes Made:**
+
+### **1. ✅ FEEDS Logo - Moved More to the Left**
+- Added `-ml-6` class to move the logo further left
+- More space for the center search bar
+
+### **2. ✅ GO LIVE Button Added**
+- **Beautiful animated button** with red background and pulsing effect
+- **White dot indicator** and "GO LIVE" text
+- **Hover effects** and scale animations
+- **Complete GoLive page** with:
+  - Stream setup form (title, category, camera preview)
+  - Live streaming interface with viewer count
+  - Stream controls (mic, camera, chat)
+  - Professional streaming tips
+
+### **3. ✅ Top Premium Banner**
+- **Crown-themed design** with gradient purple background
+- **Tier system**: Platinum 💎, Gold 🏆, Silver 🥈
+- **Top 5 premium users** with subscriber counts
+- **Verification badges** and tier borders
+- **Interactive hover effects** and "View All" link
+- Added to the right sidebar above Top Feeds
+
+### **4. ✅ Improved Profile Button**
+- **Replaced simple icon** with full "PROFILE" button
+- **Your actual profile picture** from IMG_2397
+- **Gradient green background** with shadow effects
+- **Hover scale animation** and modern styling
+- **Professional appearance** matching the site aesthetic
+
+## 🎨 **Visual Enhancements:**
+
+### **Navigation Bar:**
+```
+[FEEDS]    [SEARCH BAR]    [语用化] [GO LIVE] [UPLOAD] [🎯QUESTS] [🤖AI] [🕶️BUY] [SIGN IN] [👤PROFILE]
+```
+
+### **Right Sidebar:**
+```
+👑 TOP PREMIUM
+├── @charlixcx (2.4M) 💎 PLATINUM
+├── @lifestylevibes (890K) 🏆 GOLD  
+├── @rickythompson (567K) 🏆 GOLD
+├── @evelynha (234K) 🥈 SILVER
+└── @threadguy (189K) 🥈 SILVER
+
+📈 TOP FEEDS
+...
+
+👥 TOP CREATORS
+...
+```
+
+## 🚀 **New Features:**
+- **Live Streaming Setup** page with professional interface
+- **Premium User Rankings** with tier system
+- **Enhanced Navigation** with better spacing and design
+- **Modern Profile Button** with actual user photo
+
+**All changes are now live and ready to test!** The UI looks much more polished and professional with these improvements. 🎉✨
+
+---
+
+_**User**_
+
+I want to move the feeds logo on the top navbar more to the left, it should on the same width as the catagories label, and can you remove the japnese text on the navbar too
+
+---
+
+_**Assistant**_
+
 
 
 ---

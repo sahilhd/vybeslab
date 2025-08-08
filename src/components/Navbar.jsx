@@ -12,8 +12,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
-          {/* Logo - moved more to the left */}
-          <Link to="/" className="flex items-center space-x-2 -ml-6">
+          {/* Logo - aligned with categories */}
+          <Link to="/" className="flex items-center space-x-2 ml-4">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
               FEEDS
             </div>
@@ -39,11 +39,6 @@ const Navbar = () => {
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="text-neon-cyan font-mono">
-              语用化
-            </div>
-
             {/* GO LIVE Button */}
             <Link 
               to="/live"
