@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 
 const GalleryGrid = ({ feeds = [] }) => {
-  // Use actual feeds data but limit to profile's content (first 5 feeds for the profile user)
-  const profileFeeds = feeds.slice(0, 5);
+  // Filter to show only YOUR personal streams (your original content)
+  const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
+  const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator)).slice(0, 5);
   
   const galleryItems = profileFeeds.map((feed, index) => ({
     id: feed.id,

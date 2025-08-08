@@ -16466,23 +16466,427 @@ img_2402, caption: 18th hole Pebble Beach
 
 _**Assistant**_
 
-
-
----
-
-
+Perfect! Let me add these new feeds at the front of the array, starting with the Charli XCX stream, followed by your three new feeds. First, let me copy the new images and then reorganize the feeds array.
 
 ---
 
+```bash
+ls -la "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/" | grep -E "(2401|2404|2402)"
+```
 
+```
+sahilhanda@MacBookAir vybeslab % ls -la "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/histor
+y/images/" | grep -E "(2401|2404|ls -la "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/histor
+y/images/" | grep -E "(2401|2404|2402)"
+-rw-r--r--@  1 sahilhanda  staff    97902 Aug  4 21:01 IMG_2401.JPG
+-rw-r--r--@  1 sahilhanda  staff  7686443 Aug  4 21:02 IMG_2402.PNG
+-rw-r--r--@  1 sahilhanda  staff   106888 Aug  4 21:02 IMG_2404.JPG
+sahilhanda@MacBookAir vybeslab %
+```
 
 ---
 
-
+Great! Let me copy all three new images:
 
 ---
 
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_2401.JPG" "public/images/prada-front-row.jpg"
+```
 
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_2404.JPG" "public/images/aperol-spritz-besties.jpg"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+cp "/Users/sahilhanda/Desktop/projects/vybes/vybeslab/.specstory/history/images/IMG_2402.PNG" "public/images/18th-hole-pebble.png"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % 
+
+```
+
+---
+
+```bash
+ls -la public/images/ | grep -E "(prada|aperol|18th|partygirl)"
+```
+
+```
+sahilhanda@MacBookAir vybeslab % ls -la public/images/ | grep -E "(prada|aperol|18th|partygirl)"
+-rw-r--r--@  1 sahilhanda  staff  7686443 Aug  4 21:05 18th-hole-pebble.png
+-rw-r--r--@  1 sahilhanda  staff   106888 Aug  4 21:04 aperol-spritz-besties.jpg
+-rw-r--r--@  1 sahilhanda  staff  1721915 Aug  4 20:57 partygirl-ibiza.png
+-rw-r--r--@  1 sahilhanda  staff    97902 Aug  4 21:04 prada-front-row.jpg
+sahilhanda@MacBookAir vybeslab %
+```
+
+---
+
+Perfect! Now let me restructure the mockFeeds array to put these new feeds at the front. I'll need to move the Charli XCX feed from the end to the beginning and add the three new feeds after it, then renumber all the IDs.
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 48, lines removed: undefined
+
+```diff
+@@ -52,4 +52,52 @@
+    {
+      id: 0,
++     title: 'PARTYGIRL Ibiza',
++     creator: '@charlixcx',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_2400
++     thumbnail: '/images/partygirl-ibiza.png',
++     viewCount: '24.7K',
++     isPremium: true,
++     category: 'LIFESTYLE',
++     description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
++     videoUrl: null
++   },
++   {
++     id: 1,
++     title: 'Front row at PRADA',
++     creator: '@rickythompson',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_2401
++     thumbnail: '/images/prada-front-row.jpg',
++     viewCount: '18.9K',
++     isPremium: true,
++     category: 'FASHION',
++     description: '✨ Front row experience at the exclusive PRADA show. Behind-the-scenes access to luxury fashion at its finest.',
++     videoUrl: null
++   },
++   {
++     id: 2,
++     title: 'Aperol spritz with my besties',
++     creator: '@evelynha',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_2404
++     thumbnail: '/images/aperol-spritz-besties.jpg',
++     viewCount: '16.3K',
++     isPremium: false,
++     category: 'LIFESTYLE',
++     description: '🍹 Perfect summer vibes with the best company. Aperol spritz sessions and good times with my closest friends.',
++     videoUrl: null
++   },
++   {
++     id: 3,
++     title: '18th hole Pebble Beach',
++     creator: '@threadguy',
++     // 🚀 YOUR CUSTOM IMAGE - IMG_2402
++     thumbnail: '/images/18th-hole-pebble.png',
++     viewCount: '21.2K',
++     isPremium: true,
++     category: 'SPORTS',
++     description: '⛳ Legendary 18th hole at Pebble Beach Golf Links. One of the most iconic holes in golf with stunning ocean views.',
++     videoUrl: null
++   },
++   {
++     id: 4,
+      title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
+      creator: '@lifestylevibes',
+```
+
+</details>
+
+---
+
+Now I need to update all the remaining IDs to shift them by 4 positions. Let me continue updating the rest of the feeds:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -116,5 +116,5 @@
+    },
+    {
+-     id: 1,
++     id: 5,
+      title: '⛳ Putting at The Hay in Pebble Beach',
+      creator: '@golfpro',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -130,5 +130,5 @@
+    },
+    {
+-     id: 2,
++     id: 6,
+      title: '🛍️ Visiting the Malbon Store in Carmel',
+      creator: '@golfstyle',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -144,5 +144,5 @@
+    },
+    {
+-     id: 3,
++     id: 7,
+      title: '🛍️ Shopping at Visvim in Carmel - Part 2',
+      creator: '@lifestylevibes',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -158,5 +158,5 @@
+    },
+    {
+-     id: 4,
++     id: 8,
+      title: '⛳ Golf Course Tour - Pebble Beach',
+      creator: '@golfpro',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -172,5 +172,5 @@
+    },
+    {
+-     id: 5,
++     id: 9,
+      title: '🛍️ Golf Lifestyle Shopping Spree',
+      creator: '@golfstyle',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -183,5 +183,5 @@
+    },
+    {
+-     id: 6,
++     id: 10,
+      title: '⛳ Pro Golf Tips & Techniques',
+      creator: '@golfpro',
+```
+
+**Chunk 2**
+Lines added: undefined, lines removed: 12
+
+```diff
+@@ -192,16 +192,4 @@
+      description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
+      videoUrl: null
+-   },
+-   {
+-     id: 7,
+-     title: 'PARTYGIRL Ibiza',
+-     creator: '@charlixcx',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_2400
+-     thumbnail: '/images/partygirl-ibiza.png',
+-     viewCount: '24.7K',
+-     isPremium: true,
+-     category: 'LIFESTYLE',
+-     description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
+-     videoUrl: null
+    }
+  ];
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Feed Array Reorganized Successfully!**
+
+## 🎯 **New Feed Order (Front to Back):**
+
+### **🔥 Priority Feeds (Your New Additions):**
+1. **ID 0**: `PARTYGIRL Ibiza` by @charlixcx (IMG_2400)
+2. **ID 1**: `Front row at PRADA` by @rickythompson (IMG_2401)
+3. **ID 2**: `Aperol spritz with my besties` by @evelynha (IMG_2404)
+4. **ID 3**: `18th hole Pebble Beach` by @threadguy (IMG_2402)
+
+### **📱 Profile Page Impact:**
+Since the profile page uses the **first 5 feeds (IDs 0-4)**, it will now show:
+- Your new Charli XCX Ibiza party stream
+- PRADA front row experience  
+- Aperol spritz with besties
+- 18th hole Pebble Beach
+- Shopping at Visvim (original)
+
+### **🏠 Homepage Impact:**
+The trending feeds will now lead with your exciting new content:
+- Party/lifestyle content at the top
+- Fashion and sports mixed throughout
+- High engagement numbers (16K-24K views)
+
+## 🎨 **Feed Details:**
+
+| **ID** | **Title** | **Creator** | **Category** | **Views** | **Premium** |
+|--------|-----------|-------------|--------------|-----------|-------------|
+| 0 | PARTYGIRL Ibiza | @charlixcx | LIFESTYLE | 24.7K | ✅ |
+| 1 | Front row at PRADA | @rickythompson | FASHION | 18.9K | ✅ |
+| 2 | Aperol spritz with my besties | @evelynha | LIFESTYLE | 16.3K | ❌ |
+| 3 | 18th hole Pebble Beach | @threadguy | SPORTS | 21.2K | ✅ |
+
+## 🧪 **Test Your Changes:**
+
+1. **Homepage** → New feeds should appear at the top
+2. **Profile page** → First 4 items should be your new content
+3. **Premium filter** → Should show Charli XCX, PRADA, and Pebble Beach
+4. **Lifestyle filter** → Should show Charli XCX and Aperol spritz
+
+## 🚀 **Production Ready:**
+- ✅ All images copied to `public/images/`
+- ✅ IDs properly renumbered (0-10)
+- ✅ Premium/category tags assigned
+- ✅ Engaging descriptions written
+- ✅ No video URLs (demo thumbnails only)
+
+**Your new priority feeds are now at the front of the platform!** 🎉📱✨
+
+The homepage and profile will immediately reflect this new content order, with your exciting lifestyle and fashion content leading the experience!
+
+---
+
+_**User**_
+
+can you map the same vifeo for 18th hole at the pebble as the same video for putting it at the hay 
+
+---
+
+_**Assistant**_
+
+Absolutely! Let me update the "18th hole Pebble Beach" feed to use the same video URL as the "Putting at The Hay" feed since they're both at Pebble Beach.
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -96,5 +96,5 @@
+      category: 'SPORTS',
+      description: '⛳ Legendary 18th hole at Pebble Beach Golf Links. One of the most iconic holes in golf with stunning ocean views.',
+-     videoUrl: null
++     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
+    },
+    {
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Video Mapping Complete!**
+
+## 🎯 **Updated Feed Connection:**
+
+### **🎥 Shared Video Content:**
+Both Pebble Beach golf feeds now use the same Cloudinary video:
+
+| **Feed ID** | **Title** | **Creator** | **Video URL** |
+|-------------|-----------|-------------|---------------|
+| **3** | 18th hole Pebble Beach | @threadguy | ✅ **Same Video** |
+| **5** | Putting at The Hay in Pebble Beach | @golfpro | ✅ **Same Video** |
+
+**Video URL**: `https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4`
+
+## 🏌️‍♂️ **Why This Makes Sense:**
+- **Same Location**: Both feeds are at Pebble Beach Golf Links
+- **Same Activity**: Both involve golf at this iconic course
+- **Different Perspectives**: 
+  - **@threadguy** (ID 3): Focuses on the legendary 18th hole
+  - **@golfpro** (ID 5): Focuses on putting technique at The Hay
+- **Different Thumbnails**: Each has their own custom image showing their unique angle
+
+## 🧪 **Test the Connection:**
+1. **Click on "18th hole Pebble Beach"** → Should now play the video
+2. **Click on "Putting at The Hay"** → Should play the same video
+3. **Compare experiences** → Same video content, different titles/thumbnails
+
+## 📱 **User Experience:**
+- **Consistent Content**: Users get the same high-quality Pebble Beach golf footage
+- **Different Stories**: Each creator frames the experience differently
+- **Efficient Demo**: Reuses your existing video content effectively
+
+**Both Pebble Beach golf feeds now share the same video while maintaining their unique identities through different thumbnails and creator perspectives!** ⛳🎥✨
+
+---
+
+_**User**_
+
+I want to fix the videos on the profile page, this page should include the personally made streams, so on this page we should see such as shopping at the vism etc, what it was before, then on the main feedpage we have everything, all the videos. its like i have my own profile with my own pictures and then the main feed with all posts or streams 
 
 ---
 
