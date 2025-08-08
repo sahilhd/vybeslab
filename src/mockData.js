@@ -191,6 +191,73 @@ export const mockFeeds = [
     category: 'SPORTS',
     description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
     videoUrl: null
+  },
+  {
+    id: 11,
+    title: 'Styling the Nike Bloody Chromes',
+    creator: '@alyssaantoci',
+    thumbnail: '/images/red_nikes.png',
+    viewCount: '42.1K',
+    isPremium: false,
+    category: 'FASHION',
+    description: '👟 Breaking down the styling secrets of the legendary Nike Bloody Chrome sneakers. Fashion meets street culture.',
+    videoUrl: null
+  },
+  {
+    id: 12,
+    title: 'Poolside at the Bel Air',
+    creator: '@shakir.shakir',
+    thumbnail: '/images/bel_air_pool.png',
+    viewCount: '89.3K',
+    isPremium: false,
+    category: 'TRAVEL',
+    description: '🏊‍♂️ Luxury poolside experience at the exclusive Bel Air resort. Living the high life in LA.',
+    videoUrl: null
+  },
+  {
+    id: 13,
+    title: 'New smoothie alert',
+    creator: '@gabbriette',
+    thumbnail: '/images/erewhon.png',
+    viewCount: '67.8K',
+    isPremium: false,
+    category: 'FOOD & DRINK',
+    description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
+    videoUrl: null,
+    isQuest: true
+  },
+  {
+    id: 14,
+    title: 'Private Delorean party at Car Week',
+    creator: '@threadguy',
+    thumbnail: '/images/delorean.png',
+    viewCount: '156.7K',
+    isPremium: true,
+    category: 'LIFESTYLE',
+    description: '🚗 Exclusive access to a private Delorean gathering during Monterey Car Week. Automotive history comes alive.',
+    videoUrl: null
+  },
+  {
+    id: 15,
+    title: 'La playa vision',
+    creator: '@diplo',
+    thumbnail: '/images/diplo.png',
+    viewCount: '203.5K',
+    isPremium: true,
+    category: 'MUSIC',
+    description: '🎵 Electronic music meets beach culture with Diplo. Sunset vibes and beats by the ocean.',
+    videoUrl: null
+  },
+  {
+    id: 16,
+    title: 'NIGHT 2 at Coachella',
+    creator: '@rowanblanchard',
+    thumbnail: '/images/coachella.png',
+    viewCount: '512.9K',
+    isPremium: true,
+    category: 'PARTIES',
+    description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+    videoUrl: null
   }
 ];
 

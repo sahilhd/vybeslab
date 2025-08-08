@@ -11,6 +11,14 @@ const FeedCard = ({ feed }) => {
           </div>
         )}
 
+        {/* Quest Badge */}
+        {feed.isQuest && (
+          <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-neon-magenta to-purple-600 px-2 py-1 rounded text-xs font-mono text-white shadow-lg shadow-neon-magenta/30 flex items-center space-x-1">
+            <span>🎯</span>
+            <span>QUEST</span>
+          </div>
+        )}
+
         {/* Thumbnail Image */}
         <div className="relative aspect-video flex-shrink-0">
           <img 
