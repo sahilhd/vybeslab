@@ -87,6 +87,73 @@ export const mockFeeds = [
   },
   {
     id: 3,
+    title: 'Styling the Nike Bloody Chromes',
+    creator: '@alyssaantoci',
+    thumbnail: '/images/red_nikes.png',
+    viewCount: '42.1K',
+    isPremium: false,
+    category: 'FASHION',
+    description: '👟 Breaking down the styling secrets of the legendary Nike Bloody Chrome sneakers. Fashion meets street culture.',
+    videoUrl: null
+  },
+  {
+    id: 4,
+    title: 'Poolside at the Bel Air',
+    creator: '@shakir.shakir',
+    thumbnail: '/images/bel_air_pool.png',
+    viewCount: '89.3K',
+    isPremium: false,
+    category: 'TRAVEL',
+    description: '🏊‍♂️ Luxury poolside experience at the exclusive Bel Air resort. Living the high life in LA.',
+    videoUrl: null
+  },
+  {
+    id: 5,
+    title: 'New smoothie alert',
+    creator: '@gabbriette',
+    thumbnail: '/images/erewhon.png',
+    viewCount: '67.8K',
+    isPremium: false,
+    category: 'FOOD & DRINK',
+    description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
+    videoUrl: null,
+    isQuest: true
+  },
+  {
+    id: 6,
+    title: 'Private Delorean party at Car Week',
+    creator: '@threadguy',
+    thumbnail: '/images/delorean.png',
+    viewCount: '156.7K',
+    isPremium: true,
+    category: 'LIFESTYLE',
+    description: '🚗 Exclusive access to a private Delorean gathering during Monterey Car Week. Automotive history comes alive.',
+    videoUrl: null
+  },
+  {
+    id: 7,
+    title: 'La playa vision',
+    creator: '@diplo',
+    thumbnail: '/images/diplo.png',
+    viewCount: '203.5K',
+    isPremium: true,
+    category: 'MUSIC',
+    description: '🎵 Electronic music meets beach culture with Diplo. Sunset vibes and beats by the ocean.',
+    videoUrl: null
+  },
+  {
+    id: 8,
+    title: 'NIGHT 2 at Coachella',
+    creator: '@rowanblanchard',
+    thumbnail: '/images/coachella.png',
+    viewCount: '512.9K',
+    isPremium: true,
+    category: 'PARTIES',
+    description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+    videoUrl: null
+  },
+  {
+    id: 9,
     title: '18th hole Pebble Beach',
     creator: '@threadguy',
     // 🚀 YOUR CUSTOM IMAGE - IMG_2402
@@ -98,7 +165,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
   },
   {
-    id: 4,
+    id: 10,
     title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
     creator: '@lifestylevibes',
     // 🚀 YOUR CUSTOM IMAGE - IMG_2396
@@ -115,7 +182,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251899/Shopping_at_Visvim_in_Carmel_1_ul2svu.mp4'
   },
   {
-    id: 5,
+    id: 11,
     title: '⛳ Putting at The Hay in Pebble Beach',
     creator: '@golfpro',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4349
@@ -129,7 +196,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
   },
   {
-    id: 6,
+    id: 12,
     title: '🛍️ Visiting the Malbon Store in Carmel',
     creator: '@golfstyle',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4347
@@ -143,7 +210,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Visiting_the_Malbon_Store_in_Carmel_tmdnwq.mp4'
   },
   {
-    id: 7,
+    id: 13,
     title: '🛍️ Shopping at Visvim in Carmel - Part 2',
     creator: '@lifestylevibes',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4348 
@@ -157,7 +224,7 @@ export const mockFeeds = [
     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Shopping_at_Visvim_in_Carmel_2_bvwuu7.mp4'
   },
   {
-    id: 8,
+    id: 14,
     title: '⛳ Golf Course Tour - Pebble Beach',
     creator: '@golfpro',
     // 🚀 YOUR CUSTOM IMAGE - IMG_4346
@@ -171,7 +238,7 @@ export const mockFeeds = [
     videoUrl: null
   },
   {
-    id: 9,
+    id: 15,
     title: '🛍️ Golf Lifestyle Shopping Spree',
     creator: '@golfstyle',
     thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400',
@@ -182,7 +249,7 @@ export const mockFeeds = [
     videoUrl: null
   },
   {
-    id: 10,
+    id: 16,
     title: '⛳ Pro Golf Tips & Techniques',
     creator: '@golfpro',
     thumbnail: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400',
@@ -190,73 +257,6 @@ export const mockFeeds = [
     isPremium: true,
     category: 'SPORTS',
     description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
-    videoUrl: null
-  },
-  {
-    id: 11,
-    title: 'Styling the Nike Bloody Chromes',
-    creator: '@alyssaantoci',
-    thumbnail: '/images/red_nikes.png',
-    viewCount: '42.1K',
-    isPremium: false,
-    category: 'FASHION',
-    description: '👟 Breaking down the styling secrets of the legendary Nike Bloody Chrome sneakers. Fashion meets street culture.',
-    videoUrl: null
-  },
-  {
-    id: 12,
-    title: 'Poolside at the Bel Air',
-    creator: '@shakir.shakir',
-    thumbnail: '/images/bel_air_pool.png',
-    viewCount: '89.3K',
-    isPremium: false,
-    category: 'TRAVEL',
-    description: '🏊‍♂️ Luxury poolside experience at the exclusive Bel Air resort. Living the high life in LA.',
-    videoUrl: null
-  },
-  {
-    id: 13,
-    title: 'New smoothie alert',
-    creator: '@gabbriette',
-    thumbnail: '/images/erewhon.png',
-    viewCount: '67.8K',
-    isPremium: false,
-    category: 'FOOD & DRINK',
-    description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
-    videoUrl: null,
-    isQuest: true
-  },
-  {
-    id: 14,
-    title: 'Private Delorean party at Car Week',
-    creator: '@threadguy',
-    thumbnail: '/images/delorean.png',
-    viewCount: '156.7K',
-    isPremium: true,
-    category: 'LIFESTYLE',
-    description: '🚗 Exclusive access to a private Delorean gathering during Monterey Car Week. Automotive history comes alive.',
-    videoUrl: null
-  },
-  {
-    id: 15,
-    title: 'La playa vision',
-    creator: '@diplo',
-    thumbnail: '/images/diplo.png',
-    viewCount: '203.5K',
-    isPremium: true,
-    category: 'MUSIC',
-    description: '🎵 Electronic music meets beach culture with Diplo. Sunset vibes and beats by the ocean.',
-    videoUrl: null
-  },
-  {
-    id: 16,
-    title: 'NIGHT 2 at Coachella',
-    creator: '@rowanblanchard',
-    thumbnail: '/images/coachella.png',
-    viewCount: '512.9K',
-    isPremium: true,
-    category: 'PARTIES',
-    description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
     videoUrl: null
   }
 ];
