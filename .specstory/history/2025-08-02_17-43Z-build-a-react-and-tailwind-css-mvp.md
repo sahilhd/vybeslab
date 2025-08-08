@@ -18060,23 +18060,567 @@ great, now we need to fix the order, after aperol sprtz tab, it should be follow
 
 _**Assistant**_
 
-
-
----
-
-
+You're absolutely right! The new feeds should come right after "Aperol spritz with my besties" (id: 2). Let me reorder the feeds in mockData.js to fix this:
 
 ---
 
-
-
----
-
-
+Read file: src/mockData.js
 
 ---
 
+I need to reorder the entire mockFeeds array. The correct order should be:
+1. PARTYGIRL Ibiza (id: 0)
+2. Front row at PRADA (id: 1) 
+3. Aperol spritz with my besties (id: 2)
+4. **NEW:** Styling the Nike Bloody Chromes (id: 3)
+5. **NEW:** Poolside at the Bel Air (id: 4)
+6. **NEW:** New smoothie alert (id: 5) - QUEST
+7. **NEW:** Private Delorean party at Car Week (id: 6)
+8. **NEW:** La playa vision (id: 7)
+9. **NEW:** NIGHT 2 at Coachella (id: 8)
+10. Then the existing ones with new IDs...
 
+Let me completely rewrite the mockFeeds array:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 67, lines removed: undefined
+
+```diff
+@@ -86,4 +86,71 @@
+      videoUrl: null
+    },
++   {
++     id: 3,
++     title: 'Styling the Nike Bloody Chromes',
++     creator: '@alyssaantoci',
++     thumbnail: '/images/red_nikes.png',
++     viewCount: '42.1K',
++     isPremium: false,
++     category: 'FASHION',
++     description: '👟 Breaking down the styling secrets of the legendary Nike Bloody Chrome sneakers. Fashion meets street culture.',
++     videoUrl: null
++   },
++   {
++     id: 4,
++     title: 'Poolside at the Bel Air',
++     creator: '@shakir.shakir',
++     thumbnail: '/images/bel_air_pool.png',
++     viewCount: '89.3K',
++     isPremium: false,
++     category: 'TRAVEL',
++     description: '🏊‍♂️ Luxury poolside experience at the exclusive Bel Air resort. Living the high life in LA.',
++     videoUrl: null
++   },
++   {
++     id: 5,
++     title: 'New smoothie alert',
++     creator: '@gabbriette',
++     thumbnail: '/images/erewhon.png',
++     viewCount: '67.8K',
++     isPremium: false,
++     category: 'FOOD & DRINK',
++     description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
++     videoUrl: null,
++     isQuest: true
++   },
++   {
++     id: 6,
++     title: 'Private Delorean party at Car Week',
++     creator: '@threadguy',
++     thumbnail: '/images/delorean.png',
++     viewCount: '156.7K',
++     isPremium: true,
++     category: 'LIFESTYLE',
++     description: '🚗 Exclusive access to a private Delorean gathering during Monterey Car Week. Automotive history comes alive.',
++     videoUrl: null
++   },
++   {
++     id: 7,
++     title: 'La playa vision',
++     creator: '@diplo',
++     thumbnail: '/images/diplo.png',
++     viewCount: '203.5K',
++     isPremium: true,
++     category: 'MUSIC',
++     description: '🎵 Electronic music meets beach culture with Diplo. Sunset vibes and beats by the ocean.',
++     videoUrl: null
++   },
++   {
++     id: 8,
++     title: 'NIGHT 2 at Coachella',
++     creator: '@rowanblanchard',
++     thumbnail: '/images/coachella.png',
++     viewCount: '512.9K',
++     isPremium: true,
++     category: 'PARTIES',
++     description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
++     videoUrl: null
++   },
+    {
+      id: 3,
+```
+
+</details>
+
+---
+
+Now I need to update all the remaining feed IDs since we've inserted the new feeds. Let me continue with the rest:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -154,5 +154,5 @@
+    },
+    {
+-     id: 3,
++     id: 9,
+      title: '18th hole Pebble Beach',
+      creator: '@threadguy',
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -166,5 +166,5 @@
+    },
+    {
+-     id: 4,
++     id: 10,
+      title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
+      creator: '@lifestylevibes',
+```
+
+**Chunk 3**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -183,5 +183,5 @@
+    },
+    {
+-     id: 5,
++     id: 11,
+      title: '⛳ Putting at The Hay in Pebble Beach',
+      creator: '@golfpro',
+```
+
+</details>
+
+---
+
+Now I need to continue updating the rest of the IDs. Let me read the rest of the file and update them:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I need to continue updating the remaining IDs. Let me update them systematically:
+
+---
+
+The string to replace was not found in the file.
+
+---
+
+Let me read more of the file to see the exact structure:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I see there are multiple IDs with the same numbers! I need to fix this by updating each one individually. Let me continue:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -197,5 +197,5 @@
+    },
+    {
+-     id: 6,
++     id: 12,
+      title: '🛍️ Visiting the Malbon Store in Carmel',
+      creator: '@golfstyle',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -211,5 +211,5 @@
+    },
+    {
+-     id: 7,
++     id: 13,
+      title: '🛍️ Shopping at Visvim in Carmel - Part 2',
+      creator: '@lifestylevibes',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -225,5 +225,5 @@
+    },
+    {
+-     id: 8,
++     id: 14,
+      title: '⛳ Golf Course Tour - Pebble Beach',
+      creator: '@golfpro',
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -239,5 +239,5 @@
+    },
+    {
+-     id: 9,
++     id: 15,
+      title: '🛍️ Golf Lifestyle Shopping Spree',
+      creator: '@golfstyle',
+```
+
+</details>
+
+---
+
+Now let me check for the final feed and also clean up any duplicate entries that were created:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I see there are duplicates! I need to remove the duplicate entries at the end. Let me update the Pro Golf Tips ID and remove the duplicates:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -250,5 +250,5 @@
+    },
+    {
+-     id: 10,
++     id: 16,
+      title: '⛳ Pro Golf Tips & Techniques',
+      creator: '@golfpro',
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -259,5 +259,5 @@
+      description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
+      videoUrl: null
+-   },
++   }
+    {
+      id: 11,
+```
+
+</details>
+
+---
+
+I need to fix the missing comma and remove the duplicate entries. Let me read the rest to see what needs to be cleaned up:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I see the problem - there are duplicate feeds and incorrect IDs. I need to remove all the duplicate entries from line 262 onwards and fix the structure. Let me fix this:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: undefined, lines removed: 59
+
+```diff
+@@ -260,63 +260,4 @@
+      videoUrl: null
+    }
+-   {
+-     id: 11,
+-     title: 'Styling the Nike Bloody Chromes',
+-     creator: '@alyssaantoci',
+-     thumbnail: '/images/red_nikes.png',
+-     viewCount: '42.1K',
+-     isPremium: false,
+-     category: 'FASHION',
+-     description: '👟 Breaking down the styling secrets of the legendary Nike Bloody Chrome sneakers. Fashion meets street culture.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 12,
+-     title: 'Poolside at the Bel Air',
+-     creator: '@shakir.shakir',
+-     thumbnail: '/images/bel_air_pool.png',
+-     viewCount: '89.3K',
+-     isPremium: false,
+-     category: 'TRAVEL',
+-     description: '🏊‍♂️ Luxury poolside experience at the exclusive Bel Air resort. Living the high life in LA.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 13,
+-     title: 'New smoothie alert',
+-     creator: '@gabbriette',
+-     thumbnail: '/images/erewhon.png',
+-     viewCount: '67.8K',
+-     isPremium: false,
+-     category: 'FOOD & DRINK',
+-     description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
+-     videoUrl: null,
+-     isQuest: true
+-   },
+-   {
+-     id: 14,
+-     title: 'Private Delorean party at Car Week',
+-     creator: '@threadguy',
+-     thumbnail: '/images/delorean.png',
+-     viewCount: '156.7K',
+-     isPremium: true,
+-     category: 'LIFESTYLE',
+-     description: '🚗 Exclusive access to a private Delorean gathering during Monterey Car Week. Automotive history comes alive.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 15,
+-     title: 'La playa vision',
+-     creator: '@diplo',
+-     thumbnail: '/images/diplo.png',
+-     viewCount: '203.5K',
+-     isPremium: true,
+-     category: 'MUSIC',
+-     description: '🎵 Electronic music meets beach culture with Diplo. Sunset vibes and beats by the ocean.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 16,
+-     title: 'NIGHT 2 at Coachella',
+      creator: '@rowanblanchard',
+      thumbnail: '/images/coachella.png',
+```
+
+</details>
+
+---
+
+I need to see what's left after the removal and close the array properly. Let me read the current file structure:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I see the issue - there are orphaned lines that need to be removed. Let me fix this:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: undefined, lines removed: 8
+
+```diff
+@@ -260,12 +260,4 @@
+      videoUrl: null
+    }
+-     creator: '@rowanblanchard',
+-     thumbnail: '/images/coachella.png',
+-     viewCount: '512.9K',
+-     isPremium: true,
+-     category: 'PARTIES',
+-     description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+-     videoUrl: null
+-   }
+  ];
+  
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Feed order fixed successfully!**
+
+## 🎯 **Summary of Changes:**
+
+### **✅ Correct Order Now:**
+
+1. **PARTYGIRL Ibiza** (id: 0) - `@charlixcx` 
+2. **Front row at PRADA** (id: 1) - `@rickythompson`
+3. **Aperol spritz with my besties** (id: 2) - `@evelynha`
+
+**➡️ NEW FEEDS ADDED RIGHT AFTER APEROL SPRITZ:**
+
+4. **Styling the Nike Bloody Chromes** (id: 3) - `@alyssaantoci` 👟
+5. **Poolside at the Bel Air** (id: 4) - `@shakir.shakir` 🏊‍♂️
+6. **New smoothie alert** (id: 5) - `@gabbriette` 🥤 **🎯 QUEST**
+7. **Private Delorean party at Car Week** (id: 6) - `@threadguy` 🚗
+8. **La playa vision** (id: 7) - `@diplo` 🎵  
+9. **NIGHT 2 at Coachella** (id: 8) - `@rowanblanchard` 🎪
+
+**Then the existing feeds with updated IDs:**
+
+10. **18th hole Pebble Beach** (id: 9) - `@threadguy`
+11. **Shopping at Visvim in Carmel** (id: 10) - `@lifestylevibes`
+12. **Putting at The Hay in Pebble Beach** (id: 11) - `@golfpro`
+13. **Visiting the Malbon Store** (id: 12) - `@golfstyle`
+14. **Shopping at Visvim Part 2** (id: 13) - `@lifestylevibes`
+15. **Golf Course Tour** (id: 14) - `@golfpro`
+16. **Golf Lifestyle Shopping** (id: 15) - `@golfstyle`
+17. **Pro Golf Tips** (id: 16) - `@golfpro`
+
+### **🎨 Perfect Flow:**
+- **First 3:** Original party/fashion streams
+- **Next 6:** Your new premium demo content  
+- **Remaining:** Existing lifestyle/golf content
+
+The new feeds now appear **immediately after Aperol Spritz** as requested, giving your demo the perfect flow! The Quest badge will show up on the Erewhon smoothie stream. 🚀✨
+
+---
+
+_**User**_
+
+I want to fix the categories, replace IRL with Parties, Life with Nature, News with lifestylr 
+
+---
+
+_**Assistant**_
+
+I'll update the categories in the mockData.js file to make those replacements:
+
+- IRL → PARTIES
+- NATURE LIFE → NATURE  
+- NEWS → LIFESTYLE
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 3
+
+```diff
+@@ -4,12 +4,12 @@
+    'FASHION',
+    'CRYPTO & FINANCE',
+-   'IRL',
++   'PARTIES',
+    'FOOD & DRINK',
+    'GAMING',
+    'HEALTH & FITNESS',
+    'MOVIES & SHOWS',
+    'MUSIC',
+-   'NATURE LIFE',
+-   'NEWS',
++   'NATURE',
++   'LIFESTYLE',
+    'SPORTS',
+    'TECH',
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Categories updated successfully!**
+
+## 🎯 **Summary of Changes:**
+
+### **✅ Category Updates:**
+
+1. **IRL** → **PARTIES** 🎉
+   - Better reflects party/event content like Coachella, Ibiza parties
+
+2. **NATURE LIFE** → **NATURE** 🌿  
+   - Simplified and cleaner category name
+
+3. **NEWS** → **LIFESTYLE** 🌟
+   - More relevant for the type of content on the platform
+
+### **📂 Updated Categories List:**
+```
+✨ ART
+🏛️ CULTURE  
+👗 FASHION
+💰 CRYPTO & FINANCE
+🎉 PARTIES (was IRL)
+🍹 FOOD & DRINK
+🎮 GAMING
+💪 HEALTH & FITNESS
+🎬 MOVIES & SHOWS
+🎵 MUSIC
+🌿 NATURE (
 
 ---
 
