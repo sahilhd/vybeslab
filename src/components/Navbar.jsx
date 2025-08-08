@@ -12,8 +12,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          {/* Logo - moved more to the left */}
+          <Link to="/" className="flex items-center space-x-2 -ml-6">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
               FEEDS
             </div>
@@ -43,6 +43,15 @@ const Navbar = () => {
             <div className="text-neon-cyan font-mono">
               语用化
             </div>
+
+            {/* GO LIVE Button */}
+            <Link 
+              to="/live"
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-red-500/30 hover:scale-105 transition-all duration-200 flex items-center space-x-2 animate-pulse"
+            >
+              <span className="w-2 h-2 bg-white rounded-full"></span>
+              <span>GO LIVE</span>
+            </Link>
 
             {/* Action Buttons */}
             <Link 
@@ -80,12 +89,17 @@ const Navbar = () => {
               SIGN IN
             </button>
 
-            {/* Profile Icon */}
+            {/* Profile Button */}
             <Link 
               to="/profile"
-              className="w-8 h-8 bg-neon-magenta rounded border border-neon-magenta flex items-center justify-center hover:bg-neon-magenta/80 transition-colors"
+              className="flex items-center space-x-2 bg-gradient-to-r from-neon-green to-emerald-600 px-4 py-2 rounded-full shadow-lg shadow-neon-green/30 hover:scale-105 transition-all duration-200"
             >
-              <span className="text-white font-mono text-xs">👤</span>
+              <img 
+                src="/images/profile-picture.jpg"
+                alt="Profile"
+                className="w-6 h-6 rounded-full object-cover border border-white/20"
+              />
+              <span className="text-white font-mono text-sm font-bold">PROFILE</span>
             </Link>
           </div>
         </div>

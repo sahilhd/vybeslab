@@ -16890,3 +16890,116 @@ I want to fix the videos on the profile page, this page should include the perso
 
 ---
 
+_**Assistant**_
+
+I understand! You want to separate your personal content from the general feed. Let me fix this by:
+
+1. **Profile page** = Your personal streams (the original content like Visvim shopping, golf, etc.)
+2. **Main feed page** = Everyone's content (including your new additions like Charli XCX, PRADA, etc.)
+
+Let me check the current GalleryGrid component and update it to show only your personal content:
+
+---
+
+Read file: src/components/GalleryGrid.jsx
+
+---
+
+I see the issue! The profile page is currently showing the first 5 feeds, which now includes the new Charli XCX, PRADA content. Let me update it to show only your personal feeds (the ones with your creators like @lifestylevibes, @golfpro, @golfstyle).
+
+---
+
+<details><summary>Edit file: src/components/GalleryGrid.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 2
+
+```diff
+@@ -2,6 +2,7 @@
+  
+  const GalleryGrid = ({ feeds = [] }) => {
+-   // Use actual feeds data but limit to profile's content (first 5 feeds for the profile user)
+-   const profileFeeds = feeds.slice(0, 5);
++   // Filter to show only YOUR personal streams (your original content)
++   const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
++   const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator)).slice(0, 5);
+    
+    const galleryItems = profileFeeds.map((feed, index) => ({
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Profile Page Fixed!**
+
+## 🎯 **Content Separation Complete:**
+
+### **📱 Your Profile Page (@aikoflux) Will Now Show:**
+**Only YOUR personal streams:**
+- 🛍️ Shopping at Visvim in Carmel - Premium Experience (@lifestylevibes)
+- ⛳ Putting at The Hay in Pebble Beach (@golfpro) 
+- 🛍️ Visiting the Malbon Store in Carmel (@golfstyle)
+- 🛍️ Shopping at Visvim in Carmel - Part 2 (@lifestylevibes)
+- ⛳ Golf Course Tour - Pebble Beach (@golfpro)
+
+### **🏠 Main Feeds Page Will Show:**
+**Everyone's content (all 11 feeds):**
+- PARTYGIRL Ibiza (@charlixcx) - **New**
+- Front row at PRADA (@rickythompson) - **New**
+- Aperol spritz with my besties (@evelynha) - **New**
+- 18th hole Pebble Beach (@threadguy) - **New**
+- Plus all your personal content
+- Plus other creators' content
+
+## 🔄 **How It Works Now:**
+
+### **Profile Logic:**
+```javascript
+// Only shows feeds from YOUR creators
+const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
+const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator));
+```
+
+### **Main Feed Logic:**
+```javascript
+// Shows ALL feeds from everyone
+const allFeeds = feeds; // No filtering
+```
+
+## 🧪 **Test the Changes:**
+
+1. **Visit Profile Page** → Should only show your personal Visvim/golf content
+2. **Visit Main Feeds** → Should show everyone including Charli XCX, PRADA, etc.
+3. **Check "My Circle"** → Should show your circle's content (includes your creators)
+
+## 📱 **Profile Page Now Features:**
+- **Featured**: Shopping at Visvim (your original content)
+- **Grid**: Your other personal streams (golf, Malbon, etc.)
+- **Personal Brand**: All content is from your persona (@lifestylevibes, @golfpro, @golfstyle)
+
+**Your profile page now properly shows only your personal content, while the main feed shows the full community including all the new exciting streams!** 🎉📸✨
+
+This creates a clear distinction between your personal profile and the broader platform content, just like real social media platforms work!
+
+---
+
+_**User**_
+
+next I want to make some slight UI changes, reference the image to help:
+
+1. move the feeds logo text more to the left
+2. add a go live button and flash out that page as you see fit
+3. add top premium banner to show the top subscirbed people 
+4. Improve the profile pic button, make it more nicer, possiblyu making it profile etc 
+
+---
+
+_**Assistant**_
+
+
+
+---
+

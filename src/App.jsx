@@ -6,6 +6,7 @@ import VideoUpload from './components/VideoUpload';
 import GlassesPage from './components/GlassesPage';
 import ProfilePage from './components/ProfilePage';
 import VisionQuest from './components/VisionQuest';
+import GoLive from './components/GoLive';
 import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
 import { mockFeeds } from './mockData';
@@ -24,10 +25,11 @@ function App() {
                      <Routes>
                <Route path="/" element={<HomePage feeds={feeds} />} />
                <Route path="/stream/:id" element={<StreamView feeds={feeds} />} />
-                             <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
-              <Route path="/glasses" element={<GlassesPage />} />
-              <Route path="/quests" element={<VisionQuest />} />
-              <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
+                                         <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
+            <Route path="/glasses" element={<GlassesPage />} />
+            <Route path="/quests" element={<VisionQuest />} />
+            <Route path="/live" element={<GoLive />} />
+            <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
              </Routes>
       </main>
     </div>

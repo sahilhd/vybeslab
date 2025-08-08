@@ -3,6 +3,7 @@ import Sidebar from './Sidebar';
 import FeedCard from './FeedCard';
 import TopFeeds from './TopFeeds';
 import TopCreators from './TopCreators';
+import TopPremiumBanner from './TopPremiumBanner';
 import MobileBottomNav from './MobileBottomNav';
 import AITriggerButton from './AITriggerButton';
 
@@ -173,6 +174,7 @@ const HomePage = ({ feeds }) => {
       {/* Desktop Right Sidebar */}
       <div className="hidden xl:block fixed right-0 top-16 bottom-0 w-80 px-6 pt-6 pb-6 overflow-y-auto z-40">
         <div className="space-y-6" style={{ marginTop: '24px' }}>
+          <TopPremiumBanner />
           <TopFeeds />
           <TopCreators />
         </div>
