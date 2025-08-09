@@ -59,7 +59,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'LIFESTYLE',
     description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
-    videoUrl: null
+    videoUrl: '/images/xcx.mp4'
   },
   {
     id: 1,
@@ -71,7 +71,7 @@ export const mockFeeds = [
     isPremium: true,
     category: 'FASHION',
     description: '✨ Front row experience at the exclusive PRADA show. Behind-the-scenes access to luxury fashion at its finest.',
-    videoUrl: null
+    videoUrl: '/images/fashion_week_the_naked_truth.mp4'
   },
   {
     id: 2,
@@ -83,7 +83,7 @@ export const mockFeeds = [
     isPremium: false,
     category: 'LIFESTYLE',
     description: '🍹 Perfect summer vibes with the best company. Aperol spritz sessions and good times with my closest friends.',
-    videoUrl: null
+    videoUrl: '/images/aman_utah.mp4'
   },
   {
     id: 3,

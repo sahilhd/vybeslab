@@ -18640,6 +18640,236 @@ i want to delete these feeds from the demo, just keep the first 9
 
 _**Assistant**_
 
+I'll remove the feeds after the first 9, keeping only feeds with IDs 0-8. Let me update the mockData.js file:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I can see that feed ID 8 (NIGHT 2 at Coachella) ends at line 154, and then feeds ID 9+ start at line 155. I need to remove everything from line 155 onwards until the closing bracket. Let me remove all feeds after ID 8:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 13
+
+```diff
+@@ -152,17 +152,5 @@
+      description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+      videoUrl: null
+-   },
+-   {
+-     id: 9,
+-     title: '18th hole Pebble Beach',
+-     creator: '@threadguy',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_2402
+-     thumbnail: '/images/18th-hole-pebble.png',
+-     viewCount: '21.2K',
+-     isPremium: true,
+-     category: 'SPORTS',
+-     description: '⛳ Legendary 18th hole at Pebble Beach Golf Links. One of the most iconic holes in golf with stunning ocean views.',
+-     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
+-   },
++   }
+    {
+      id: 10,
+```
+
+</details>
+
+---
+
+I need to continue removing the remaining feeds and close the array properly. Let me check what's left and remove everything:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I need to find the end of the array and remove everything from line 155 to the array closing. Let me read more to find the end:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Perfect! I can see the array ends at line 250. I need to remove everything from line 155 to line 249 and properly close the array:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: undefined, lines removed: 95
+
+```diff
+@@ -153,99 +153,4 @@
+      videoUrl: null
+    }
+-   {
+-     id: 10,
+-     title: '🛍️ Shopping at Visvim in Carmel - Premium Experience',
+-     creator: '@lifestylevibes',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_2396
+-     thumbnail: '/images/visvim-shopping.png',
+-     
+-     // 📁 BACKUP OPTIONS:
+-     // thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+-     // thumbnail: 'https://res.cloudinary.com/your-cloud/image/upload/w_400,h_300,c_fill/visvim-shopping.jpg',
+-     
+-     viewCount: '12.4K',
+-     isPremium: true,
+-     category: 'FASHION',
+-     description: '🎯 Premium shopping experience at Visvim in Carmel-by-the-Sea. Exploring the latest drops and exclusive pieces in this iconic store.',
+-     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251899/Shopping_at_Visvim_in_Carmel_1_ul2svu.mp4'
+-   },
+-   {
+-     id: 11,
+-     title: '⛳ Putting at The Hay in Pebble Beach',
+-     creator: '@golfpro',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_4349
+-     thumbnail: '/images/pebble-beach-golf.jpg',
+-     // Alternative: Unsplash backup
+-     // thumbnail: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400',
+-     viewCount: '8.9K',
+-     isPremium: true,
+-     category: 'SPORTS',
+-     description: '🏌️‍♂️ Perfecting my putting game at The Hay, the iconic par-3 course at Pebble Beach. Beautiful coastal views and challenging greens.',
+-     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251897/Putting_at_The_Hay_in_Pebble_Beach_cprxjb.mp4'
+-   },
+-   {
+-     id: 12,
+-     title: '🛍️ Visiting the Malbon Store in Carmel',
+-     creator: '@golfstyle',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_4347
+-     thumbnail: '/images/malbon-visit.jpg',
+-     // Alternative: Unsplash backup
+-     // thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+-     viewCount: '6.7K',
+-     isPremium: false,
+-     category: 'FASHION',
+-     description: '🎯 Exploring the Malbon store in Carmel - premium golf lifestyle and streetwear. The perfect blend of golf culture and fashion.',
+-     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Visiting_the_Malbon_Store_in_Carmel_tmdnwq.mp4'
+-   },
+-   {
+-     id: 13,
+-     title: '🛍️ Shopping at Visvim in Carmel - Part 2',
+-     creator: '@lifestylevibes',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_4348 
+-     thumbnail: '/images/lifestyle-1.jpg',
+-     // Alternative: Unsplash backup
+-     // thumbnail: 'https://images.unsplash.com/photo-1571266028243-d220ce98e143?w=400',
+-     viewCount: '9.2K',
+-     isPremium: true,
+-     category: 'FASHION',
+-     description: '🎯 Continuing the Visvim shopping experience in Carmel. More exclusive pieces and premium lifestyle content.',
+-     videoUrl: 'https://res.cloudinary.com/dgvpig5nb/video/upload/v1754251900/Shopping_at_Visvim_in_Carmel_2_bvwuu7.mp4'
+-   },
+-   {
+-     id: 14,
+-     title: '⛳ Golf Course Tour - Pebble Beach',
+-     creator: '@golfpro',
+-     // 🚀 YOUR CUSTOM IMAGE - IMG_4346
+-     thumbnail: '/images/lifestyle-2.jpg',
+-     // Alternative: Unsplash backup
+-     // thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
+-     viewCount: '15.8K',
+-     isPremium: true,
+-     category: 'SPORTS',
+-     description: '🏌️‍♂️ Exclusive tour of the legendary Pebble Beach Golf Links. Walking through one of the most beautiful golf courses in the world.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 15,
+-     title: '🛍️ Golf Lifestyle Shopping Spree',
+-     creator: '@golfstyle',
+-     thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400',
+-     viewCount: '7.3K',
+-     isPremium: false,
+-     category: 'FASHION',
+-     description: '🎯 Shopping for the latest golf lifestyle gear and premium golf apparel. From clubs to clothing, we cover it all.',
+-     videoUrl: null
+-   },
+-   {
+-     id: 16,
+-     title: '⛳ Pro Golf Tips & Techniques',
+-     creator: '@golfpro',
+-     thumbnail: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400',
+-     viewCount: '18.5K',
+-     isPremium: true,
+-     category: 'SPORTS',
+-     description: '🏌️‍♂️ Professional golf tips and techniques from the course. Improving your game with expert advice and demonstrations.',
+-     videoUrl: null
+-   }
+  ];
+  
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Feed cleanup completed successfully!**
+
+## 🎯 **Summary of Changes:**
+
+### **✅ Streamlined Demo - First 9 Feeds Only:**
+
+**Feeds Kept (IDs 0-8):**
+
+1. **PARTYGIRL Ibiza** (id: 0) - `@charlixcx` 🎉
+2. **Front row at PRADA** (id: 1) - `@rickythompson` ✨
+3. **Aperol spritz with my besties** (id: 2) - `@evelynha` 🍹
+4. **Styling the Nike Bloody Chromes** (id: 3) - `@alyssaantoci` 👟
+5. **Poolside at the Bel Air** (id: 4) - `@shakir.shakir` 🏊‍♂️
+6. **New smoothie alert** (id: 5) - `@gabbriette` 🥤 **🎯 QUEST**
+7. **Private Delorean party at Car Week** (id: 6) - `@threadguy` 🚗
+8. **La playa vision** (id: 7) - `@diplo` 🎵
+9. **NIGHT 2 at Coachella** (id: 8) - `@rowanblanchard` 🎪
+
+### **🗑️ Feeds Removed (IDs 9-16):**
+- All the additional golf, shopping, and lifestyle feeds have been removed
+- This creates a more focused demo with just your premium, new content
+
+### **📊 Demo Stats:**
+- **Total Feeds:** 9 (down from 17)
+- **Premium Feeds:** 6
+- **Quest Feeds:** 1 (Erewhon smoothie)
+- **Regular Feeds:** 2
+
+Your demo now has a clean, focused selection of the most engaging content - perfect for showcasing the platform's key features with the new images and Quest functionality! 🚀✨
+
+---
+
+_**User**_
+
+can I add videos to the feeds or do I need to use cloudinary, I want to add these videos 
+aman_utah : aperol spritz
+fashion_week.mp4 
+xcx to the corresposnidng feeds pages, just attach the videos @/images 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
 
 
 ---
