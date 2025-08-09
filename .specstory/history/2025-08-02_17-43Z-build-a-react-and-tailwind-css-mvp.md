@@ -18973,6 +18973,167 @@ now can we reorder the pnales alogn the right, can you make the order 1. TOP FEE
 
 _**Assistant**_
 
+I'll reorder the right sidebar panels and remove the tier badges from the TOP PREMIUM section. Let me update the HomePage component first:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -175,7 +175,7 @@
+        <div className="hidden xl:block fixed right-0 top-16 bottom-0 w-80 px-6 pt-6 pb-6 overflow-y-auto z-40">
+          <div className="space-y-6" style={{ marginTop: '24px' }}>
+-           <TopPremiumBanner />
+            <TopFeeds />
+            <TopCreators />
++           <TopPremiumBanner />
+          </div>
+        </div>
+```
+
+</details>
+
+---
+
+Now let me update the TopPremiumBanner component to remove the tier badges (platinum/gold/silver):
+
+---
+
+<details><summary>Edit file: src/components/TopPremiumBanner.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 7
+
+```diff
+@@ -95,17 +95,13 @@
+              </div>
+  
+-             {/* Avatar with Tier Border */}
++             {/* Avatar */}
+              <div className="relative flex-shrink-0">
+-               <div className={`w-10 h-10 rounded-full p-0.5 bg-gradient-to-r ${getTierColor(user.tier)}`}>
++               <div className="w-10 h-10 rounded-full overflow-hidden">
+                  <img
+                    src={user.avatar}
+                    alt={user.username}
+-                   className="w-full h-full rounded-full object-cover"
++                   className="w-full h-full object-cover"
+                  />
+                </div>
+-               {/* Tier Badge */}
+-               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-black rounded-full flex items-center justify-center text-xs">
+-                 {getTierIcon(user.tier)}
+-               </div>
+              </div>
+  
+```
+
+</details>
+
+---
+
+Now let me remove the tier label from the right side as well:
+
+---
+
+<details><summary>Edit file: src/components/TopPremiumBanner.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: undefined, lines removed: 7
+
+```diff
+@@ -120,11 +120,4 @@
+                </div>
+              </div>
+- 
+-             {/* Tier Label */}
+-             <div className="flex-shrink-0">
+-               <div className={`px-2 py-1 rounded-full bg-gradient-to-r ${getTierColor(user.tier)} text-black text-xs font-mono font-bold`}>
+-                 {user.tier}
+-               </div>
+-             </div>
+  
+              {/* Hover Arrow */}
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Right sidebar reordered and cleaned up!**
+
+## 🎯 **Summary of Changes:**
+
+### **✅ New Right Sidebar Order:**
+
+1. **📈 TOP FEEDS** (first)
+   - Shows trending feed content
+   - Clean and focused
+
+2. **👥 TOP CREATORS** (second)  
+   - Popular content creators
+   - User discovery
+
+3. **👑 TOP PREMIUM** (third)
+   - Most subscribed users
+   - **Cleaned up design** - removed tier badges
+
+### **✅ TOP PREMIUM Improvements:**
+
+**Removed:**
+- ❌ Platinum/Gold/Silver tier borders around avatars
+- ❌ Tier badge icons (💎🏆🥈) 
+- ❌ Tier labels (PLATINUM, GOLD, SILVER)
+
+**Kept:**
+- ✅ Crown icon and "TOP PREMIUM" title
+- ✅ User avatars (clean, simple circles)
+- ✅ Usernames and subscriber counts
+- ✅ Verification badges
+- ✅ Ranking numbers (#1, #2, etc.)
+- ✅ Purple gradient background theme
+
+### **🎨 Visual Flow:**
+```
+📈 TOP FEEDS
+   (trending content)
+
+👥 TOP CREATORS  
+   (popular users)
+
+👑 TOP PREMIUM
+   (most subscribed - clean design)
+```
+
+The right sidebar now has a much cleaner hierarchy and the TOP PREMIUM section looks more professional without the cluttered tier system! 🚀
+
+---
+
+_**User**_
+
+next I want to fix the content on the top feeds panels to the demo panels that we have set in that order and also when I click on that panel it should take me to the corespodning feed 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
 
 
 ---
