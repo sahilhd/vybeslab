@@ -94,18 +94,14 @@ const TopPremiumBanner = () => {
               )}
             </div>
 
-            {/* Avatar with Tier Border */}
+            {/* Avatar */}
             <div className="relative flex-shrink-0">
-              <div className={`w-10 h-10 rounded-full p-0.5 bg-gradient-to-r ${getTierColor(user.tier)}`}>
+              <div className="w-10 h-10 rounded-full overflow-hidden">
                 <img
                   src={user.avatar}
                   alt={user.username}
-                  className="w-full h-full rounded-full object-cover"
+                  className="w-full h-full object-cover"
                 />
-              </div>
-              {/* Tier Badge */}
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-black rounded-full flex items-center justify-center text-xs">
-                {getTierIcon(user.tier)}
               </div>
             </div>
 
@@ -121,13 +117,6 @@ const TopPremiumBanner = () => {
               </div>
               <div className="text-purple-300 font-mono text-xs">
                 {user.subscribers} subscribers
-              </div>
-            </div>
-
-            {/* Tier Label */}
-            <div className="flex-shrink-0">
-              <div className={`px-2 py-1 rounded-full bg-gradient-to-r ${getTierColor(user.tier)} text-black text-xs font-mono font-bold`}>
-                {user.tier}
               </div>
             </div>
 

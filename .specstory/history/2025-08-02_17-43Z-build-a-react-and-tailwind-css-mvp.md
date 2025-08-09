@@ -18862,6 +18862,117 @@ xcx to the corresposnidng feeds pages, just attach the videos @/images
 
 _**Assistant**_
 
+Yes, you can absolutely add local videos just like you did with the images! Since you already have the MP4 files in your `/public/images/` folder, you can reference them directly. Let me update the feeds to include these videos:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -60,5 +60,5 @@
+      category: 'LIFESTYLE',
+      description: '🎉 Living the Ibiza party life! Exclusive access to the hottest clubs and beach parties. Pure summer vibes and unforgettable nights.',
+-     videoUrl: null
++     videoUrl: '/images/xcx.mp4'
+    },
+    {
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -72,5 +72,5 @@
+      category: 'FASHION',
+      description: '✨ Front row experience at the exclusive PRADA show. Behind-the-scenes access to luxury fashion at its finest.',
+-     videoUrl: null
++     videoUrl: '/images/fashion_week_the_naked_truth.mp4'
+    },
+    {
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -84,5 +84,5 @@
+      category: 'LIFESTYLE',
+      description: '🍹 Perfect summer vibes with the best company. Aperol spritz sessions and good times with my closest friends.',
+-     videoUrl: null
++     videoUrl: '/images/aman_utah.mp4'
+    },
+    {
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Local videos added successfully!**
+
+## 🎯 **Summary of Video Updates:**
+
+### **✅ Videos Added to Feeds:**
+
+1. **PARTYGIRL Ibiza** (id: 0) - `@charlixcx`
+   - **Video:** `/images/xcx.mp4` 🎬
+   - Thumbnail: `/images/partygirl-ibiza.png`
+
+2. **Front row at PRADA** (id: 1) - `@rickythompson`
+   - **Video:** `/images/fashion_week_the_naked_truth.mp4` 🎬
+   - Thumbnail: `/images/prada-front-row.jpg`
+
+3. **Aperol spritz with my besties** (id: 2) - `@evelynha`
+   - **Video:** `/images/aman_utah.mp4` 🎬
+   - Thumbnail: `/images/aperol-spritz-besties.jpg`
+
+### **💡 Local Videos Work Great!**
+
+- **✅ No Cloudinary needed** for demo purposes
+- **✅ Local MP4 files** work perfectly in both development and production
+- **✅ Same folder structure** as images (`/public/images/`)
+- **✅ Direct file paths** like `/images/video.mp4`
+
+### **🚀 Benefits of Local Videos:**
+- **Instant loading** - no external dependencies
+- **Works offline** and in production
+- **Simple setup** - just reference the file path
+- **Perfect for demos** and MVP stage
+
+Your demo now has actual video content that will play when users click on these three main feeds! The videos will be served directly from your app, making the experience smooth and reliable. 🎉
+
+---
+
+_**User**_
+
+now can we reorder the pnales alogn the right, can you make the order 1. TOP FEEDS, 2. TOP CREATORS, 3. TOP PREMIUM (I don’t think we should show the platinum/gold/silver buttons)
+
+
+---
+
+_**Assistant**_
+
 
 
 ---
