@@ -18620,7 +18620,27 @@ Perfect! ✨ **Categories updated successfully!**
 💪 HEALTH & FITNESS
 🎬 MOVIES & SHOWS
 🎵 MUSIC
-🌿 NATURE (
+🌿 NATURE (was NATURE LIFE)
+🌟 LIFESTYLE (was NEWS)
+⚽ SPORTS
+💻 TECH
+✈️ TRAVEL
+✨ VIBES
+```
+
+The categories now better match the content style of your platform! The "PARTIES" category will be perfect for streams like Coachella, Ibiza parties, and other event content. 🚀
+
+---
+
+_**User**_
+
+i want to delete these feeds from the demo, just keep the first 9
+
+---
+
+_**Assistant**_
+
+
 
 ---
 
