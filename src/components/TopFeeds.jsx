@@ -24,17 +24,8 @@ const TopFeeds = () => {
               <h4 className="font-mono text-white text-sm truncate group-hover:text-neon-cyan transition-colors">
                 {feed.title}
               </h4>
-              <div className="flex items-center justify-between mt-1">
+              <div className="mt-1">
                 <span className="text-gray-400 font-mono text-xs">{feed.viewCount} views</span>
-                <div className="flex items-center space-x-2">
-                  {feed.isPremium && (
-                    <span className="text-yellow-500 font-mono text-xs">PREMIUM</span>
-                  )}
-                  {feed.isQuest && (
-                    <span className="text-neon-magenta font-mono text-xs">QUEST</span>
-                  )}
-                  <span className="text-neon-green font-mono text-xs">{feed.category}</span>
-                </div>
               </div>
             </div>
           </Link>
