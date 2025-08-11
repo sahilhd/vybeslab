@@ -9,6 +9,7 @@ export const categories = [
   'HEALTH & FITNESS',
   'MOVIES & SHOWS',
   'MUSIC',
+  'MY CIRCLE',
   'NATURE',
   'LIFESTYLE',
   'SPORTS',
@@ -150,6 +151,62 @@ export const mockFeeds = [
     isPremium: true,
     category: 'PARTIES',
     description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+    videoUrl: null
+  },
+  // MY CIRCLE - Personal content feeds
+  {
+    id: 9,
+    title: 'Shopping at Visvim in Carmel',
+    creator: '@lifestylevibes',
+    thumbnail: '/images/visvim-shopping.png',
+    viewCount: '12.4K',
+    isPremium: false,
+    category: 'MY CIRCLE',
+    description: '🛍️ Exclusive shopping experience at Visvim flagship store in Carmel. Discovering unique pieces and Japanese craftsmanship.',
+    videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
+  },
+  {
+    id: 10,
+    title: 'Putting at The Hay - Pebble Beach',
+    creator: '@golfpro',
+    thumbnail: '/images/pebble-beach-golf.jpg',
+    viewCount: '8.9K',
+    isPremium: false,
+    category: 'MY CIRCLE',
+    description: '⛳ Perfect day at The Hay short course in Pebble Beach. Stunning ocean views and incredible golf architecture.',
+    videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
+  },
+  {
+    id: 11,
+    title: 'Malbon Store Tour - Carmel',
+    creator: '@golfstyle',
+    thumbnail: '/images/malbon-visit.jpg',
+    viewCount: '6.7K',
+    isPremium: false,
+    category: 'MY CIRCLE',
+    description: '🛍️ Inside look at the coolest golf lifestyle brand. Malbon Golf brings streetwear vibes to the fairway.',
+    videoUrl: null
+  },
+  {
+    id: 12,
+    title: 'Weekend Lifestyle Vibes',
+    creator: '@lifestylevibes',
+    thumbnail: '/images/lifestyle-1.jpg',
+    viewCount: '15.8K',
+    isPremium: false,
+    category: 'MY CIRCLE',
+    description: '✨ Perfect weekend capturing the best lifestyle moments. Good vibes, great people, unforgettable experiences.',
+    videoUrl: null
+  },
+  {
+    id: 13,
+    title: 'Chill Day Adventures',
+    creator: '@golfstyle',
+    thumbnail: '/images/lifestyle-2.jpg',
+    viewCount: '9.2K',
+    isPremium: false,
+    category: 'MY CIRCLE',
+    description: '🌊 Taking it easy and enjoying the simple pleasures. Sometimes the best content comes from just living life.',
     videoUrl: null
   }
 ];
