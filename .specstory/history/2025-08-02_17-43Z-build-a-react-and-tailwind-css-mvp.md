@@ -20419,6 +20419,93 @@ so these new added feeds should not be in the trending feeds category
 
 _**Assistant**_
 
+You're absolutely right! The "MY CIRCLE" feeds should only appear when users filter by "My Circle" and on the profile page, but NOT in the trending feeds. Let me update the HomePage component to exclude "MY CIRCLE" feeds from the trending feeds display.
+
+---
+
+Read file: src/components/HomePage.jsx
+
+---
+
+I can see the filtering logic. The issue is that for "TRENDING" feeds, it's showing all feeds including "MY CIRCLE" ones. I need to modify the logic so that "TRENDING" excludes "MY CIRCLE" feeds, and only shows them when specifically filtering by "MY_CIRCLE". Let me update this:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 6, lines removed: 5
+
+```diff
+@@ -25,9 +25,10 @@
+        filtered = filtered.filter(feed => feed.isPremium === true);
+      } else if (selectedFeedType === 'MY_CIRCLE') {
+-       // Mock data for "My Circle" - could be based on followed creators or special tags
+-       const myCircleCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
+-       filtered = filtered.filter(feed => myCircleCreators.includes(feed.creator));
+-     }
+-     // 'TRENDING' shows all feeds (already filtered by category if needed)
++       // Show only MY CIRCLE category feeds
++       filtered = filtered.filter(feed => feed.category === 'MY CIRCLE');
++     } else if (selectedFeedType === 'TRENDING') {
++       // 'TRENDING' excludes MY CIRCLE feeds - only shows public content
++       filtered = filtered.filter(feed => feed.category !== 'MY CIRCLE');
++     }
+      
+      return filtered;
+```
+
+</details>
+
+---
+
+Perfect! ✨ **MY CIRCLE feeds are now properly separated!**
+
+## 🎯 **What Changed:**
+
+### **✅ Feed Filtering Logic:**
+
+1. **🔥 TRENDING** (default view):
+   - Shows all public feeds (IDs 0-8)
+   - **Excludes MY CIRCLE** feeds
+   - Public content like Charli XCX, PRADA, Aperol spritz, etc.
+
+2. **💎 PREMIUM**: 
+   - Shows only premium feeds
+   - Still excludes MY CIRCLE (since they're not premium)
+
+3. **👥 MY CIRCLE**:
+   - **Only shows** feeds with `category: 'MY CIRCLE'`
+   - Your personal content: Visvim shopping, golf, Malbon, lifestyle
+
+### **🚀 User Experience:**
+
+- **Default homepage** = Clean trending content (no personal feeds cluttering)
+- **"My Circle" button** = Shows your personal content only
+- **Profile page** = Shows your personal content (same as My Circle)
+- **Separation** = Public vs personal content distinction
+
+Now when users land on the homepage, they see trending public content, and your personal golf/shopping videos only appear when they specifically click "My Circle" or visit your profile! 🎉
+
+---
+
+_**User**_
+
+For the BUY GLASSES page - for now, let’s just link to two products, the Mentra Live glasses and the Waves glasses. Here is a link to them and a picture of the glasses. 
+Here is Mentra Live: https://mentra.glass/products/mentra-live-camera-glasses 
+
+
+Here is a link and image for Waves - https://www.waveglasses.com/ 
+
+see if you can upload the pictures yourself 
+
+
+---
+
+_**Assistant**_
+
 
 
 ---
