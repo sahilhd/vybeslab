@@ -20215,6 +20215,210 @@ no it shoudl be the older feeds that we had before, the ones with golfing videos
 
 _**Assistant**_
 
+I understand! You want to bring back the original feeds with the golfing videos (like "Shopping at Visvim in Carmel", "Putting at The Hay - Pebble Beach", "Malbon Store Tour") and put them in a "My Circle" category so they appear on the profile page. 
+
+Let me first check what feeds we had before and then add them back to the mockFeeds array:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Perfect! I can see the original feeds. Now I'll add these back to the main mockFeeds array with the proper creators and make them part of "My Circle" category. Let me add them after the current 9 feeds:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 56, lines removed: undefined
+
+```diff
+@@ -152,4 +152,60 @@
+      description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
+      videoUrl: null
++   },
++   // MY CIRCLE - Personal content feeds
++   {
++     id: 9,
++     title: 'Shopping at Visvim in Carmel',
++     creator: '@lifestylevibes',
++     thumbnail: '/images/visvim-shopping.png',
++     viewCount: '12.4K',
++     isPremium: false,
++     category: 'MY CIRCLE',
++     description: '🛍️ Exclusive shopping experience at Visvim flagship store in Carmel. Discovering unique pieces and Japanese craftsmanship.',
++     videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
++   },
++   {
++     id: 10,
++     title: 'Putting at The Hay - Pebble Beach',
++     creator: '@golfpro',
++     thumbnail: '/images/pebble-beach-golf.jpg',
++     viewCount: '8.9K',
++     isPremium: false,
++     category: 'MY CIRCLE',
++     description: '⛳ Perfect day at The Hay short course in Pebble Beach. Stunning ocean views and incredible golf architecture.',
++     videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
++   },
++   {
++     id: 11,
++     title: 'Malbon Store Tour - Carmel',
++     creator: '@golfstyle',
++     thumbnail: '/images/malbon-visit.jpg',
++     viewCount: '6.7K',
++     isPremium: false,
++     category: 'MY CIRCLE',
++     description: '🛍️ Inside look at the coolest golf lifestyle brand. Malbon Golf brings streetwear vibes to the fairway.',
++     videoUrl: null
++   },
++   {
++     id: 12,
++     title: 'Weekend Lifestyle Vibes',
++     creator: '@lifestylevibes',
++     thumbnail: '/images/lifestyle-1.jpg',
++     viewCount: '15.8K',
++     isPremium: false,
++     category: 'MY CIRCLE',
++     description: '✨ Perfect weekend capturing the best lifestyle moments. Good vibes, great people, unforgettable experiences.',
++     videoUrl: null
++   },
++   {
++     id: 13,
++     title: 'Chill Day Adventures',
++     creator: '@golfstyle',
++     thumbnail: '/images/lifestyle-2.jpg',
++     viewCount: '9.2K',
++     isPremium: false,
++     category: 'MY CIRCLE',
++     description: '🌊 Taking it easy and enjoying the simple pleasures. Sometimes the best content comes from just living life.',
++     videoUrl: null
+    }
+  ];
+```
+
+</details>
+
+---
+
+Now I need to add "MY CIRCLE" to the categories list:
+
+---
+
+The string to replace was not found in the file.
+
+---
+
+Let me check where the categories are defined:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Now let me add "MY CIRCLE" to the categories:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -10,4 +10,5 @@
+    'MOVIES & SHOWS',
+    'MUSIC',
++   'MY CIRCLE',
+    'NATURE',
+    'LIFESTYLE',
+```
+
+</details>
+
+---
+
+Now I need to update the GalleryGrid to use the personal creators again:
+
+---
+
+<details><summary>Edit file: src/components/GalleryGrid.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 3
+
+```diff
+@@ -3,7 +3,6 @@
+  const GalleryGrid = ({ feeds = [] }) => {
+    // Filter to show only YOUR personal streams (your original content)
+-   // Using feeds that represent personal lifestyle content
+-   const personalFeedIds = [2, 3, 4, 5]; // Aperol spritz, Nike styling, Bel Air pool, Erewhon smoothie
+-   const profileFeeds = feeds.filter(feed => personalFeedIds.includes(feed.id)).slice(0, 5);
++   const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
++   const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator)).slice(0, 5);
+    
+    const galleryItems = profileFeeds.map((feed, index) => ({
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Original feeds with golfing videos are back!**
+
+## 🎯 **What I Added:**
+
+### **✅ 5 New "MY CIRCLE" Feeds:**
+
+1. **🛍️ Shopping at Visvim in Carmel** by `@lifestylevibes` 
+   - Original custom thumbnail: `visvim-shopping.png`
+   - With video from Cloudinary
+
+2. **⛳ Putting at The Hay - Pebble Beach** by `@golfpro`
+   - Original custom thumbnail: `pebble-beach-golf.jpg` 
+   - With video from Cloudinary
+
+3. **🛍️ Malbon Store Tour - Carmel** by `@golfstyle`
+   - Original custom thumbnail: `malbon-visit.jpg`
+
+4. **✨ Weekend Lifestyle Vibes** by `@lifestylevibes`
+   - Custom thumbnail: `lifestyle-1.jpg`
+
+5. **🌊 Chill Day Adventures** by `@golfstyle`
+   - Custom thumbnail: `lifestyle-2.jpg`
+
+### **✅ New Category System:**
+- Added **"MY CIRCLE"** to the categories list
+- These feeds appear when users filter by "My Circle"
+- Also appear on your **profile page** (personal content)
+
+### **✅ Profile Page Now Shows:**
+- **Shopping at Visvim** (with video) 🛍️
+- **Golf at Pebble Beach** (with video) ⛳
+- **Malbon store tour** 🛍️
+- **Lifestyle content** ✨
+- All your **personal creator content** (`@lifestylevibes`, `@golfpro`, `@golfstyle`)
+
+Now users can click **"My Circle"** on the homepage to see your personal content, and it also appears on your profile page! The original golf and shopping videos are back! 🎉
+
+---
+
+_**User**_
+
+so these new added feeds should not be in the trending feeds category 
+
+---
+
+_**Assistant**_
+
 
 
 ---

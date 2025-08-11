@@ -24,11 +24,12 @@ const HomePage = ({ feeds }) => {
     if (selectedFeedType === 'PREMIUM') {
       filtered = filtered.filter(feed => feed.isPremium === true);
     } else if (selectedFeedType === 'MY_CIRCLE') {
-      // Mock data for "My Circle" - could be based on followed creators or special tags
-      const myCircleCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
-      filtered = filtered.filter(feed => myCircleCreators.includes(feed.creator));
+      // Show only MY CIRCLE category feeds
+      filtered = filtered.filter(feed => feed.category === 'MY CIRCLE');
+    } else if (selectedFeedType === 'TRENDING') {
+      // 'TRENDING' excludes MY CIRCLE feeds - only shows public content
+      filtered = filtered.filter(feed => feed.category !== 'MY CIRCLE');
     }
-    // 'TRENDING' shows all feeds (already filtered by category if needed)
     
     return filtered;
   };
