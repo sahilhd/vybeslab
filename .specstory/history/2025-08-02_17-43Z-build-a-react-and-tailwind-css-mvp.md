@@ -19258,6 +19258,116 @@ lets keep the top feeds seamless, just include the title and the views
 
 _**Assistant**_
 
+I'll simplify the Top Feeds panel to just show the title and views, removing the premium/quest badges and extra styling for a cleaner look.
+
+---
+
+<details><summary>Edit file: src/components/TopFeeds.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 10
+
+```diff
+@@ -25,15 +25,6 @@
+                  {feed.title}
+                </h4>
+-               <div className="flex items-center justify-between mt-1">
++               <div className="mt-1">
+                  <span className="text-gray-400 font-mono text-xs">{feed.viewCount} views</span>
+-                 <div className="flex items-center space-x-2">
+-                   {feed.isPremium && (
+-                     <span className="text-yellow-500 font-mono text-xs">PREMIUM</span>
+-                   )}
+-                   {feed.isQuest && (
+-                     <span className="text-neon-magenta font-mono text-xs">QUEST</span>
+-                   )}
+-                   <span className="text-neon-green font-mono text-xs">{feed.category}</span>
+-                 </div>
+                </div>
+              </div>
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Top Feeds panel simplified successfully!**
+
+## 🎯 **Summary of Changes:**
+
+### **✅ Cleaner Top Feeds Design:**
+
+**Now Shows Only:**
+- ✅ **Feed Title** (with hover effect)
+- ✅ **View Count** (in gray)
+- ✅ **Ranking Number** (1-5)
+
+**Removed:**
+- ❌ Premium/Quest badges
+- ❌ Category labels  
+- ❌ Extra styling clutter
+
+### **📋 Current Top Feeds Display:**
+
+```
+📈 TOP FEEDS
+
+1. PARTYGIRL Ibiza
+   24.7K views
+
+2. Front row at PRADA  
+   18.9K views
+
+3. Aperol spritz with my besties
+   16.3K views
+
+4. Styling the Nike Bloody Chromes
+   42.1K views
+
+5. Poolside at the Bel Air
+   89.3K views
+```
+
+### **🎨 Benefits:**
+- **Clean and minimal** design
+- **Easy to scan** content
+- **Fast visual processing** 
+- **Still fully clickable** to stream pages
+- **Consistent with seamless UI** philosophy
+
+The Top Feeds panel now has a much cleaner, more streamlined appearance that focuses on the essential information! 🚀
+
+---
+
+_**User**_
+
+can we fix the demo for the ai promopt for the chat sectioi to be:  “During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?”
+
+and this is the item with correct product details with a link to the actual item to buy that shows up. 
+
+VISVIM SS COVERALL JKT DMGD
+ITEM BRAND: VISVIM MOTORS CLUB
+$1,844.00
+https://shop.visvim.com/0125305006001
+
+
+include this image to the site
+@Screenshot 2025-08-10 at 9.50.02 PM.png 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
 
 
 ---

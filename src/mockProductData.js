@@ -1,6 +1,21 @@
 export const mockProductDatabase = [
   {
     id: 1,
+    name: "VISVIM SS COVERALL JKT DMGD",
+    brand: "VISVIM MOTORS CLUB",
+    price: "$1,844.00",
+    category: "Apparel",
+    image: "/images/Screenshot 2025-08-10 at 9.50.02 PM.png",
+    tags: ["jacket", "denim", "coverall", "visvim", "motors", "damaged", "denim jacket", "apparel"],
+    streamAppearance: "Shopping at Visvim in Carmel",
+    confidence: 98,
+    description: "VISVIM SS COVERALL JKT DMGD - Premium denim coverall jacket with distressed details",
+    streamTimestamp: "03:12",
+    streamContext: "Featured during the premium denim section walkthrough",
+    buyLink: "https://shop.visvim.com/0125305006001"
+  },
+  {
+    id: 2,
     name: "Visvim Grey Collared Shirt",
     brand: "Visvim",
     price: "$50",
@@ -14,7 +29,7 @@ export const mockProductDatabase = [
     streamContext: "Featured prominently during the store walkthrough section"
   },
   {
-    id: 2,
+    id: 3,
     name: "Visvim FBT Prime Sneakers",
     brand: "Visvim",
     price: "$720",
@@ -26,7 +41,7 @@ export const mockProductDatabase = [
     description: "Hand-crafted premium sneakers with traditional Japanese construction"
   },
   {
-    id: 3,
+    id: 4,
     name: "Malbon Golf Polo Shirt",
     brand: "Malbon",
     price: "$165",

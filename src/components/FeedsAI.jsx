@@ -41,14 +41,30 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
   const generateAIResponse = (userMessage) => {
     const query = userMessage.toLowerCase();
     
-    // Handle specific stream-based queries (like your example)
-    if (query.includes('visit') && query.includes('visvim') && query.includes('carmel')) {
+    // Handle specific denim jacket query
+    if (query.includes('feed') && query.includes('visvim') && query.includes('carmel') && 
+        (query.includes('denim') || query.includes('jacket')) && query.includes('visvim motors')) {
+      const denimJacket = mockProductDatabase.find(p => p.name.includes('COVERALL JKT'));
+      
+      if (denimJacket) {
+        return {
+          type: 'product',
+          content: `Perfect! I found this from my analysis of your "Shopping at Visvim in Carmel" feed:`,
+          product: denimJacket,
+          confidence: 98,
+          streamSpecific: true
+        };
+      }
+    }
+    
+    // Handle general visvim/carmel queries  
+    if (query.includes('visvim') && query.includes('carmel')) {
       const product = simulateProductSearch(query);
       
       if (product && product.streamAppearance.includes('Visvim in Carmel')) {
         return {
           type: 'product',
-          content: `Based on my analysis of your "Shopping at Visvim in Carmel" stream, I found this item:`,
+          content: `Based on my analysis of your "Shopping at Visvim in Carmel" feed, I found this item:`,
           product: product,
           confidence: product.confidence,
           streamSpecific: true
@@ -93,10 +109,10 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
     }
     
     // Stream-specific questions
-    if (query.includes('stream') || query.includes('video') || query.includes('watch')) {
+    if (query.includes('stream') || query.includes('video') || query.includes('watch') || query.includes('feed')) {
       return {
         type: 'text',
-        content: 'I\'ve analyzed all your recent streams! Ask me about specific products like "During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?" and I\'ll pull up the exact details! 📺'
+        content: 'I\'ve analyzed all your recent feeds! Ask me about specific products like "During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?" and I\'ll pull up the exact details! 📺'
       };
     }
     
@@ -221,6 +237,20 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
                                 💡 {message.product.streamContext}
                               </p>
                             )}
+                          </div>
+                        )}
+                        
+                        {message.product.buyLink && (
+                          <div className="mt-3">
+                            <a
+                              href={message.product.buyLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full bg-gradient-to-r from-neon-green to-emerald-600 text-black font-mono font-bold py-2 px-4 rounded hover:scale-105 transition-all duration-200 shadow-lg shadow-neon-green/30 flex items-center justify-center space-x-2"
+                            >
+                              <span>🛒</span>
+                              <span>BUY NOW</span>
+                            </a>
                           </div>
                         )}
                       </div>
