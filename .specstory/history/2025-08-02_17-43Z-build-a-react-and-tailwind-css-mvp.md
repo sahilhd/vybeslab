@@ -20015,6 +20015,99 @@ I want you to move the sample prompt as a clickable you can see at the bottom, t
 
 _**Assistant**_
 
+I'll move the sample prompt from the initial AI message to clickable buttons at the bottom of the chat interface. Let me update the FeedsAI component:
+
+---
+
+<details><summary>Edit file: src/components/FeedsAI.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -7,5 +7,5 @@
+        id: 1,
+        type: 'ai',
+-       content: 'Hey there! 👋 I\'m Feeds AI - your personal shopping assistant. Ask me about any product you saw in the feeds! Try: "During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?"',
++       content: 'Hey there! 👋 I\'m Feeds AI - your personal shopping assistant. Ask me about any product you saw in the feeds!',
+        timestamp: new Date()
+      }
+```
+
+</details>
+
+---
+
+Now I'll add the clickable sample prompts at the bottom of the chat interface. Let me find the input section and add the sample prompts above it:
+
+---
+
+Read file: src/components/FeedsAI.jsx
+
+---
+
+Perfect! I can see there are already quick action buttons, but they have the old demo question. Let me update the quick actions to include the new demo question:
+
+---
+
+<details><summary>Edit file: src/components/FeedsAI.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -308,5 +308,5 @@
+            <div className="mt-2 flex flex-wrap gap-1">
+              {[
+-               'During my visit to Shopping at Visvim in Carmel, how much was the grey collared shirt?', 
++               'During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?', 
+                'Price of glasses?', 
+                'Show me jackets'
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Sample prompt moved to clickable buttons!**
+
+## 🎯 **What Changed:**
+
+### **✅ 1. Cleaner Initial AI Message:**
+```
+"Hey there! 👋 I'm Feeds AI - your personal shopping assistant. Ask me about any product you saw in the feeds!"
+```
+*(Removed the long example question)*
+
+### **✅ 2. Clickable Sample Prompts at Bottom:**
+Now there are **3 clickable buttons** below the input field:
+- 🎯 **"During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?"** *(main demo)*
+- 👓 **"Price of glasses?"**
+- 👕 **"Show me jackets"**
+
+### **🚀 User Experience:**
+1. **Cleaner interface** - no long text in the initial message
+2. **One-click demo** - user just clicks the button to load the exact demo question
+3. **Multiple options** - other sample questions for variety
+4. **Auto-fills input** - clicking a button puts the text in the input field
+5. **Still can type** - user can modify or type their own questions
+
+The demo question is now prominently displayed as the **first clickable button** at the bottom of the chat! 🎉
+
+---
+
+_**User**_
+
+also i notice that the profile pic no longer has the videos there, can you add them back
+
+---
+
+_**Assistant**_
+
 
 
 ---

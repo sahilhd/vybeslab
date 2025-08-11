@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 
 const GalleryGrid = ({ feeds = [] }) => {
   // Filter to show only YOUR personal streams (your original content)
-  const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
-  const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator)).slice(0, 5);
+  // Using feeds that represent personal lifestyle content
+  const personalFeedIds = [2, 3, 4, 5]; // Aperol spritz, Nike styling, Bel Air pool, Erewhon smoothie
+  const profileFeeds = feeds.filter(feed => personalFeedIds.includes(feed.id)).slice(0, 5);
   
   const galleryItems = profileFeeds.map((feed, index) => ({
     id: feed.id,
