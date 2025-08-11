@@ -6,7 +6,7 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
     {
       id: 1,
       type: 'ai',
-      content: 'Hey there! 👋 I\'m Feeds AI - your personal shopping assistant. Ask me about any product you saw in the streams!',
+      content: 'Hey there! 👋 I\'m Feeds AI - your personal shopping assistant. Ask me about any product you saw in the feeds! Try: "During my feed at Visvim Carmel, how much was the denim jacket that had Visvim Motors on it?"',
       timestamp: new Date()
     }
   ]);

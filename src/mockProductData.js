@@ -5,7 +5,7 @@ export const mockProductDatabase = [
     brand: "VISVIM MOTORS CLUB",
     price: "$1,844.00",
     category: "Apparel",
-    image: "/images/Screenshot 2025-08-10 at 9.50.02 PM.png",
+    image: "/images/visvim-jacket.png",
     tags: ["jacket", "denim", "coverall", "visvim", "motors", "damaged", "denim jacket", "apparel"],
     streamAppearance: "Shopping at Visvim in Carmel",
     confidence: 98,
