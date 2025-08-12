@@ -121,7 +121,7 @@ const StreamView = ({ feeds }) => {
                 </div>
               )}
 
-              {/* Video Controls Overlay */}
+              {/* Video Controls Overlay - Only Live Status */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                 <div className="flex items-center justify-between text-white">
                   <div className="flex items-center space-x-4">
@@ -131,15 +131,7 @@ const StreamView = ({ feeds }) => {
                       <span className="font-mono text-sm">LIVE</span>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    <button className="cyber-button px-3 py-1 text-xs rounded">
-                      FOLLOW
-                    </button>
-                    <button className="border border-neon-magenta text-neon-magenta px-3 py-1 text-xs rounded hover:bg-neon-magenta hover:text-black transition-all">
-                      TIP
-                    </button>
-                  </div>
+                  {/* Removed FOLLOW/TIP buttons from here to avoid blocking volume controls */}
                 </div>
               </div>
             </div>
@@ -148,9 +140,21 @@ const StreamView = ({ feeds }) => {
             <div className="mt-6 space-y-4">
               <div>
                 <h1 className="text-2xl font-pixel text-white mb-2">{feed.title}</h1>
-                <div className="flex items-center space-x-4">
-                  <span className="text-neon-cyan font-mono">{feed.creator}</span>
-                  <span className="text-gray-400 font-mono text-sm">#{feed.category}</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <span className="text-neon-cyan font-mono">{feed.creator}</span>
+                    <span className="text-gray-400 font-mono text-sm">#{feed.category}</span>
+                  </div>
+                  
+                  {/* FOLLOW and TIP buttons - moved here from video overlay */}
+                  <div className="flex items-center space-x-2">
+                    <button className="cyber-button px-4 py-2 text-sm rounded hover:scale-105 transition-transform">
+                      FOLLOW
+                    </button>
+                    <button className="border border-neon-magenta text-neon-magenta px-4 py-2 text-sm rounded hover:bg-neon-magenta hover:text-black transition-all">
+                      TIP
+                    </button>
+                  </div>
                 </div>
               </div>
 
