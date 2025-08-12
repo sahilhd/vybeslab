@@ -103,7 +103,6 @@ const StreamView = ({ feeds }) => {
                   <video 
                     controls 
                     autoPlay 
-                    muted
                     className="w-full h-full object-cover"
                     poster={feed.thumbnail}
                   >
