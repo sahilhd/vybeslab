@@ -121,17 +121,14 @@ const StreamView = ({ feeds }) => {
                 </div>
               )}
 
-              {/* Video Controls Overlay - Only Live Status */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                <div className="flex items-center justify-between text-white">
-                  <div className="flex items-center space-x-4">
-                    <span className="font-mono text-sm">{feed.viewCount} watching</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
-                      <span className="font-mono text-sm">LIVE</span>
-                    </div>
+              {/* Live Status - Moved to top left to avoid blocking video controls */}
+              <div className="absolute top-4 left-4 bg-black/80 backdrop-blur rounded-lg px-3 py-2">
+                <div className="flex items-center space-x-4 text-white">
+                  <span className="font-mono text-sm">{feed.viewCount} watching</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                    <span className="font-mono text-sm">LIVE</span>
                   </div>
-                  {/* Removed FOLLOW/TIP buttons from here to avoid blocking volume controls */}
                 </div>
               </div>
             </div>
