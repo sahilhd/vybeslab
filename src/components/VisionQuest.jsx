@@ -40,13 +40,13 @@ const VisionQuest = () => {
       title: 'Erewhon Wellness Quest',
       brand: 'Erewhon',
       brandIcon: '🥤',
-      description: 'Stream yourself grabbing a drink at Erewhon and earn wellness points!',
+      description: 'Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie for 600 points!',
       reward: 600,
       difficulty: 'EASY',
       category: 'WELLNESS',
       estimatedTime: '5-10 min',
-      videoTarget: '/stream/2', // Could be a wellness/food stream
-      detectProduct: 'Erewhon Smoothie',
+      videoTarget: '/stream/5', // Updated to point to the Erewhon quest stream
+      detectProduct: 'Erewhon x Vacation Smoothie',
       color: 'from-green-500 to-emerald-600'
     },
     {

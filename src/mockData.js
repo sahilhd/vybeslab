@@ -110,14 +110,14 @@ export const mockFeeds = [
   },
   {
     id: 5,
-    title: 'New smoothie alert',
+    title: 'Erewhon Wellness Quest',
     creator: '@gabbriette',
     thumbnail: '/images/erewhon.png',
     viewCount: '67.8K',
     isPremium: false,
     category: 'FOOD & DRINK',
-    description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
-    videoUrl: null,
+    description: '🥤 Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie for 600 points. Featuring Organic Coconut Milk, Coconut Water, Organic Banana, and Blue Spirulina.',
+    videoUrl: '/images/erewhon_quest.mp4',
     isQuest: true
   },
   {
