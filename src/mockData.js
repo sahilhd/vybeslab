@@ -111,8 +111,8 @@ export const mockFeeds = [
   {
     id: 5,
     title: 'Erewhon Wellness Quest',
-    creator: '@gabbriette',
-    thumbnail: '/images/erewhon.png',
+    creator: '@erewhon',
+    thumbnail: '/images/quest_thumbnail.png',
     viewCount: '67.8K',
     isPremium: false,
     category: 'FOOD & DRINK',

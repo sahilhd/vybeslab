@@ -21474,41 +21474,183 @@ the video for this quest is here @/images erewhon_quest.mp4, use the image as a 
 
 _**Assistant**_
 
+I can see from your screenshot that this is the Erewhon Wellness Quest stream page! I notice you have the new `erewhon_quest.mp4` video with timed sound effects. Let me update the quest system to use this video and enhance the experience.
 
-
----
-
-
+First, let me check how the quest system currently works and then integrate the new video:
 
 ---
 
-
-
----
-
-
+Read file: src/components/VisionQuest.jsx
 
 ---
 
-
-
----
-
-
+Perfect! I can see there's already an "Erewhon Wellness Quest" defined. Now let me check what happens when someone clicks "Start Streaming" and update it to use the new video. Let me look at the quest handling:
 
 ---
 
-
-
----
-
-
+Read file: src/components/VisionQuest.jsx
 
 ---
 
-
+Let me check how the Start Streaming button works:
 
 ---
+
+Read file: src/components/VisionQuest.jsx
+
+---
+
+Let me find the Start Streaming button code:
+
+---
+
+<details>
+            <summary>Grep search for "Start Streaming" • **2** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L148 | `Start streaming to earn points!` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/VisionQuest.jsx` | L179 | `<span>START STREAMING</span>` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/VisionQuest.jsx` | L223 | `<h4 className="font-mono text-neon-cyan mb-2">START STREAMING</h4>` |
+
+</details>
+
+---
+
+Read file: src/components/VisionQuest.jsx
+
+---
+
+Now let me check the `handleStartQuest` function:
+
+---
+
+Read file: src/components/VisionQuest.jsx
+
+---
+
+Perfect! I can see the system. The Erewhon quest currently redirects to `/stream/2` (which is "Aperol spritz with my besties"). I need to:
+
+1. Create a dedicated Erewhon quest stream that uses the new `erewhon_quest.mp4` video
+2. Update the quest to redirect to this new dedicated stream
+
+Let me first create a dedicated Erewhon quest feed and then update the quest system:
+
+---
+
+Read file: src/mockData.js
+
+---
+
+I can see there's already a feed with id: 5 that's about Erewhon smoothies! Let me update this feed to use the new `erewhon_quest.mp4` video and then update the quest to point to it:
+
+---
+
+<details><summary>Edit file: src/mockData.js</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 3
+
+```diff
+@@ -111,12 +111,12 @@
+    {
+      id: 5,
+-     title: 'New smoothie alert',
++     title: 'Erewhon Wellness Quest',
+      creator: '@gabbriette',
+      thumbnail: '/images/erewhon.png',
+      viewCount: '67.8K',
+      isPremium: false,
+      category: 'FOOD & DRINK',
+-     description: '🥤 Discovering the latest smoothie trends at Erewhon. Health meets luxury in this LA hotspot.',
+-     videoUrl: null,
++     description: '🥤 Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie for 600 points. Featuring Organic Coconut Milk, Coconut Water, Organic Banana, and Blue Spirulina.',
++     videoUrl: '/images/erewhon_quest.mp4',
+      isQuest: true
+    },
+```
+
+</details>
+
+---
+
+Now let me update the quest to point to this stream (id: 5 instead of id: 2):
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 3, lines removed: 3
+
+```diff
+@@ -41,11 +41,11 @@
+        brand: 'Erewhon',
+        brandIcon: '🥤',
+-       description: 'Stream yourself grabbing a drink at Erewhon and earn wellness points!',
++       description: 'Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie for 600 points!',
+        reward: 600,
+        difficulty: 'EASY',
+        category: 'WELLNESS',
+        estimatedTime: '5-10 min',
+-       videoTarget: '/stream/2', // Could be a wellness/food stream
+-       detectProduct: 'Erewhon Smoothie',
++       videoTarget: '/stream/5', // Updated to point to the Erewhon quest stream
++       detectProduct: 'Erewhon x Vacation Smoothie',
+        color: 'from-green-500 to-emerald-600'
+      },
+```
+
+</details>
+
+---
+
+Perfect! ✨ **Erewhon Wellness Quest is now set up with Seve's new video!**
+
+## 🎯 **What I've Implemented:**
+
+### **✅ Updated Quest Flow:**
+1. **Quest Page** → Click "Start Streaming" on Erewhon Wellness Quest
+2. **Redirects to** → Stream ID 5 (Erewhon stream page)
+3. **Plays Video** → `erewhon_quest.mp4` with timed sound effects
+4. **Shows Notifications** → Activity Validated & Quest Completed pop-ups with sound
+
+### **✅ Enhanced Quest Details:**
+- **Title:** "Erewhon Wellness Quest"
+- **Description:** "Grab the limited-edition Erewhon x Vacation 'Sunscreen' Smoothie for 600 points!"
+- **Video:** Uses Seve's `erewhon_quest.mp4` with sound effects
+- **Target Product:** "Erewhon x Vacation Smoothie"
+- **Reward:** 600 points
+
+### **✅ Stream Page Features:**
+- **Thumbnail:** Erewhon branding (`/images/erewhon.png`)
+- **Quest Badge:** Shows "🎯 QUEST" indicator
+- **Sound Effects:** Timed audio for validation notifications
+- **Creator:** @gabbriette (fits the wellness theme)
+
+## 🚀 **Demo Flow:**
+1. **Go to Vision Quest** (`/quests`)
+2. **Find Erewhon Wellness Quest** (green gradient card)
+3. **Click "START STREAMING"** 
+4. **Redirects to stream page** with Seve's video
+5. **Video plays with sound effects** for notifications
+6. **Quest completion** gets tracked automatically
+
+The quest system now showcases the perfect example of branded challenges with the polished Erewhon experience! 🥤✨
+
+---
+
+_**User**_
+
+can you improve the erewhon quest, can you update the thumbnail to this: quest_thumbnail and change to change the account from @gabbriette to erewhon
+
+---
+
+_**Assistant**_
 
 
 
