@@ -13,7 +13,7 @@ const Navbar = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-20">
           {/* Logo - aligned with categories */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group -ml-4">
             <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
               FEEDS
             </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
         {/* Mobile Layout */}
         <div className="md:hidden flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group -ml-4">
             <div className="text-2xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
               FEEDS
             </div>
