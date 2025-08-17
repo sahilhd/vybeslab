@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import StreamView from './components/StreamView';
 import VideoUpload from './components/VideoUpload';
@@ -19,20 +20,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
-      <Navbar />
-      <main className="pt-16">
-                     <Routes>
-               <Route path="/" element={<HomePage feeds={feeds} />} />
-               <Route path="/stream/:id" element={<StreamView feeds={feeds} />} />
-                                         <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
-            <Route path="/glasses" element={<GlassesPage />} />
-            <Route path="/quests" element={<VisionQuest />} />
-            <Route path="/live" element={<GoLive />} />
-            <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
-             </Routes>
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/app/*" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <Routes>
+              <Route path="/" element={<HomePage feeds={feeds} />} />
+              <Route path="/stream/:id" element={<StreamView feeds={feeds} />} />
+              <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
+              <Route path="/glasses" element={<GlassesPage />} />
+              <Route path="/quests" element={<VisionQuest />} />
+              <Route path="/live" element={<GoLive />} />
+              <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
+            </Routes>
+          </main>
+        </div>
+      } />
+    </Routes>
   );
 }
 
