@@ -80,7 +80,7 @@ const GoLive = () => {
       {/* Back Button */}
       <div className="fixed top-20 left-4 z-50">
         <Link 
-          to="/" 
+          to="/app" 
           className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
         >
           <span>←</span>

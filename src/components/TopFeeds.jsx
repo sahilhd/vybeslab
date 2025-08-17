@@ -13,7 +13,7 @@ const TopFeeds = () => {
         {topFeeds.map((feed, index) => (
           <Link 
             key={feed.id} 
-            to={`/stream/${feed.id}`}
+            to={`/app/stream/${feed.id}`}
             className="flex items-start space-x-3 p-2 rounded hover:bg-neon-blue/10 transition-colors cursor-pointer group"
           >
             <div className="flex-shrink-0 w-6 h-6 bg-neon-blue rounded flex items-center justify-center group-hover:bg-neon-cyan transition-colors">
@@ -34,7 +34,7 @@ const TopFeeds = () => {
 
       {/* See More Button */}
       <Link 
-        to="/"
+        to="/app"
         className="block w-full mt-4 border border-neon-cyan text-neon-cyan font-mono text-xs py-2 rounded hover:bg-neon-cyan hover:text-black transition-all text-center"
       >
         SHOW MORE

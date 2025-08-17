@@ -13,7 +13,7 @@ const Navbar = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
           {/* Logo - aligned with categories */}
-          <Link to="/" className="flex items-center space-x-2 ml-4">
+          <Link to="/app" className="flex items-center space-x-2 ml-4">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
               FEEDS
             </div>
@@ -122,7 +122,7 @@ const Navbar = () => {
         {/* Mobile Layout */}
         <div className="md:hidden flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+                      <Link to="/app" className="flex items-center">
             <div className="text-xl font-pixel neon-text text-neon-cyan">
               FEEDS
             </div>

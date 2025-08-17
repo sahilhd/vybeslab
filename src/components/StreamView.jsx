@@ -59,7 +59,7 @@ const StreamView = ({ feeds }) => {
       {/* Back Button */}
       <div className="p-4">
         <Link 
-          to="/" 
+          to="/app" 
           className="inline-flex items-center space-x-2 text-neon-cyan hover:text-white transition-colors font-mono"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

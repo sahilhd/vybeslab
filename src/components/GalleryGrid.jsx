@@ -20,7 +20,7 @@ const GalleryGrid = ({ feeds = [] }) => {
       {/* Featured Item */}
       {galleryItems.filter(item => item.isFeatured).map(item => (
         <div key={item.id} className="mb-4">
-          <Link to={`/stream/${item.id}`} className="block relative">
+          <Link to={`/app/stream/${item.id}`} className="block relative">
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <img 
                 src={item.thumbnail} 
@@ -59,7 +59,7 @@ const GalleryGrid = ({ feeds = [] }) => {
       <div className="grid grid-cols-2 gap-3">
         {galleryItems.filter(item => !item.isFeatured).map(item => (
           <div key={item.id}>
-            <Link to={`/stream/${item.id}`} className="block relative">
+            <Link to={`/app/stream/${item.id}`} className="block relative">
               <div className="relative aspect-video rounded-lg overflow-hidden">
                 <img 
                   src={item.thumbnail} 

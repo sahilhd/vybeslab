@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const FeedCard = ({ feed }) => {
   return (
-    <Link to={`/stream/${feed.id}`} className="block group h-full">
+          <Link to={`/app/stream/${feed.id}`} className="block group h-full">
       <div className="feed-thumbnail bg-dark-blue rounded-lg overflow-hidden border border-neon-blue/50 hover:border-neon-cyan transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/20 h-full flex flex-col">
         {/* Premium Badge */}
         {feed.isPremium && (

@@ -22,19 +22,59 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/app/*" element={
+      <Route path="/app" element={
         <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
           <Navbar />
           <main className="pt-16">
-            <Routes>
-              <Route path="/" element={<HomePage feeds={feeds} />} />
-              <Route path="/stream/:id" element={<StreamView feeds={feeds} />} />
-              <Route path="/upload" element={<VideoUpload onVideoUpload={handleVideoUpload} />} />
-              <Route path="/glasses" element={<GlassesPage />} />
-              <Route path="/quests" element={<VisionQuest />} />
-              <Route path="/live" element={<GoLive />} />
-              <Route path="/profile" element={<ProfilePage feeds={feeds} />} />
-            </Routes>
+            <HomePage feeds={feeds} />
+          </main>
+        </div>
+      } />
+      <Route path="/app/stream/:id" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <StreamView feeds={feeds} />
+          </main>
+        </div>
+      } />
+      <Route path="/app/upload" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <VideoUpload onVideoUpload={handleVideoUpload} />
+          </main>
+        </div>
+      } />
+      <Route path="/app/glasses" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <GlassesPage />
+          </main>
+        </div>
+      } />
+      <Route path="/app/quests" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <VisionQuest />
+          </main>
+        </div>
+      } />
+      <Route path="/app/live" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <GoLive />
+          </main>
+        </div>
+      } />
+      <Route path="/app/profile" element={
+        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+          <Navbar />
+          <main className="pt-16">
+            <ProfilePage feeds={feeds} />
           </main>
         </div>
       } />

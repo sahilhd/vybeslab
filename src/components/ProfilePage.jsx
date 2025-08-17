@@ -31,7 +31,7 @@ const ProfilePage = ({ feeds = [] }) => {
       {/* Back Button */}
       <div className="absolute top-12 left-4 z-50">
         <Link 
-          to="/" 
+          to="/app" 
           className="w-10 h-10 bg-black/50 rounded-full flex items-center justify-center backdrop-blur-sm"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
