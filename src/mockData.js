@@ -163,7 +163,7 @@ export const mockFeeds = [
     isPremium: false,
     category: 'MY CIRCLE',
     description: '🛍️ Exclusive shopping experience at Visvim flagship store in Carmel. Discovering unique pieces and Japanese craftsmanship.',
-    videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
+    videoUrl: '/images/fashion_week_the_naked_truth.mp4'
   },
   {
     id: 10,
@@ -174,7 +174,7 @@ export const mockFeeds = [
     isPremium: false,
     category: 'MY CIRCLE',
     description: '⛳ Perfect day at The Hay short course in Pebble Beach. Stunning ocean views and incredible golf architecture.',
-    videoUrl: 'https://res.cloudinary.com/daxmjqsy4/video/upload/v1735669901/demo-stream_kph5fy.mp4'
+    videoUrl: '/images/aman_utah.mp4'
   },
   {
     id: 11,
