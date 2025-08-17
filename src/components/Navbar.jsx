@@ -13,14 +13,14 @@ const Navbar = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
           {/* Logo - aligned with categories */}
-          <Link to="/app" className="flex items-center space-x-2 ml-4">
+          <Link to="/" className="flex items-center space-x-2 ml-0">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
               FEEDS
             </div>
           </Link>
 
           {/* Center Section - Search */}
-          <div className="flex-1 max-w-lg mx-8">
+          <div className="flex-1 max-w-lg ml-16">
             <div className="relative">
               <input
                 type="text"
@@ -41,7 +41,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             {/* GO LIVE Button */}
             <Link 
-              to="/live"
+              to="/app/live"
               className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-red-500/30 hover:scale-105 transition-all duration-200 flex items-center space-x-2 animate-pulse"
             >
               <span className="w-2 h-2 bg-white rounded-full"></span>
@@ -50,7 +50,7 @@ const Navbar = () => {
 
             {/* Action Buttons */}
             <Link 
-              to="/upload"
+              to="/app/upload"
               className="border border-neon-magenta text-neon-magenta px-4 py-2 font-mono text-sm rounded hover:bg-neon-magenta hover:text-black transition-all"
             >
               UPLOAD
@@ -85,7 +85,7 @@ const Navbar = () => {
             </button>
 
             <Link 
-              to="/quests"
+              to="/app/quests"
               className="border border-neon-magenta text-neon-magenta px-4 py-2 font-mono text-sm rounded hover:bg-neon-magenta hover:text-black transition-all flex items-center space-x-2"
             >
               <span>🎯</span>
@@ -93,7 +93,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/glasses"
+              to="/app/glasses"
               className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
             >
               <span>🕶️</span>
@@ -106,7 +106,7 @@ const Navbar = () => {
 
             {/* Profile Button */}
             <Link 
-              to="/profile"
+              to="/app/profile"
               className="flex items-center space-x-2 bg-gradient-to-r from-neon-green to-emerald-600 px-4 py-2 rounded-full shadow-lg shadow-neon-green/30 hover:scale-105 transition-all duration-200"
             >
               <img 
@@ -122,7 +122,7 @@ const Navbar = () => {
         {/* Mobile Layout */}
         <div className="md:hidden flex items-center justify-between h-16">
           {/* Logo */}
-                      <Link to="/app" className="flex items-center">
+                      <Link to="/" className="flex items-center">
             <div className="text-xl font-pixel neon-text text-neon-cyan">
               FEEDS
             </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-3">
             {/* Quest Icon */}
             <Link 
-              to="/quests"
+              to="/app/quests"
               className="w-10 h-10 bg-gradient-to-r from-neon-magenta to-purple-600 rounded-full shadow-lg shadow-neon-magenta/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-magenta/50"
             >
               <span className="text-white text-lg filter drop-shadow-sm">🎯</span>
@@ -148,7 +148,7 @@ const Navbar = () => {
             
             {/* Profile Icon */}
             <Link 
-              to="/profile"
+              to="/app/profile"
               className="w-10 h-10 bg-gradient-to-r from-neon-green to-emerald-600 rounded-full shadow-lg shadow-neon-green/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-green/50 overflow-hidden"
             >
               <img 
@@ -176,14 +176,14 @@ const Navbar = () => {
             {/* Mobile Action Buttons */}
             <div className="flex flex-wrap gap-2">
               <Link
-                to="/upload"
+                to="/app/upload"
                 className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex-1 text-center"
               >
                 UPLOAD
               </Link>
               
               <Link
-                to="/glasses"
+                to="/app/glasses"
                 className="cyber-button px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
               >
                 <span>🕶️</span>
