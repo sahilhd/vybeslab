@@ -61,7 +61,9 @@ const ProfilePage = ({ feeds = [] }) => {
             onClick={() => setIsAIOpen(true)}
             className="flex items-center space-x-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg px-4 py-3 min-w-[70px] justify-center border border-cyan-400 hover:scale-105 transition-transform"
           >
-            <span className="text-black font-mono font-bold text-sm">AI</span>
+            <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
           </button>
 
           {/* Mute Button */}

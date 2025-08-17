@@ -175,7 +175,9 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
         <div className="bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 border-b border-neon-cyan/50 p-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-neon-cyan rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-black font-mono font-bold text-lg">AI</span>
+              <svg className="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
             </div>
             <div>
               <h3 className="font-pixel text-neon-cyan text-lg">FEEDS AI</h3>
