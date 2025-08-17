@@ -175,8 +175,26 @@ const FeedsAI = ({ isOpen, onClose, currentStreamId }) => {
         <div className="bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 border-b border-neon-cyan/50 p-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-neon-cyan rounded-full flex items-center justify-center animate-pulse">
-              <svg className="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                {/* Glow Effect */}
+                <circle cx="12" cy="12" r="11" fill="url(#glow)" opacity="0.6"/>
+                {/* Main Circle with Gradient */}
+                <circle cx="12" cy="12" r="10" fill="url(#mainGradient)"/>
+                {/* Four-pointed Star/Diamond */}
+                <path d="M12 4L14 10L20 12L14 14L12 20L10 14L4 12L10 10L12 4Z" fill="black"/>
+                {/* Notification Dot */}
+                <circle cx="18" cy="6" r="2" fill="#00ff00"/>
+                {/* Gradients */}
+                <defs>
+                  <linearGradient id="mainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#4facfe"/>
+                    <stop offset="100%" stopColor="#00f2fe"/>
+                  </linearGradient>
+                  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#4facfe" stopOpacity="0.8"/>
+                    <stop offset="100%" stopColor="#4facfe" stopOpacity="0"/>
+                  </radialGradient>
+                </defs>
               </svg>
             </div>
             <div>
