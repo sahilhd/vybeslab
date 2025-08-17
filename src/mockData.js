@@ -153,20 +153,9 @@ export const mockFeeds = [
     description: '🎪 Behind the scenes at Coachella Night 2. Festival fashion, music, and unforgettable moments under the desert stars.',
     videoUrl: null
   },
-  {
-    id: 9,
-    title: 'Live at #18 at Pebble Beach',
-    creator: '@golfpro',
-    thumbnail: '/images/18th-hole-pebble.png',
-    viewCount: '23.1K',
-    isPremium: false,
-    category: 'SPORTS',
-    description: '⛳ Live coverage from the iconic 18th hole at Pebble Beach Golf Links. Experience the drama and beauty of one of golf\'s most famous finishing holes.',
-    videoUrl: '/images/Live at #18 at Pebble Beach.mp4'
-  },
   // MY CIRCLE - Personal content feeds
   {
-    id: 10,
+    id: 9,
     title: 'Shopping at Visvim in Carmel',
     creator: '@lifestylevibes',
     thumbnail: '/images/visvim-shopping.png',
@@ -177,7 +166,7 @@ export const mockFeeds = [
     videoUrl: '/images/Shopping at Visvim in Carmel 1.mp4'
   },
   {
-    id: 11,
+    id: 10,
     title: 'Putting at The Hay - Pebble Beach',
     creator: '@golfpro',
     thumbnail: '/images/pebble-beach-golf.jpg',
@@ -188,7 +177,7 @@ export const mockFeeds = [
     videoUrl: '/images/Putting at The Hay in Pebble Beach.mp4'
   },
   {
-    id: 12,
+    id: 11,
     title: 'Malbon Store Tour - Carmel',
     creator: '@golfstyle',
     thumbnail: '/images/malbon-visit.jpg',
@@ -199,7 +188,7 @@ export const mockFeeds = [
     videoUrl: '/images/Visiting the Malbon Store in Carmel.mp4'
   },
   {
-    id: 13,
+    id: 12,
     title: 'Weekend Lifestyle Vibes',
     creator: '@lifestylevibes',
     thumbnail: '/images/lifestyle-1.jpg',
@@ -210,7 +199,7 @@ export const mockFeeds = [
     videoUrl: null
   },
   {
-    id: 14,
+    id: 13,
     title: 'Chill Day Adventures',
     creator: '@golfstyle',
     thumbnail: '/images/lifestyle-2.jpg',
@@ -224,27 +213,27 @@ export const mockFeeds = [
 
 export const topFeeds = [
   {
-    id: 10,
+    id: 1,
     title: '🛍️ Shopping at Visvim in Carmel',
     viewCount: '12.4K views',
     category: 'FASHION'
   },
   {
-    id: 11,
+    id: 2,
     title: '⛳ Putting at The Hay - Pebble Beach',
     viewCount: '8.9K views',
     category: 'SPORTS'
   },
   {
-    id: 12,
+    id: 3,
     title: '🛍️ Malbon Store Tour - Carmel',
     viewCount: '6.7K views',
     category: 'FASHION'
   },
   {
-    id: 9,
-    title: '⛳ Live at #18 at Pebble Beach',
-    viewCount: '23.1K views',
+    id: 4,
+    title: '⛳ Golf Course Tour - Pebble Beach',
+    viewCount: '15.8K views',
     category: 'SPORTS'
   },
   {
