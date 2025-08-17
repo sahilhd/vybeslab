@@ -9,11 +9,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-neon-cyan/20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-0">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-20">
           {/* Logo - aligned with categories */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group pl-6">
             <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
               FEEDS
             </div>
@@ -39,7 +39,7 @@ const Navbar = () => {
           </div>
 
           {/* Action Buttons - Clean & Minimal */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 pr-6">
             {/* GO LIVE Button */}
             <Link 
               to="/app/live"
@@ -52,18 +52,29 @@ const Navbar = () => {
               </span>
             </Link>
 
-            {/* AI Button - Icon Only */}
-            <button
-              onClick={() => setIsAIOpen(true)}
-              className="relative w-12 h-12 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full shadow-lg shadow-neon-cyan/30 hover:shadow-neon-cyan/50 transition-all duration-300 group overflow-hidden"
+            {/* BUY GLASSES Button */}
+            <Link
+              to="/app/glasses"
+              className="relative group bg-gradient-to-r from-neon-cyan to-neon-blue text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-neon-cyan/30 hover:shadow-neon-cyan/50 transition-all duration-300 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <svg className="relative w-6 h-6 mx-auto mt-3" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill="black"/>
-                <path d="M12 4L14 10L20 12L14 14L12 20L10 14L4 12L10 10L12 4Z" fill="white"/>
-                <circle cx="18" cy="6" r="2" fill="#00ff00"/>
-              </svg>
-            </button>
+              <span className="relative flex items-center space-x-2">
+                <span>🕶️</span>
+                <span>BUY</span>
+              </span>
+            </Link>
+
+            {/* QUESTS Button */}
+            <Link 
+              to="/app/quests"
+              className="relative group bg-gradient-to-r from-neon-magenta to-purple-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-neon-magenta/30 hover:shadow-neon-magenta/50 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-neon-magenta opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center space-x-2">
+                <span>🎯</span>
+                <span>QUESTS</span>
+              </span>
+            </Link>
 
             {/* Profile Button - Clean & Elegant */}
             <Link 
@@ -83,14 +94,14 @@ const Navbar = () => {
         {/* Mobile Layout */}
         <div className="md:hidden flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group pl-6">
             <div className="text-2xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
               FEEDS
             </div>
           </Link>
 
           {/* Mobile Actions - Clean & Minimal */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 pr-6">
             {/* GO LIVE Button */}
             <Link 
               to="/app/live"
@@ -103,17 +114,29 @@ const Navbar = () => {
               </span>
             </Link>
             
-            {/* AI Button */}
-            <button
-              onClick={() => setIsAIOpen(true)}
-              className="relative w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full shadow-lg shadow-neon-cyan/30 hover:shadow-neon-cyan/50 transition-all duration-300 group overflow-hidden"
+            {/* BUY GLASSES Button */}
+            <Link
+              to="/app/glasses"
+              className="relative group bg-gradient-to-r from-neon-cyan to-neon-blue text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-neon-cyan/30 hover:shadow-neon-cyan/50 transition-all duration-300 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <svg className="relative w-5 h-5 mx-auto mt-2.5" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill="black"/>
-                <path d="M12 4L14 10L20 12L14 14L12 20L10 14L4 12L10 10L12 4Z" fill="white"/>
-              </svg>
-            </button>
+              <span className="relative flex items-center space-x-1">
+                <span>🕶️</span>
+                <span>BUY</span>
+              </span>
+            </Link>
+
+            {/* QUESTS Button */}
+            <Link 
+              to="/app/quests"
+              className="relative group bg-gradient-to-r from-neon-magenta to-purple-600 text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-neon-magenta/30 hover:shadow-neon-magenta/50 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-neon-magenta opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center space-x-1">
+                <span>🎯</span>
+                <span>QUESTS</span>
+              </span>
+            </Link>
 
             {/* Menu Toggle */}
             <button 
