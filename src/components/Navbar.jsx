@@ -13,14 +13,14 @@ const Navbar = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
           {/* Logo - aligned with categories */}
-          <Link to="/" className="flex items-center space-x-2 ml-0">
+          <Link to="/" className="flex items-center space-x-2 ml-4">
             <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
               FEEDS
             </div>
           </Link>
 
           {/* Center Section - Search */}
-          <div className="flex-1 max-w-lg ml-16">
+          <div className="flex-1 max-w-lg ml-12">
             <div className="relative">
               <input
                 type="text"

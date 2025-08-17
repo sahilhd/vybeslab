@@ -24924,6 +24924,345 @@ great, now can we shift the feeds logo to the left on the navbar, it should be a
 
 _**Assistant**_
 
+Perfect! I'll make those adjustments to the navbar. Let me:
+
+1. Move the FEEDS logo further left to align with the categories section
+2. Add proper spacing between the logo and search bar
+3. Make the FEEDS logo link back to the landing page (`/`) instead of `/app`
+
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -14,5 +14,5 @@
+          <div className="hidden md:flex items-center justify-between h-16">
+            {/* Logo - aligned with categories */}
+-           <Link to="/app" className="flex items-center space-x-2 ml-4">
++           <Link to="/" className="flex items-center space-x-2 ml-0">
+              <div className="text-2xl font-pixel neon-text text-neon-cyan glitch-hover">
+                FEEDS
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -123,5 +123,5 @@
+          <div className="md:hidden flex items-center justify-between h-16">
+            {/* Logo */}
+-                       <Link to="/app" className="flex items-center">
++                       <Link to="/" className="flex items-center">
+              <div className="text-xl font-pixel neon-text text-neon-cyan">
+                FEEDS
+```
+
+</details>
+
+---
+
+Now let me add proper spacing between the logo and the search bar by adjusting the layout. Let me check the current navbar structure:
+
+
+---
+
+Read file: src/components/Navbar.jsx
+
+---
+
+I can see the current layout. The logo is now at `ml-0` (left edge) and the search bar has `mx-8` (margin left and right of 8). Let me adjust the spacing to create better alignment with the categories section. I'll reduce the left margin on the search bar and adjust the overall spacing:
+
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -21,5 +21,5 @@
+  
+            {/* Center Section - Search */}
+-           <div className="flex-1 max-w-lg mx-8">
++           <div className="flex-1 max-w-lg ml-16">
+              <div className="relative">
+                <input
+```
+
+</details>
+
+---
+
+Now let me also check if we need to adjust the mobile layout spacing. Let me see the mobile section:
+
+
+---
+
+Read file: src/components/Navbar.jsx
+
+---
+
+Perfect! Now let me also check if we need to update the GO LIVE button link since it's currently linking to `/live` but should be `/app/live`:
+
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -42,5 +42,5 @@
+              {/* GO LIVE Button */}
+              <Link 
+-               to="/live"
++               to="/app/live"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-red-500/30 hover:scale-105 transition-all duration-200 flex items-center space-x-2 animate-pulse"
+              >
+```
+
+</details>
+
+---
+
+Let me also update the other navigation links in the navbar:
+
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -51,5 +51,5 @@
+              {/* Action Buttons */}
+              <Link 
+-               to="/upload"
++               to="/app/upload"
+                className="border border-neon-magenta text-neon-magenta px-4 py-2 font-mono text-sm rounded hover:bg-neon-magenta hover:text-black transition-all"
+              >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -86,5 +86,5 @@
+  
+              <Link 
+-               to="/quests"
++               to="/app/quests"
+                className="border border-neon-magenta text-neon-magenta px-4 py-2 font-mono text-sm rounded hover:bg-neon-magenta hover:text-black transition-all flex items-center space-x-2"
+              >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -94,5 +94,5 @@
+  
+              <Link
+-               to="/glasses"
++               to="/app/glasses"
+                className="cyber-button px-4 py-2 font-mono text-sm rounded hover:scale-105 transition-transform flex items-center space-x-2"
+              >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -107,5 +107,5 @@
+              {/* Profile Button */}
+              <Link 
+-               to="/profile"
++               to="/app/profile"
+                className="flex items-center space-x-2 bg-gradient-to-r from-neon-green to-emerald-600 px-4 py-2 rounded-full shadow-lg shadow-neon-green/30 hover:scale-105 transition-all duration-200"
+              >
+```
+
+</details>
+
+---
+
+Now let me update the mobile navigation links as well:
+
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -133,5 +133,5 @@
+              {/* Quest Icon */}
+              <Link 
+-               to="/quests"
++               to="/app/quests"
+                className="w-10 h-10 bg-gradient-to-r from-neon-magenta to-purple-600 rounded-full shadow-lg shadow-neon-magenta/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-magenta/50"
+              >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -149,5 +149,5 @@
+              {/* Profile Icon */}
+              <Link 
+-               to="/profile"
++               to="/app/profile"
+                className="w-10 h-10 bg-gradient-to-r from-neon-green to-emerald-600 rounded-full shadow-lg shadow-neon-green/30 flex items-center justify-center hover:scale-105 transition-all duration-200 border border-neon-green/50 overflow-hidden"
+              >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -177,5 +177,5 @@
+              <div className="flex flex-wrap gap-2">
+                <Link
+-                 to="/upload"
++                 to="/app/upload"
+                  className="border border-neon-magenta text-neon-magenta px-3 py-2 font-mono text-xs rounded flex-1 text-center"
+                >
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -184,5 +184,5 @@
+                
+                <Link
+-                 to="/glasses"
++                 to="/app/glasses"
+                  className="cyber-button px-3 py-2 font-mono text-xs rounded flex items-center justify-center space-x-1 flex-1"
+                >
+```
+
+</details>
+
+---
+
+Perfect! ✨ **I've made all the requested changes to the navbar:**
+
+## 🎯 **What I Fixed:**
+
+### **1. Logo Positioning & Alignment:**
+- **Moved FEEDS logo** from `ml-4` to `ml-0` (left edge)
+- **Added proper spacing** between logo and search bar by changing search from `mx-8` to `ml-16`
+- This creates better alignment with the categories section below
+
+### **2. Logo Navigation:**
+- **FEEDS logo now links to landing page** (`/`) instead of `/app`
+- This means clicking the logo takes you back to the beautiful intro page
+
+### **3. Updated All Navigation Links:**
+- **GO LIVE** → `/app/live`
+- **UPLOAD** → `/app/upload` 
+- **QUESTS** → `/app/quests`
+- **BUY GLASSES** → `/app/glasses`
+- **PROFILE** → `/app/profile`
+- **All mobile navigation** → Updated with `/app` prefix
+
+## 🚀 **Now the Navbar Works Like This:**
+
+1. **FEEDS Logo (Left)** → Click to go back to landing page (`/`)
+2. **Search Bar (Center)** → Properly spaced from logo with `ml-16`
+3. **Action Buttons (Right)** → All link to correct `/app/*` routes
+4. **Mobile Layout** → Consistent with desktop navigation
+
+The logo should now be perfectly aligned with your categories section, and clicking it will take you back to the landing page! 🌟✨
+
+---
+
+_**User**_
+
+it should be aligned with categories as you can see in the screenshot
+
+---
+
+_**Assistant**_
+
 
 
 ---
