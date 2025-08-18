@@ -17,7 +17,7 @@ const VisionQuest = () => {
       difficulty: 'EASY',
       category: 'FASHION',
       estimatedTime: '5-10 min',
-      videoTarget: '/stream/0', // Will redirect to shopping stream
+      videoTarget: '/app/stream/0', // Will redirect to shopping stream
       detectProduct: 'Nike Air Jordan',
       color: 'from-orange-500 to-red-600'
     },
@@ -31,7 +31,7 @@ const VisionQuest = () => {
       difficulty: 'MEDIUM',
       category: 'LUXURY',
       estimatedTime: '10-15 min',
-      videoTarget: '/stream/0', // Shopping at Visvim stream
+      videoTarget: '/app/stream/0', // Shopping at Visvim stream
       detectProduct: 'Visvim Premium Item',
       color: 'from-purple-500 to-pink-600'
     },
@@ -45,7 +45,7 @@ const VisionQuest = () => {
       difficulty: 'EASY',
       category: 'WELLNESS',
       estimatedTime: '5-10 min',
-      videoTarget: '/stream/5', // Updated to point to the Erewhon quest stream
+      videoTarget: '/app/stream/5', // Updated to point to the Erewhon quest stream
       detectProduct: 'Erewhon x Vacation Smoothie',
       color: 'from-green-500 to-emerald-600'
     },
@@ -59,7 +59,7 @@ const VisionQuest = () => {
       difficulty: 'HARD',
       category: 'SPORTS',
       estimatedTime: '15-20 min',
-      videoTarget: '/stream/1', // Golf stream
+      videoTarget: '/app/stream/1', // Golf stream
       detectProduct: 'Titleist Golf Equipment',
       color: 'from-blue-500 to-teal-600'
     }
@@ -87,7 +87,7 @@ const VisionQuest = () => {
       {/* Back Button */}
       <div className="fixed top-20 left-4 z-50">
         <Link 
-          to="/" 
+          to="/app" 
           className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
         >
           <span>←</span>

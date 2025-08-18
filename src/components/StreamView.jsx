@@ -24,14 +24,16 @@ const StreamView = ({ feeds }) => {
       
       // Start AI detection simulation after a delay
       const detectionTimer = setTimeout(() => {
+        console.log('Starting quest detection for:', quest.title);
         setShowQuestNotification(true);
-      }, 2000); // Start detection 2 seconds after page load
+      }, 3000); // Start detection 3 seconds after page load
 
       return () => clearTimeout(detectionTimer);
     }
   }, [id, feeds]);
 
   const handleQuestComplete = (quest) => {
+    console.log('Quest completed:', quest.title);
     // Save completed quest to localStorage
     const completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[]');
     completedQuests.push(quest);
@@ -261,6 +263,13 @@ const StreamView = ({ feeds }) => {
           onComplete={handleQuestComplete}
           onClose={handleCloseQuestNotification}
         />
+      )}
+      
+      {/* Debug Info - Remove this after testing */}
+      {activeQuest && (
+        <div className="fixed bottom-4 left-4 z-50 bg-black/80 text-white p-2 rounded text-xs">
+          Active Quest: {activeQuest.title} | Show: {showQuestNotification ? 'Yes' : 'No'}
+        </div>
       )}
     </div>
   );
