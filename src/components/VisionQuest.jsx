@@ -1,235 +1,318 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import MobileBottomNav from './MobileBottomNav';
 
 const VisionQuest = () => {
   const navigate = useNavigate();
   const [completedQuests, setCompletedQuests] = useState([]);
+  const [activeQuests, setActiveQuests] = useState([]);
+  const [userPoints, setUserPoints] = useState(1250);
+
+  useEffect(() => {
+    // Load completed and active quests from localStorage
+    const saved = JSON.parse(localStorage.getItem('completedQuests') || '[]');
+    const active = JSON.parse(localStorage.getItem('activeQuest') || 'null');
+    setCompletedQuests(saved);
+    if (active) {
+      setActiveQuests([active]);
+    }
+  }, []);
 
   const quests = [
     {
       id: 1,
-      title: 'Nike Air Jordan Hunt',
-      brand: 'Nike',
-      brandIcon: '👟',
-      description: 'Stream yourself shopping for Nike Air Jordan sneakers and earn exclusive rewards!',
-      reward: 500,
-      difficulty: 'EASY',
-      category: 'FASHION',
-      estimatedTime: '5-10 min',
-      videoTarget: '/app/stream/0', // Will redirect to shopping stream
-      detectProduct: 'Nike Air Jordan',
-      color: 'from-orange-500 to-red-600'
-    },
-    {
-      id: 2,
-      title: 'Visvim Premium Discovery',
-      brand: 'Visvim',
-      brandIcon: '🏷️',
-      description: 'Stream your Visvim shopping experience in Carmel for mega rewards!',
-      reward: 1000,
-      difficulty: 'MEDIUM',
-      category: 'LUXURY',
-      estimatedTime: '10-15 min',
-      videoTarget: '/app/stream/0', // Shopping at Visvim stream
-      detectProduct: 'Visvim Premium Item',
-      color: 'from-purple-500 to-pink-600'
-    },
-    {
-      id: 3,
       title: 'Erewhon Wellness Quest',
       brand: 'Erewhon',
       brandIcon: '🥤',
-      description: 'Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie for 600 points!',
+      description: 'Grab the limited-edition Erewhon x Vacation "Sunscreen" Smoothie and show your wellness journey!',
       reward: 600,
       difficulty: 'EASY',
       category: 'WELLNESS',
       estimatedTime: '5-10 min',
-      videoTarget: '/app/stream/5', // Updated to point to the Erewhon quest stream
+      videoTarget: '/app/stream/5',
       detectProduct: 'Erewhon x Vacation Smoothie',
-      color: 'from-green-500 to-emerald-600'
+      gradient: 'from-emerald-400 via-green-500 to-teal-600',
+      bgImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop',
+      tags: ['WELLNESS', 'SMOOTHIE', 'PREMIUM']
     },
     {
-      id: 4,
-      title: 'Golf Equipment Pro Quest',
-      brand: 'Titleist',
-      brandIcon: '⛳',
-      description: 'Stream yourself using Titleist golf equipment and unlock pro status!',
-      reward: 750,
-      difficulty: 'HARD',
-      category: 'SPORTS',
+      id: 2,
+      title: 'Pebble Beach Car Show',
+      brand: 'Pebble Beach',
+      brandIcon: '🏎️',
+      description: 'Stream yourself at the exclusive Pebble Beach Concours d\'Elegance and capture luxury automotive artistry!',
+      reward: 1200,
+      difficulty: 'PREMIUM',
+      category: 'LUXURY',
       estimatedTime: '15-20 min',
-      videoTarget: '/app/stream/1', // Golf stream
-      detectProduct: 'Titleist Golf Equipment',
-      color: 'from-blue-500 to-teal-600'
+      videoTarget: '/app/stream/1', // Using video from Lewis Hamilton stories
+      detectProduct: 'Luxury Vehicle',
+      gradient: 'from-blue-500 via-purple-600 to-indigo-700',
+      bgImage: 'https://images.unsplash.com/photo-1544829099-b9a0c5303bea?w=600&h=400&fit=crop',
+      tags: ['LUXURY', 'AUTOMOTIVE', 'EXCLUSIVE']
     }
   ];
 
-  const handleStartQuest = (quest) => {
-    // Store the active quest in localStorage for the stream page to access
+  const startQuest = (quest) => {
     localStorage.setItem('activeQuest', JSON.stringify(quest));
+    setActiveQuests([quest]);
     navigate(quest.videoTarget);
+  };
+
+  const isQuestCompleted = (questId) => {
+    return completedQuests.some(quest => quest.id === questId);
+  };
+
+  const isQuestActive = (questId) => {
+    return activeQuests.some(quest => quest.id === questId);
+  };
+
+  const getQuestStatus = (quest) => {
+    if (isQuestCompleted(quest.id)) return 'COMPLETED';
+    if (isQuestActive(quest.id)) return 'ACTIVE';
+    return 'AVAILABLE';
   };
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case 'EASY': return 'text-neon-green';
-      case 'MEDIUM': return 'text-yellow-400';
-      case 'HARD': return 'text-red-400';
-      default: return 'text-gray-400';
+      case 'EASY': return 'text-green-400 bg-green-400/20';
+      case 'MEDIUM': return 'text-yellow-400 bg-yellow-400/20';
+      case 'HARD': return 'text-orange-400 bg-orange-400/20';
+      case 'PREMIUM': return 'text-purple-400 bg-purple-400/20';
+      default: return 'text-gray-400 bg-gray-400/20';
     }
   };
 
-  const totalPoints = completedQuests.reduce((sum, quest) => sum + quest.reward, 0);
-
   return (
-    <div className="min-h-screen bg-cyber-black text-white pb-20 lg:pb-8">
-      {/* Back Button */}
-      <div className="fixed top-20 left-4 z-50">
-        <Link 
-          to="/app" 
-          className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
-        >
-          <span>←</span>
-          <span>BACK</span>
-        </Link>
+    <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+      {/* Header */}
+      <div className="sticky top-0 z-40 bg-black/90 backdrop-blur-xl border-b border-neon-cyan/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-4">
+              <Link 
+                to="/app" 
+                className="p-3 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 hover:bg-neon-cyan/20 transition-all duration-300 group"
+              >
+                <svg className="w-6 h-6 text-neon-cyan group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </Link>
+              <div>
+                <h1 className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan neon-text-enhanced">
+                  VISION QUEST
+                </h1>
+                <p className="text-gray-400 font-mono text-sm">Complete brand challenges & earn rewards</p>
+              </div>
+            </div>
+            
+            {/* User Stats */}
+            <div className="flex items-center space-x-6">
+              <div className="text-right">
+                <div className="text-2xl font-mono text-neon-cyan font-bold">{userPoints.toLocaleString()}</div>
+                <div className="text-xs text-gray-400 font-mono">TOTAL POINTS</div>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue p-0.5">
+                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+                  <span className="text-2xl">🏆</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="container mx-auto px-4 pt-24 max-w-6xl">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🎯</div>
-          <h1 className="text-3xl md:text-4xl font-pixel neon-text text-neon-cyan mb-4">
-            VISION QUEST
-          </h1>
-          <p className="text-gray-400 font-mono text-sm max-w-2xl mx-auto">
-            Complete branded challenges by streaming yourself shopping, dining, or exploring. 
-            Our AI agents will validate your activities and reward you instantly!
-          </p>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Quest Stats */}
+        <div className="grid grid-cols-3 gap-4 mb-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-gradient-to-r from-green-500/20 to-emerald-600/20 border border-green-500/30 rounded-xl p-6 text-center"
+          >
+            <div className="text-3xl font-mono text-green-400 font-bold">{completedQuests.length}</div>
+            <div className="text-sm text-gray-300 font-mono">COMPLETED</div>
+          </motion.div>
           
-          {/* Progress Stats */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-md mx-auto">
-            <div className="bg-dark-blue border border-neon-blue rounded-lg p-3">
-              <div className="text-neon-cyan font-mono text-lg font-bold">{totalPoints}</div>
-              <div className="text-gray-400 text-xs">TOTAL POINTS</div>
-            </div>
-            <div className="bg-dark-blue border border-neon-blue rounded-lg p-3">
-              <div className="text-neon-green font-mono text-lg font-bold">{completedQuests.length}</div>
-              <div className="text-gray-400 text-xs">COMPLETED</div>
-            </div>
-            <div className="bg-dark-blue border border-neon-blue rounded-lg p-3">
-              <div className="text-neon-magenta font-mono text-lg font-bold">{quests.length - completedQuests.length}</div>
-              <div className="text-gray-400 text-xs">REMAINING</div>
-            </div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-6 text-center"
+          >
+            <div className="text-3xl font-mono text-blue-400 font-bold">{activeQuests.length}</div>
+            <div className="text-sm text-gray-300 font-mono">ACTIVE</div>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-gradient-to-r from-purple-500/20 to-pink-600/20 border border-purple-500/30 rounded-xl p-6 text-center"
+          >
+            <div className="text-3xl font-mono text-purple-400 font-bold">{quests.length - completedQuests.length}</div>
+            <div className="text-sm text-gray-300 font-mono">AVAILABLE</div>
+          </motion.div>
         </div>
 
-        {/* Quest Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {quests.map((quest) => (
-            <div 
-              key={quest.id}
-              className="bg-dark-blue border border-neon-blue rounded-lg overflow-hidden hover:shadow-lg hover:shadow-neon-blue/20 transition-all duration-300 group"
-            >
-              {/* Quest Header with Gradient */}
-              <div className={`bg-gradient-to-r ${quest.color} p-4 text-center`}>
-                <div className="text-4xl mb-2">{quest.brandIcon}</div>
-                <h3 className="font-pixel text-white text-lg">{quest.title}</h3>
-                <div className="text-white/80 font-mono text-xs">{quest.brand}</div>
-              </div>
-
-              {/* Quest Details */}
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`${getDifficultyColor(quest.difficulty)} font-mono text-xs font-bold`}>
-                    {quest.difficulty}
-                  </span>
-                  <span className="text-gray-400 font-mono text-xs">{quest.estimatedTime}</span>
-                </div>
-
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                  {quest.description}
-                </p>
-
-                {/* Reward Section */}
-                <div className="bg-cyber-black rounded p-3 mb-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-neon-cyan font-mono text-lg font-bold">
-                        +{quest.reward} PTS
-                      </div>
-                      <div className="text-gray-400 text-xs">REWARD</div>
+        {/* Featured Quest Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mb-12"
+        >
+          <h2 className="text-2xl font-pixel text-neon-cyan mb-6 neon-text">FEATURED QUESTS</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {quests.map((quest, index) => {
+              const status = getQuestStatus(quest);
+              
+              return (
+                <motion.div
+                  key={quest.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="group relative"
+                >
+                  {/* Quest Card */}
+                  <div className={`
+                    relative overflow-hidden rounded-2xl border-2 transition-all duration-500 cursor-pointer
+                    ${status === 'COMPLETED' ? 'border-green-500/50 bg-green-500/10' : 
+                      status === 'ACTIVE' ? 'border-blue-500/50 bg-blue-500/10' : 
+                      'border-neon-cyan/30 hover:border-neon-cyan/60'}
+                    group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-neon-cyan/20
+                  `}>
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      <img 
+                        src={quest.bgImage} 
+                        alt={quest.title}
+                        className="w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${quest.gradient} opacity-60`}></div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-neon-magenta font-mono text-sm">
-                        {quest.category}
+
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                      {status === 'COMPLETED' && (
+                        <div className="flex items-center space-x-2 bg-green-500/90 text-white px-3 py-1 rounded-full text-xs font-mono">
+                          <span>✓</span>
+                          <span>COMPLETED</span>
+                        </div>
+                      )}
+                      {status === 'ACTIVE' && (
+                        <div className="flex items-center space-x-2 bg-blue-500/90 text-white px-3 py-1 rounded-full text-xs font-mono">
+                          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                          <span>ACTIVE</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 p-8">
+                      {/* Brand & Icon */}
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="text-4xl">{quest.brandIcon}</div>
+                        <div>
+                          <h3 className="text-2xl font-mono text-white font-bold">{quest.title}</h3>
+                          <p className="text-gray-300 font-mono text-sm">{quest.brand}</p>
+                        </div>
                       </div>
-                      <div className="text-gray-400 text-xs">CATEGORY</div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {quest.tags.map((tag, i) => (
+                          <span key={i} className="px-2 py-1 bg-white/10 backdrop-blur text-white/80 rounded-md text-xs font-mono">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-gray-200 mb-6 leading-relaxed">{quest.description}</p>
+
+                      {/* Quest Info */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center space-x-4">
+                          <div className={`px-3 py-1 rounded-full text-xs font-mono ${getDifficultyColor(quest.difficulty)}`}>
+                            {quest.difficulty}
+                          </div>
+                          <div className="text-gray-300 font-mono text-sm">
+                            ⏱️ {quest.estimatedTime}
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-2xl font-mono text-neon-cyan font-bold">+{quest.reward}</div>
+                          <div className="text-xs text-gray-400 font-mono">POINTS</div>
+                        </div>
+                      </div>
+
+                      {/* Action Button */}
+                      <button
+                        onClick={() => startQuest(quest)}
+                        disabled={status === 'COMPLETED'}
+                        className={`
+                          w-full py-4 rounded-xl font-mono font-bold text-lg transition-all duration-300
+                          ${status === 'COMPLETED' 
+                            ? 'bg-green-500/30 text-green-300 cursor-not-allowed' 
+                            : status === 'ACTIVE'
+                            ? 'bg-blue-500 hover:bg-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-blue-500/50'
+                            : 'bg-neon-cyan hover:bg-neon-blue text-black hover:scale-105 shadow-lg hover:shadow-neon-cyan/50'
+                          }
+                        `}
+                      >
+                        {status === 'COMPLETED' ? '✓ QUEST COMPLETED' : 
+                         status === 'ACTIVE' ? '⚡ CONTINUE QUEST' : 
+                         '🚀 START QUEST'}
+                      </button>
                     </div>
                   </div>
-                </div>
-
-                {/* Start Quest Button */}
-                <button
-                  onClick={() => handleStartQuest(quest)}
-                  className="w-full cyber-button font-mono py-3 rounded-lg hover:scale-105 transition-transform group-hover:shadow-lg group-hover:shadow-neon-cyan/30"
-                >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>📱</span>
-                    <span>START STREAMING</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Achievement Section */}
-        <div className="mt-12 text-center">
-          <h2 className="text-2xl font-pixel text-neon-cyan mb-6">ACHIEVEMENTS</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[
-              { icon: '🏆', name: 'First Stream', unlocked: completedQuests.length >= 1 },
-              { icon: '🔥', name: 'Stream Streak', unlocked: completedQuests.length >= 2 },
-              { icon: '💎', name: 'Luxury Streamer', unlocked: completedQuests.some(q => q.category === 'LUXURY') },
-              { icon: '⚡', name: 'Stream Master', unlocked: completedQuests.length >= 4 }
-            ].map((achievement, index) => (
-              <div 
-                key={index}
-                className={`p-4 rounded-lg border ${
-                  achievement.unlocked 
-                    ? 'bg-neon-green/20 border-neon-green text-neon-green' 
-                    : 'bg-dark-blue border-gray-600 text-gray-500'
-                }`}
-              >
-                <div className="text-2xl mb-2">{achievement.icon}</div>
-                <div className="font-mono text-xs">{achievement.name}</div>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
-        </div>
+        </motion.div>
 
-        {/* How it Works */}
-        <div className="mt-12 bg-dark-blue border border-neon-blue rounded-lg p-6">
-          <h3 className="text-xl font-pixel text-neon-cyan mb-4 text-center">HOW VISION QUEST WORKS</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* How It Works Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="bg-cyber-black/50 border border-neon-cyan/20 rounded-2xl p-8 mb-8"
+        >
+          <h3 className="text-xl font-pixel text-neon-cyan mb-6 neon-text">HOW IT WORKS</h3>
+          
+          <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-3xl mb-2">1️⃣</div>
-              <h4 className="font-mono text-neon-cyan mb-2">SELECT QUEST</h4>
-              <p className="text-gray-400 text-sm">Choose from available branded challenges</p>
+              <div className="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">📱</span>
+              </div>
+              <h4 className="font-mono text-white font-bold mb-2">1. START STREAMING</h4>
+              <p className="text-gray-400 text-sm">Begin your live stream and navigate to the quest location</p>
             </div>
+            
             <div className="text-center">
-              <div className="text-3xl mb-2">2️⃣</div>
-              <h4 className="font-mono text-neon-cyan mb-2">START STREAMING</h4>
-              <p className="text-gray-400 text-sm">Stream yourself shopping, dining, or exploring</p>
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <h4 className="font-mono text-white font-bold mb-2">2. COMPLETE OBJECTIVE</h4>
+              <p className="text-gray-400 text-sm">Show the target product or experience in your stream</p>
             </div>
+            
             <div className="text-center">
-              <div className="text-3xl mb-2">3️⃣</div>
-              <h4 className="font-mono text-neon-cyan mb-2">AI VALIDATION</h4>
-              <p className="text-gray-400 text-sm">Our AI validates your activities and awards points</p>
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏆</span>
+              </div>
+              <h4 className="font-mono text-white font-bold mb-2">3. EARN REWARDS</h4>
+              <p className="text-gray-400 text-sm">Get points instantly when AI validates your quest</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile Bottom Navigation */}
