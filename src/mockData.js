@@ -208,6 +208,17 @@ export const mockFeeds = [
     category: 'MY CIRCLE',
     description: '🌊 Taking it easy and enjoying the simple pleasures. Sometimes the best content comes from just living life.',
     videoUrl: null
+  },
+  {
+    id: 14,
+    title: 'Pebble Beach Concours d\'Elegance',
+    creator: '@lewishamilton',
+    thumbnail: '/images/delorean.png',
+    viewCount: '18.3K',
+    isPremium: true,
+    category: 'MY CIRCLE',
+    description: '🏎️ Exclusive access to the world\'s most prestigious automotive event. Witnessing legendary cars and meeting passionate collectors.',
+    videoUrl: '/videos/Fenomeno.mp4'
   }
 ];
 

@@ -46,7 +46,7 @@ const VisionQuest = () => {
       difficulty: 'PREMIUM',
       category: 'LUXURY',
       estimatedTime: '15-20 min',
-      videoTarget: '/app/stream/1', // Using video from Lewis Hamilton stories
+      videoTarget: '/app/stream/14', // Links to the new Pebble Beach feed
       detectProduct: 'Luxury Vehicle',
       gradient: 'from-blue-500 via-purple-600 to-indigo-700',
       bgImage: 'https://images.unsplash.com/photo-1544829099-b9a0c5303bea?w=600&h=400&fit=crop',
