@@ -253,38 +253,58 @@ export const topFeeds = [
 export const topCreators = [
   {
     id: 1,
-    username: '@lifestylevibes',
-    subscribers: '45.2K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80'
+    username: '@lewishamilton',
+    subscribers: '15.2M subscribers',
+    avatar: '/images/profile-picture.jpg',
+    hasStories: true,
+    stories: [
+      {
+        id: 1,
+        videoUrl: '/videos/video-1034_singular_display.mov',
+        duration: 8000, // 8 seconds
+        type: 'video'
+      },
+      {
+        id: 2,
+        videoUrl: '/videos/Fenomeno.mp4',
+        duration: 10000, // 10 seconds
+        type: 'video'
+      }
+    ]
   },
   {
     id: 2,
-    username: '@golfpro',
-    subscribers: '38.7K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b9191e56?w=80'
+    username: '@lifestylevibes',
+    subscribers: '45.2K subscribers',
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80',
+    hasStories: false
   },
   {
     id: 3,
-    username: '@golfstyle',
-    subscribers: '29.5K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80'
+    username: '@golfpro',
+    subscribers: '38.7K subscribers',
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b9191e56?w=80',
+    hasStories: false
   },
   {
     id: 4,
-    username: '@carmelvibes',
-    subscribers: '22.1K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80'
+    username: '@golfstyle',
+    subscribers: '29.5K subscribers',
+    avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80',
+    hasStories: false
   },
   {
     id: 5,
-    username: '@pebblebeachpro',
-    subscribers: '18.9K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80'
+    username: '@carmelvibes',
+    subscribers: '22.1K subscribers',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80',
+    hasStories: false
   },
   {
     id: 6,
-    username: '@golflifestyle',
-    subscribers: '15.3K subscribers',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80'
+    username: '@pebblebeachpro',
+    subscribers: '18.9K subscribers',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80',
+    hasStories: false
   }
 ]; 
