@@ -28806,6 +28806,314 @@ Read file: src/components/HomePage.jsx
 
 ---
 
+Now I need to update HomePage to pass the story click handler:
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -8,5 +8,5 @@
+  import AITriggerButton from './AITriggerButton';
+  
+- const HomePage = ({ feeds }) => {
++ const HomePage = ({ feeds, onStoryClick }) => {
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -168,5 +168,5 @@
+            <div className="lg:hidden mt-8 space-y-6 pb-20">
+              <TopFeeds />
+-             <TopCreators />
++             <TopCreators onStoryClick={onStoryClick} />
+            </div>
+          </div>
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/HomePage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -177,5 +177,5 @@
+          <div className="space-y-6" style={{ marginTop: '24px' }}>
+            <TopFeeds />
+-           <TopCreators />
++           <TopCreators onStoryClick={onStoryClick} />
+            <TopPremiumBanner />
+          </div>
+```
+
+</details>
+
+---
+
+Now let me update App.jsx to manage the Stories state and component at the app level:
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -11,4 +11,5 @@
+  import Navbar from './components/Navbar';
+  import MobileBottomNav from './components/MobileBottomNav';
++ import Stories from './components/Stories';
+  import { mockFeeds } from './mockData';
+  
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 12, lines removed: undefined
+
+```diff
+@@ -16,8 +16,20 @@
+  function App() {
+    const [feeds, setFeeds] = useState(mockFeeds);
++   const [selectedCreator, setSelectedCreator] = useState(null);
++   const [isStoriesOpen, setIsStoriesOpen] = useState(false);
+  
+    const handleVideoUpload = (newFeed) => {
+      setFeeds(prevFeeds => [newFeed, ...prevFeeds]);
+    };
++ 
++   const handleStoryClick = (creator) => {
++     setSelectedCreator(creator);
++     setIsStoriesOpen(true);
++   };
++ 
++   const handleCloseStories = () => {
++     setIsStoriesOpen(false);
++     setSelectedCreator(null);
++   };
+  
+    return (
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -34,4 +34,5 @@
+  
+    return (
++     <>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -40,5 +41,5 @@
+              <Navbar />
+              <main className="pt-16">
+-             <HomePage feeds={feeds} />
++               <HomePage feeds={feeds} onStoryClick={handleStoryClick} />
+              </main>
+            </div>
+```
+
+</details>
+
+---
+
+I need to add the closing fragment tag and the Stories component. Let me add the Stories component and close the JSX properly:
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 8, lines removed: undefined
+
+```diff
+@@ -94,4 +94,12 @@
+        } />
+        </Routes>
++ 
++       {/* Global Stories Component */}
++       <Stories 
++         creator={selectedCreator}
++         isOpen={isStoriesOpen}
++         onClose={handleCloseStories}
++       />
++     </>
+    );
+  }
+```
+
+</details>
+
+---
+
+Perfect! Now let me create a simple test to make sure this is working. Let me add a simple debug to see if the story click is being triggered:
+
+---
+
+<details><summary>Edit file: src/App.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -24,4 +24,5 @@
+  
+    const handleStoryClick = (creator) => {
++     console.log('Story clicked for creator:', creator.username);
+      setSelectedCreator(creator);
+      setIsStoriesOpen(true);
+```
+
+</details>
+
+---
+
+Now let me also simplify the Stories component to make sure it's working properly. Let me add a simple test background:
+
+---
+
+<details><summary>Edit file: src/components/Stories.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -126,4 +126,5 @@
+    return (
+      <AnimatePresence>
++       {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+```
+
+</details>
+
+---
+
+I need to add the corresponding closing bracket. Let me fix this:
+
+---
+
+<details><summary>Edit file: src/components/Stories.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -278,4 +278,5 @@
+          </motion.div>
+        </motion.div>
++       )}
+      </AnimatePresence>
+    );
+```
+
+</details>
+
+---
+
+Perfect! Now let's test the implementation. Here's what I've changed:
+
+## 🔧 **Major Architecture Changes:**
+
+1. **Moved Stories to App Level** - Stories component is now rendered at the App level instead of inside TopCreators
+2. **Global State Management** - Stories state is managed in App.jsx and passed down through props
+3. **Proper Event Handling** - Click events are properly propagated from TopCreators → HomePage → App
+4. **Fixed Rendering Issues** - Stories now renders outside any container constraints
+
+## 🎯 **How It Works Now:**
+
+1. **Click Lewis Hamilton** → `TopCreators.handleCreatorClick()` → `onStoryClick(creator)`
+2. **Event Propagation** → `HomePage.onStoryClick` → `App.handleStoryClick()`
+3. **State Update** → `setSelectedCreator(creator)` + `setIsStoriesOpen(true)`
+4. **Stories Renders** → Full-screen overlay with proper z-index and positioning
+
+## 🧪 **Test It Now:**
+
+1. **Refresh your browser** to get the latest code
+2. **Open browser console** to see debug logs
+3. **Click on Lewis Hamilton's profile** in TOP CREATORS
+4. **You should see**:
+   - Console log: "Story clicked for creator: @lewishamilton"
+   - Stories component opens with full-screen black background
+   - Your videos should play properly
+
+The Stories component is now properly isolated at the app level, so it won't be affected by any container constraints or CSS issues from the sidebar components! 🚀✨
+
+---
+
+_**User**_
+
+great it works, can you update the profile pic to lewishamilton, do you need me to provide apicture?
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
 
 
 ---

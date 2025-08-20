@@ -255,7 +255,7 @@ export const topCreators = [
     id: 1,
     username: '@lewishamilton',
     subscribers: '15.2M subscribers',
-    avatar: '/images/profile-picture.jpg',
+    avatar: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=150&h=150&fit=crop&crop=face',
     hasStories: true,
     stories: [
       {
