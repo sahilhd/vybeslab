@@ -7,7 +7,11 @@ const TopCreators = () => {
   const [isStoriesOpen, setIsStoriesOpen] = useState(false);
 
   const handleCreatorClick = (creator) => {
+    console.log('Creator clicked:', creator);
+    console.log('Has stories:', creator.hasStories);
     if (creator.hasStories) {
+      console.log('Opening stories for:', creator.username);
+      alert(`Opening stories for ${creator.username}!`); // Temporary test
       setSelectedCreator(creator);
       setIsStoriesOpen(true);
     }
