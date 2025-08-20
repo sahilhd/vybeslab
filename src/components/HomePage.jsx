@@ -7,7 +7,7 @@ import TopPremiumBanner from './TopPremiumBanner';
 import MobileBottomNav from './MobileBottomNav';
 import AITriggerButton from './AITriggerButton';
 
-const HomePage = ({ feeds }) => {
+const HomePage = ({ feeds, onStoryClick }) => {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [selectedFeedType, setSelectedFeedType] = useState('TRENDING');
@@ -167,7 +167,7 @@ const HomePage = ({ feeds }) => {
           {/* Mobile Bottom Content - Top Feeds & Creators */}
           <div className="lg:hidden mt-8 space-y-6 pb-20">
             <TopFeeds />
-            <TopCreators />
+            <TopCreators onStoryClick={onStoryClick} />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ const HomePage = ({ feeds }) => {
       <div className="hidden xl:block fixed right-0 top-16 bottom-0 w-80 px-6 pt-6 pb-6 overflow-y-auto z-40">
         <div className="space-y-6" style={{ marginTop: '24px' }}>
           <TopFeeds />
-          <TopCreators />
+          <TopCreators onStoryClick={onStoryClick} />
           <TopPremiumBanner />
         </div>
       </div>

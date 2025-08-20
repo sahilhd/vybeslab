@@ -1,21 +1,10 @@
-import { useState } from 'react';
 import { topCreators } from '../mockData';
-import Stories from './Stories';
 
-const TopCreators = () => {
-  const [selectedCreator, setSelectedCreator] = useState(null);
-  const [isStoriesOpen, setIsStoriesOpen] = useState(false);
-
+const TopCreators = ({ onStoryClick }) => {
   const handleCreatorClick = (creator) => {
-    if (creator.hasStories) {
-      setSelectedCreator(creator);
-      setIsStoriesOpen(true);
+    if (creator.hasStories && onStoryClick) {
+      onStoryClick(creator);
     }
-  };
-
-  const handleCloseStories = () => {
-    setIsStoriesOpen(false);
-    setSelectedCreator(null);
   };
 
   return (
@@ -89,13 +78,6 @@ const TopCreators = () => {
       <button className="w-full mt-4 border border-neon-magenta text-neon-magenta font-mono text-xs py-2 rounded hover:bg-neon-magenta hover:text-black transition-all">
         VIEW ALL
       </button>
-
-      {/* Stories Component */}
-      <Stories 
-        creator={selectedCreator}
-        isOpen={isStoriesOpen}
-        onClose={handleCloseStories}
-      />
     </div>
   );
 };

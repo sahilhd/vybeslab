@@ -10,26 +10,41 @@ import VisionQuest from './components/VisionQuest';
 import GoLive from './components/GoLive';
 import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
+import Stories from './components/Stories';
 import { mockFeeds } from './mockData';
 
 function App() {
   const [feeds, setFeeds] = useState(mockFeeds);
+  const [selectedCreator, setSelectedCreator] = useState(null);
+  const [isStoriesOpen, setIsStoriesOpen] = useState(false);
 
   const handleVideoUpload = (newFeed) => {
     setFeeds(prevFeeds => [newFeed, ...prevFeeds]);
   };
 
+  const handleStoryClick = (creator) => {
+    console.log('Story clicked for creator:', creator.username);
+    setSelectedCreator(creator);
+    setIsStoriesOpen(true);
+  };
+
+  const handleCloseStories = () => {
+    setIsStoriesOpen(false);
+    setSelectedCreator(null);
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/app" element={
-        <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
-          <Navbar />
-          <main className="pt-16">
-            <HomePage feeds={feeds} />
-          </main>
-        </div>
-      } />
+    <>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/app" element={
+          <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
+            <Navbar />
+            <main className="pt-16">
+              <HomePage feeds={feeds} onStoryClick={handleStoryClick} />
+            </main>
+          </div>
+        } />
       <Route path="/app/stream/:id" element={
         <div className="min-h-screen bg-gradient-to-br from-dark-blue via-neon-blue to-dark-blue">
           <Navbar />
@@ -78,7 +93,15 @@ function App() {
           </main>
         </div>
       } />
-    </Routes>
+      </Routes>
+
+      {/* Global Stories Component */}
+      <Stories 
+        creator={selectedCreator}
+        isOpen={isStoriesOpen}
+        onClose={handleCloseStories}
+      />
+    </>
   );
 }
 

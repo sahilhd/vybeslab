@@ -125,13 +125,14 @@ const Stories = ({ creator, isOpen, onClose }) => {
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
-        onClick={onClose}
-      >
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+          onClick={onClose}
+        >
         {/* Story Container */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -276,6 +277,7 @@ const Stories = ({ creator, isOpen, onClose }) => {
           </div>
         </motion.div>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 };
