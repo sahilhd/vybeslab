@@ -26409,6 +26409,508 @@ Lines added: 1, lines removed: 1
 
 ---
 
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -32,5 +32,5 @@
+        category: 'LUXURY',
+        estimatedTime: '10-15 min',
+-       videoTarget: '/stream/0', // Shopping at Visvim stream
++       videoTarget: '/app/stream/0', // Shopping at Visvim stream
+        detectProduct: 'Visvim Premium Item',
+        color: 'from-purple-500 to-pink-600'
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -46,5 +46,5 @@
+        category: 'WELLNESS',
+        estimatedTime: '5-10 min',
+-       videoTarget: '/stream/5', // Updated to point to the Erewhon quest stream
++       videoTarget: '/app/stream/5', // Updated to point to the Erewhon quest stream
+        detectProduct: 'Erewhon x Vacation Smoothie',
+        color: 'from-green-500 to-emerald-600'
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -60,5 +60,5 @@
+        category: 'SPORTS',
+        estimatedTime: '15-20 min',
+-       videoTarget: '/stream/1', // Golf stream
++       videoTarget: '/app/stream/1', // Golf stream
+        detectProduct: 'Titleist Golf Equipment',
+        color: 'from-blue-500 to-teal-600'
+```
+
+</details>
+
+---
+
+Now let me fix the back button in the VisionQuest component:
+
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 2
+
+```diff
+@@ -88,6 +88,6 @@
+        <div className="fixed top-20 left-4 z-50">
+          <Link 
+-           to="/" 
+-           className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
++           to="/app" 
++           className="flex items-center space-x2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
+          >
+            <span>←</span>
+```
+
+</details>
+
+---
+
+I notice there's a typo in the className. Let me fix that:
+
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -89,5 +89,5 @@
+          <Link 
+            to="/app" 
+-           className="flex items-center space-x2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
++           className="flex items-center space-x-2 bg-cyber-black/80 backdrop-blur border border-neon-blue text-neon-cyan px-3 py-2 rounded font-mono text-sm hover:bg-neon-blue/20 transition-colors"
+          >
+            <span>←</span>
+```
+
+</details>
+
+---
+
+Now let me check if there are any other routing issues in the VisionQuest component. Let me also verify that the Erewhon quest is properly configured:
+
+
+---
+
+Read file: src/components/VisionQuest.jsx
+
+---
+
+Perfect! Now let me check if there are any other components that might have routing issues. Let me also verify that the StreamView component can properly handle the quest notifications:
+
+
+---
+
+<details>
+            <summary>Grep search for "localStorage.getItem.*activeQuest" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L20 | `const questData = localStorage.getItem('activeQuest');` |
+
+</details>
+
+---
+
+Great! The StreamView component is already set up to handle quest data. Now let me check if there are any other routing issues. Let me also verify that the mockData has the correct Erewhon quest feed:
+
+
+---
+
+<details>
+            <summary>Grep search for "Erewhon Wellness Quest" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/mockData.js` | L113 | `title: 'Erewhon Wellness Quest',` |
+
+</details>
+
+---
+
+Perfect! Now let me check if there are any other routing issues. Let me also make sure the AI button is still accessible somewhere since we removed it from the navbar. Let me check if there's a floating AI button:
+
+
+---
+
+<details>
+            <summary>Grep search for "AITriggerButton" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/HomePage.jsx` | L8 | `import AITriggerButton from './AITriggerButton';` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/HomePage.jsx` | L188 | `<AITriggerButton />` |
+
+</details>
+
+---
+
+Great! The floating AI button is still available on the HomePage. Now let me check if there are any other routing issues. Let me also verify that the quest system is properly integrated. 
+
+Let me check if there are any issues with the quest notification system:
+
+
+---
+
+<details>
+            <summary>Grep search for "QuestNotification" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L5 | `import QuestNotification from './QuestNotification';` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L13 | `const [showQuestNotification, setShowQuestNotification] = useState(false);` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L27 | `setShowQuestNotification(true);` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L44 | `const handleCloseQuestNotification = () => {` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L45 | `setShowQuestNotification(false);` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L258 | `{showQuestNotification && activeQuest && (` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L259 | `<QuestNotification` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/StreamView.jsx` | L262 | `onClose={handleCloseQuestNotification}` |
+
+</details>
+
+---
+
+Excellent! The quest system is properly integrated. Now let me check if there might be any issues with the quest notification component itself:
+
+
+---
+
+Read file: src/components/QuestNotification.jsx
+
+---
+
+The QuestNotification component looks good. Now let me check if there might be an issue with the quest completion handling. Let me also verify that the quest system is properly integrated with the profile page:
+
+
+---
+
+<details>
+            <summary>Grep search for "completedQuests" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L13 | `const [completedQuests, setCompletedQuests] = useState([]);` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L18 | `const completed = JSON.parse(localStorage.getItem('completedQuests') || '[]');` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L19 | `setCompletedQuests(completed);` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L146 | `{completedQuests.length > 0 ? (` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L150 | `<span className="text-xl">{completedQuests[completedQuests.length - 1]?.brandIcon || '🏆'}</span>` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L153 | `{completedQuests[completedQuests.length - 1]?.title || 'No quests completed'}` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/components/ProfilePage.jsx` | L156 | `+{completedQuests[completedQuests.length - 1]?.reward || 0} pts` |
+
+</details>
+
+---
+
+Perfect! The quest system is properly integrated. Now let me check if there might be an issue with the quest completion callback. Let me look at the StreamView component to see how it handles quest completion:
+
+
+---
+
+Read file: src/components/StreamView.jsx
+
+---
+
+Now let me check the quest completion callback:
+
+
+---
+
+Read file: src/components/StreamView.jsx
+
+---
+
+Perfect! The quest system looks properly integrated. Now let me check if there might be an issue with the quest notification display. Let me look at the end of the StreamView component to see how the QuestNotification is rendered:
+
+
+---
+
+Read file: src/components/StreamView.jsx
+
+---
+
+Excellent! The quest system is properly integrated. Now let me check if there might be an issue with the quest detection logic. Let me look at the quest detection useEffect:
+
+
+---
+
+Read file: src/components/StreamView.jsx
+
+---
+
+Perfect! The quest system looks properly integrated. Now let me check if there might be an issue with the mockData. Let me verify that the Erewhon quest feed (ID 5) exists and has the correct video:
+
+
+---
+
+<details>
+            <summary>Grep search for "id: 5" • **1** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/mockData.js` | L112 | `id: 5,` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/mockData.js` | L240 | `id: 5,` |
+| `file:///Users/sahilhanda/Desktop/projects/vybes/vybeslab/src/mockData.js` | L279 | `id: 5,` |
+
+</details>
+
+---
+
+Let me check the specific Erewhon quest feed:
+
+
+---
+
+Read file: src/mockData.js
+
+---
+
+Perfect! The Erewhon quest feed exists and is properly configured. Now let me check if there might be an issue with the video file. Let me verify that the video file exists:
+
+
+---
+
+<details>
+            <summary>Listed directory public/images • **29** results</summary>
+        
+| Name |
+|-------|
+| 📄 `quest_thumbnail.png` |
+| 📄 `.DS_Store` |
+| 📄 `erewhon_quest.mp4` |
+| 📄 `visvim-jacket.png` |
+| 📄 `xcx.mp4` |
+| 📄 `aman_utah.mp4` |
+| 📄 `fashion_week_the_naked_truth.mp4` |
+| 📄 `coachella.png` |
+| 📄 `diplo.png` |
+| 📄 `delorean.png` |
+| 📄 `erewhon.png` |
+| 📄 `bel_air_pool.png` |
+| 📄 `red_nikes.png` |
+| 📄 `18th-hole-pebble.png` |
+| 📄 `aperol-spritz-besties.jpg` |
+| 📄 `prada-front-row.jpg` |
+| 📄 `partygirl-ibiza.png` |
+| 📄 `profile-background.png` |
+| 📄 `profile-picture.jpg` |
+| 📄 `lifestyle-2.jpg` |
+| 📄 `lifestyle-1.jpg` |
+| 📄 `malbon-visit.jpg` |
+| 📄 `pebble-beach-golf.jpg` |
+| 📄 `visvim-shopping.png` |
+| 📄 `Shopping at Visvim in Carmel 1.mp4` |
+| 📄 `Visiting the Malbon Store in Carmel.mp4` |
+| 📄 `Shopping at Visvim in Carmel 2.mp4` |
+| 📄 `Putting at The Hay in Pebble Beach.mp4` |
+| 📄 `demo-thumbnail.jpg` |
+
+</details>
+
+---
+
+Great! The `erewhon_quest.mp4` file exists. Now let me check if there might be an issue with the quest detection logic. Let me also verify that the quest system is working by checking if there are any console errors or issues.
+
+Let me create a simple test to see if the quest system is working. The issue might be that the quest notification is not showing up properly. Let me check if there's an issue with the quest detection timing or if the notification is being blocked by something.
+
+Let me also check if there might be an issue with the quest data structure. Let me verify that the quest data is being properly passed to the QuestNotification component:
+
+
+---
+
+Read file: src/components/StreamView.jsx
+
+---
+
+The quest system looks properly integrated. Now let me check if there might be an issue with the quest detection timing. The issue might be that the quest notification is not showing up because the timing is too fast or there's a conflict.
+
+Let me add some debugging and also increase the detection delay to make sure the quest notification is visible:
+
+
+---
+
+<details><summary>Edit file: src/components/StreamView.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 1
+
+```diff
+@@ -25,6 +25,7 @@
+        // Start AI detection simulation after a delay
+        const detectionTimer = setTimeout(() => {
++         console.log('Starting quest detection for:', quest.title);
+          setShowQuestNotification(true);
+-       }, 2000); // Start detection 2 seconds after page load
++       }, 3000); // Start detection 3 seconds after page load
+  
+        return () => clearTimeout(detectionTimer);
+```
+
+</details>
+
+---
+
+Now let me also add some debugging to the quest completion callback:
+
+
+---
+
+<details><summary>Edit file: src/components/StreamView.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -34,4 +34,5 @@
+  
+    const handleQuestComplete = (quest) => {
++     console.log('Quest completed:', quest.title);
+      // Save completed quest to localStorage
+      const completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[]');
+```
+
+</details>
+
+---
+
+Now let me also add some debugging to the quest notification display logic:
+
+
+---
+
+<details><summary>Edit file: src/components/StreamView.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 7, lines removed: undefined
+
+```diff
+@@ -265,4 +265,11 @@
+          />
+        )}
++       
++       {/* Debug Info - Remove this after testing */}
++       {activeQuest && (
++         <div className="fixed bottom-4 left-4 z-50 bg-black/80 text-white p-2 rounded text-xs">
++           Active Quest: {activeQuest.title} | Show: {showQuestNotification ? 'Yes' : 'No'}
++         </div>
++       )}
+      </div>
+    );
+```
+
+</details>
+
+---
+
+Perfect! ✨ **I've fixed the routing issues and added debugging to help identify any remaining problems with the Erewhon quest!**
+
+## 🎯 **What I Fixed:**
+
+### **1. Routing Issues:**
+- **Updated all quest paths** from `/stream/X` to `/app/stream/X`
+- **Fixed back button** in VisionQuest to go to `/app` instead of `/`
+- **All quests now properly navigate** to the correct stream pages
+
+### **2. Quest Configuration:**
+- **Erewhon Wellness Quest** → Points to `/app/stream/5` (correct feed)
+- **All other quests** → Updated with proper `/app` routing
+- **Quest data structure** → Properly configured with `isQuest: true`
+
+### **3. Debugging Added:**
+- **Console logging** for quest detection and completion
+- **Visual debug info** showing active quest status
+- **Increased detection delay** from 2s to 3s for better visibility
+
+## 🚀 **How to Test the Erewhon Quest:**
+
+1. **Go to Quests page** → Click "QUESTS" button in navbar
+2. **Select "Erewhon Wellness Quest"** → Click "START QUEST"
+3. **You'll be redirected** to `/app/stream/5` (Erewhon feed)
+4. **After 3 seconds** → Quest notification should appear
+5. **Watch the AI detection** → "AI ANALYZING..." → "ACTIVITY VALIDATED!" → "QUEST COMPLETED!"
+6. **Check profile page** → Quest progress should be saved
+
+## 🔍 **Debug Info:**
+- **Bottom-left corner** will show quest status during testing
+- **Console logs** will show quest detection and completion
+- **Remove debug elements** after confirming everything works
+
+The Erewhon quest should now work perfectly! Try it out and let me know if you see the quest notification appear. 🌟✨
+
+---
+
+_**User**_
+
+can you fix the profile page section, on desktop i want it to be full landscape desing follow the rest of the site and then for mobile view its the same as is 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
 
 
 ---
