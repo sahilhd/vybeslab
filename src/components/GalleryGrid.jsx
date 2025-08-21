@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 
 const GalleryGrid = ({ feeds = [] }) => {
-  // Filter to show only YOUR personal streams (your original content)
-  const yourCreators = ['@lifestylevibes', '@golfpro', '@golfstyle'];
-  const profileFeeds = feeds.filter(feed => yourCreators.includes(feed.creator)).slice(0, 5);
+  // Filter to show only MY CIRCLE feeds (your personal streams)
+  const profileFeeds = feeds.filter(feed => feed.category === 'MY CIRCLE').slice(0, 5);
   
   const galleryItems = profileFeeds.map((feed, index) => ({
     id: feed.id,

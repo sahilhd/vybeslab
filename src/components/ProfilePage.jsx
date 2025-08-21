@@ -336,38 +336,54 @@ const ProfilePage = ({ feeds = [] }) => {
                 <h3 className="text-neon-cyan font-pixel text-lg font-bold mb-4">MY FEED GALLERY</h3>
                 <div className="space-y-4">
                   {/* Featured Feed */}
-                  <div className="relative">
-                    <div className="aspect-video bg-dark-blue rounded-lg overflow-hidden border border-neon-blue">
-                      <img 
-                        src="/images/visvim-shopping.png"
-                        alt="Featured Feed"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute top-2 left-2 bg-neon-green text-black px-2 py-1 rounded text-xs font-mono font-bold">
-                        NEW
-                      </div>
+                  {feeds.filter(feed => feed.category === 'MY CIRCLE').slice(0, 1).map(featuredFeed => (
+                    <div key={featuredFeed.id} className="relative">
+                      <Link to={`/app/stream/${featuredFeed.id}`} className="block">
+                        <div className="aspect-video bg-dark-blue rounded-lg overflow-hidden border border-neon-blue hover:border-neon-cyan transition-colors">
+                          <img 
+                            src={featuredFeed.thumbnail}
+                            alt={featuredFeed.title}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform"
+                          />
+                          <div className="absolute top-2 left-2 bg-neon-green text-black px-2 py-1 rounded text-xs font-mono font-bold">
+                            NEW
+                          </div>
+                          {featuredFeed.isPremium && (
+                            <div className="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-mono font-bold">
+                              PREMIUM
+                            </div>
+                          )}
+                        </div>
+                        <div className="mt-2">
+                          <div className="text-white font-mono text-sm hover:text-neon-cyan transition-colors">{featuredFeed.title}</div>
+                          <div className="text-gray-400 font-mono text-xs">{featuredFeed.viewCount} views</div>
+                        </div>
+                      </Link>
                     </div>
-                    <div className="mt-2">
-                      <div className="text-white font-mono text-sm">Shopping at Visvim in Carmel</div>
-                      <div className="text-gray-400 font-mono text-xs">12.4K views</div>
-                    </div>
-                  </div>
+                  ))}
 
                   {/* Recent Feeds Grid */}
                   <div className="grid grid-cols-2 gap-3">
-                    {feeds.filter(feed => feed.category === 'MY CIRCLE').slice(0, 4).map((feed, index) => (
+                    {feeds.filter(feed => feed.category === 'MY CIRCLE').slice(1, 5).map((feed, index) => (
                       <div key={feed.id} className="relative">
-                        <div className="aspect-video bg-dark-blue rounded-lg overflow-hidden border border-neon-blue">
-                          <img 
-                            src={feed.thumbnail}
-                            alt={feed.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="mt-2">
-                          <div className="text-white font-mono text-xs truncate">{feed.title}</div>
-                          <div className="text-gray-400 font-mono text-xs">{feed.viewCount}</div>
-                        </div>
+                        <Link to={`/app/stream/${feed.id}`} className="block">
+                          <div className="aspect-video bg-dark-blue rounded-lg overflow-hidden border border-neon-blue hover:border-neon-cyan transition-colors">
+                            <img 
+                              src={feed.thumbnail}
+                              alt={feed.title}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform"
+                            />
+                            {feed.isPremium && (
+                              <div className="absolute top-1 right-1 bg-yellow-500 text-black px-1 py-0.5 rounded text-xs font-mono font-bold">
+                                P
+                              </div>
+                            )}
+                          </div>
+                          <div className="mt-2">
+                            <div className="text-white font-mono text-xs truncate hover:text-neon-cyan transition-colors">{feed.title}</div>
+                            <div className="text-gray-400 font-mono text-xs">{feed.viewCount}</div>
+                          </div>
+                        </Link>
                       </div>
                     ))}
                   </div>
