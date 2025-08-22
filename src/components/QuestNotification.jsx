@@ -122,17 +122,31 @@ const QuestNotification = ({ quest, onComplete, onClose }) => {
           </div>
         </div>
 
-        {/* Action Button for final stage */}
+        {/* Action Buttons for final stage */}
         {stage === 'rewarded' && (
-          <button 
-            onClick={() => {
-              setIsVisible(false);
-              setTimeout(() => onClose && onClose(), 500);
-            }}
-            className="w-full mt-3 bg-neon-cyan text-black font-mono text-sm py-2 rounded hover:bg-neon-cyan/80 transition-colors"
-          >
-            CONTINUE STREAMING
-          </button>
+          <div className="space-y-2 mt-3">
+            <button 
+              onClick={() => {
+                setIsVisible(false);
+                setTimeout(() => onClose && onClose(), 500);
+              }}
+              className="w-full bg-neon-cyan text-black font-mono text-sm py-2 rounded hover:bg-neon-cyan/80 transition-colors"
+            >
+              CONTINUE STREAMING
+            </button>
+            
+            {/* Demo restart button */}
+            <button 
+              onClick={() => {
+                // Reset to detecting stage for demo
+                setStage('detecting');
+                console.log('Restarting quest detection for demo...');
+              }}
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-mono text-xs py-2 rounded hover:from-purple-600 hover:to-purple-700 transition-colors border border-purple-400"
+            >
+              🔄 RESTART DETECTION (DEMO)
+            </button>
+          </div>
         )}
       </div>
     </div>

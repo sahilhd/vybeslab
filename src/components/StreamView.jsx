@@ -33,14 +33,22 @@ const StreamView = ({ feeds }) => {
   }, [id, feeds]);
 
   const handleQuestComplete = (quest) => {
-    console.log('Quest completed:', quest.title);
-    // Save completed quest to localStorage
+    console.log('Quest completed (DEMO MODE):', quest.title);
+    // Save completed quest to localStorage (for demo, allow multiple completions)
     const completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[]');
-    completedQuests.push(quest);
-    localStorage.setItem('completedQuests', JSON.stringify(completedQuests));
     
-    // Clear active quest
-    localStorage.removeItem('activeQuest');
+    // For demo purposes: Remove existing completion of same quest to allow re-completion
+    const filteredQuests = completedQuests.filter(q => q.id !== quest.id);
+    filteredQuests.push({
+      ...quest,
+      completedAt: new Date().toISOString(), // Add timestamp for demo tracking
+      isDemo: true // Flag to indicate this is a demo completion
+    });
+    localStorage.setItem('completedQuests', JSON.stringify(filteredQuests));
+    
+    // Keep active quest for demo purposes (don't clear it immediately)
+    // This allows the notification to show, but quest can be restarted
+    console.log('Quest completion saved. Active quest kept for demo restart capability.');
   };
 
   const handleCloseQuestNotification = () => {

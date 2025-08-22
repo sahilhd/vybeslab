@@ -16708,7 +16708,308 @@ Lines added: 17, lines removed: 16
 
 ---
 
-Now I need to ad
+Now I need to add the upload button to the action buttons section:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 14, lines removed: undefined
+
+```diff
+@@ -44,4 +44,18 @@
+            {/* Action Buttons - Clean & Minimal */}
+            <div className="flex items-center space-x-3 pr-6">
++             {/* UPLOAD Button */}
++             <Link 
++               to="/app/upload"
++               className="relative group bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 overflow-hidden"
++             >
++               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
++               <span className="relative flex items-center space-x-2">
++                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
++                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
++                 </svg>
++                 <span>UPLOAD</span>
++               </span>
++             </Link>
++ 
+              {/* GO LIVE Button */}
+              <Link 
+```
+
+</details>
+
+---
+
+Now I need to add the upload button to the mobile layout as well:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 16, lines removed: 2
+
+```diff
+@@ -119,9 +119,23 @@
+  
+            {/* Mobile Actions - Clean & Minimal */}
+-           <div className="flex items-center space-x-3 pr-6">
++           <div className="flex items-center space-x-2 pr-6">
++             {/* UPLOAD Button */}
++             <Link 
++               to="/app/upload"
++               className="relative group bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 overflow-hidden"
++             >
++               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
++               <span className="relative flex items-center space-x-1">
++                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
++                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
++                 </svg>
++                 <span>UP</span>
++               </span>
++             </Link>
++ 
+              {/* GO LIVE Button */}
+              <Link 
+                to="/app/live"
+-               className="relative group bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 font-mono text-xs rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-300 overflow-hidden"
++               className="relative group bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+```
+
+</details>
+
+---
+
+Perfect! ✨ I've successfully updated the navbar with both requested changes:
+
+## 📤 **Added Upload Button:**
+
+### **Desktop Layout:**
+- ✅ **Green gradient styling** (`from-green-500 to-green-600`) with hover effects
+- ✅ **Upload cloud icon** using SVG
+- ✅ **"UPLOAD" text** with proper spacing
+- ✅ **Links to `/app/upload`** (routes to VideoUpload component)
+- ✅ **Positioned before GO LIVE button** for logical flow
+
+### **Mobile Layout:**
+- ✅ **Compact version** with shortened "UP" text to save space
+- ✅ **Same green styling** and upload icon
+- ✅ **Smaller spacing** (`space-x-2` instead of `space-x-3`) to fit all buttons
+- ✅ **Consistent hover effects** and animations
+
+## 🎯 **Fixed FEEDS Logo Alignment:**
+
+### **New Layout Structure:**
+- ✅ **Left Section**: Logo + Search bar directly next to each other
+- ✅ **Logo positioning**: Removed negative margin, now properly aligned
+- ✅ **Search bar**: Fixed width (`w-80`) right next to logo with `space-x-4`
+- ✅ **Clean spacing**: Logo and search bar are now visually connected
+- ✅ **Responsive**: Maintains proper alignment on all screen sizes
+
+## 🎨 **Visual Improvements:**
+
+### **Button Hierarchy:**
+1. **UPLOAD** (Green) - Content creation
+2. **GO LIVE** (Red) - Live streaming  
+3. **BUY** (Cyan) - Shopping
+4. **QUESTS** (Magenta) - Challenges
+5. **Profile** (Image) - User account
+
+### **Layout Benefits:**
+- ✅ **Better visual flow**: Logo → Search → Actions
+- ✅ **Logical button order**: Upload → Live → Shop → Quest → Profile
+- ✅ **Consistent spacing**: All elements properly aligned
+- ✅ **Mobile optimization**: Compact but accessible buttons
+
+The navbar now has a much cleaner layout with the FEEDS logo properly positioned next to the search bar, and the upload functionality is back for easy content creation! 🚀📤
+
+---
+
+_**User**_
+
+for the quest portion, since we want to demo it, can you make it so that we can view the quest mulitple times and it will do the points verfication process again, for example for erewhon 
+
+---
+
+_**Assistant**_
+
+I'll modify the quest system to allow multiple completions for demo purposes, so you can show the verification process repeatedly. Let me update the VisionQuest component:
+
+---
+
+Read file: undefined
+
+---
+
+Let me find the button logic and status checking in the VisionQuest component:
+
+---
+
+Read file: undefined
+
+---
+
+Now let me find the initial state and useEffect where completed quests are loaded:
+
+---
+
+Read file: undefined
+
+---
+
+Perfect! Now I'll modify the quest system to allow multiple completions for demo purposes. I'll update the button behavior and status checking:
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -56,4 +56,5 @@
+  
+    const startQuest = (quest) => {
++     // For demo purposes, always allow quest restart
+      localStorage.setItem('activeQuest', JSON.stringify(quest));
+      setActiveQuests([quest]);
+```
+
+</details>
+
+---
+
+Now I'll modify the button to allow restarting completed quests:
+
+---
+
+<details><summary>Edit file: src/components/VisionQuest.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 2
+
+```diff
+@@ -257,9 +257,8 @@
+                        <button
+                          onClick={() => startQuest(quest)}
+-                         disabled={status === 'COMPLETED'}
+                          className={`
+                            w-full py-4 rounded-xl font-mono font-bold text-lg transition-all duration-300
+                            ${status === 'COMPLETED' 
+-                             ? 'bg-green-500/30 text-green-300 cursor-not-allowed' 
++                             ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white hover:scale-105 shadow-lg hover:shadow-green-500/50' 
+                              : status === 'ACTIVE'
+                              ? 'bg-blue-500 hover:bg-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-blue-500/50'
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -268,5 +267,5 @@
+                          `}
+                        >
+-                         {status === 'COMPLETED' ? '✓ QUEST COMPLETED' : 
++                         {status === 'COMPLETED' ? '🔄 RESTART QUEST (DEMO)' : 
+                           status === 'ACTIVE' ? '⚡ CONTINUE QUEST' : 
+                           '🚀 START QUEST'}
+```
+
+</details>
+
+---
+
+Now I need to also update the StreamView component to allow re-verification of the same quest. Let me check how the quest completion is handled there:
+
+---
+
+
+
+---
+
+Let me search for quest completion logic in StreamView:
+
+---
+
+
+
+---
+
+Perfect! Now I can see the issue. The quest completion logic clears the active quest and prevents re-starting. For demo purposes, I need to modify the `handleQuestComplete` function to allow multiple completions. Let me update the StreamView component:
+
+---
+
+The string to replace was not found in the file.
+
+---
+
+Let me read the current StreamView file to get the exact content:
+
+---
+
+Read file: undefined
+
+---
+
+Now I can update it with the correct content:
+
+---
+
+<details><summary>Edit file: src/components/StreamView.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 14, lines removed: 6
+
+```diff
+@@ -34,12 +34,20 @@
+  
+    const handleQuestComplete = (quest) => {
+-     console.log('Quest completed:', quest.title);
+-     // Save completed quest to localStorage
++     console.log('Quest completed (DEMO MODE):', quest.title);
++     // Save completed quest to localStorage (for demo, allow multiple completions)
+      const completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[]');
+-     completedQuests.push(quest);
+-     localStorage.setItem('completedQuests', JSON.stringify(completedQuests));
++     
++     // For demo purposes: Remove existing completion of same quest to allow re-completion
++     const filteredQuests = completedQuests.filter(q => q.id !== quest.id);
++     filteredQuests.push({
++       ...quest,
++       completedAt: new Date().toISOString(), // Add timestamp for demo tracking
++       isDemo: true // Flag to indicate this is a demo completion
++     });
++     localStorage.setItem('completedQuests', JSON.stringify(filteredQuests));
+      
+-     // Clear active quest
+-     localStorage.removeItem('activeQuest');
++     // Keep active quest for demo purposes (don't clear it immediately)
++     // This allows the notification to show, but quest can be restarted
++     console.log('Quest completion saved. Active quest kept for demo restart capability.');
+    };
+  
+```
+
+</details>
+
+---
+
+Now let me also update the QuestNotification component to reset the detection when closed, allowing for immediate re-detection:
 
 ---
 

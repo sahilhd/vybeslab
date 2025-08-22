@@ -55,6 +55,7 @@ const VisionQuest = () => {
   ];
 
   const startQuest = (quest) => {
+    // For demo purposes, always allow quest restart
     localStorage.setItem('activeQuest', JSON.stringify(quest));
     setActiveQuests([quest]);
     navigate(quest.videoTarget);
@@ -255,18 +256,17 @@ const VisionQuest = () => {
                       {/* Action Button */}
                       <button
                         onClick={() => startQuest(quest)}
-                        disabled={status === 'COMPLETED'}
                         className={`
                           w-full py-4 rounded-xl font-mono font-bold text-lg transition-all duration-300
                           ${status === 'COMPLETED' 
-                            ? 'bg-green-500/30 text-green-300 cursor-not-allowed' 
+                            ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white hover:scale-105 shadow-lg hover:shadow-green-500/50' 
                             : status === 'ACTIVE'
                             ? 'bg-blue-500 hover:bg-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-blue-500/50'
                             : 'bg-neon-cyan hover:bg-neon-blue text-black hover:scale-105 shadow-lg hover:shadow-neon-cyan/50'
                           }
                         `}
                       >
-                        {status === 'COMPLETED' ? '✓ QUEST COMPLETED' : 
+                        {status === 'COMPLETED' ? '🔄 RESTART QUEST (DEMO)' : 
                          status === 'ACTIVE' ? '⚡ CONTINUE QUEST' : 
                          '🚀 START QUEST'}
                       </button>
