@@ -20,15 +20,31 @@ const StreamView = ({ feeds }) => {
     const questData = localStorage.getItem('activeQuest');
     if (questData) {
       const quest = JSON.parse(questData);
-      setActiveQuest(quest);
       
-      // Start AI detection simulation after a delay
-      const detectionTimer = setTimeout(() => {
-        console.log('Starting quest detection for:', quest.title);
-        setShowQuestNotification(true);
-      }, 3000); // Start detection 3 seconds after page load
+      // Only set active quest and show notification if this feed matches the quest target
+      const questTargetId = quest.videoTarget.split('/').pop(); // Extract ID from "/app/stream/5"
+      const currentFeedId = parseInt(id);
+      
+      if (parseInt(questTargetId) === currentFeedId) {
+        setActiveQuest(quest);
+        
+        // Start AI detection simulation after a delay
+        const detectionTimer = setTimeout(() => {
+          console.log('Starting quest detection for:', quest.title, 'on feed', currentFeedId);
+          setShowQuestNotification(true);
+        }, 3000); // Start detection 3 seconds after page load
 
-      return () => clearTimeout(detectionTimer);
+        return () => clearTimeout(detectionTimer);
+      } else {
+        // Clear quest state if we're on a different feed
+        setActiveQuest(null);
+        setShowQuestNotification(false);
+        console.log('No quest detection - different feed. Quest targets:', questTargetId, 'Current:', currentFeedId);
+      }
+    } else {
+      // No active quest, clear states
+      setActiveQuest(null);
+      setShowQuestNotification(false);
     }
   }, [id, feeds]);
 

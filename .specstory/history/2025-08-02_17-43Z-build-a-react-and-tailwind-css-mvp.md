@@ -17184,5 +17184,51 @@ Perfect! ✨ I've successfully updated the landing page background video to use 
 
 ## 🎬 **Video Updated:**
 
+### **What Changed:**
+- ✅ **Old**: `FEEDS_TEASER.mp4` (35MB)
+- ✅ **New**: `FEEDS_SPLASH.mp4` (26MB)
+
+### **Benefits:**
+- ✅ **Smaller file size**: 26MB vs 35MB = ~25% reduction in loading time
+- ✅ **Better branding**: Uses the dedicated splash video designed for landing pages
+- ✅ **Same functionality**: Maintains autoplay, loop, and muted attributes
+- ✅ **Responsive**: Still covers full viewport with `object-cover`
+
+### **Landing Page Experience:**
+- 🎥 **Background Video**: Now plays `FEEDS_SPLASH.mp4` on loop
+- 📱 **Mobile Optimized**: `playsInline` attribute ensures mobile compatibility  
+- 🔇 **Auto-muted**: Plays silently to comply with browser autoplay policies
+- ⚡ **Faster Loading**: Smaller file size improves initial page load speed
+
+The landing page at the root URL (`/`) will now showcase the new splash video as the immersive background for the futuristic FEEDS experience! 🚀✨
+
+---
+
+_**User**_
+
+the ai analyzing if we are completing the quest should only happen for quests not the rest of the feeds, please fix that
+
+---
+
+_**Assistant**_
+
+You're absolutely right! The AI quest detection should only happen when there's an active quest, not on every feed. Let me fix the StreamView component to only show the quest notification when there's actually an active quest that matches the current feed.
+
+---
+
+Read file: undefined
+
+---
+
+I can see the issue! The current logic shows the quest notification for ANY feed when there's an active quest. I need to modify it to only show the notification when the current feed matches the quest's target. Let me fix this:
+
+---
+
+
+
+---
+
+
+
 ---
 
