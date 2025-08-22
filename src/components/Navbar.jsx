@@ -12,34 +12,51 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-0">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-20">
-          {/* Logo - aligned with categories */}
-          <Link to="/" className="flex items-center group -ml-4">
-            <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
-              FEEDS
-            </div>
-          </Link>
+          {/* Left Section - Logo + Search */}
+          <div className="flex items-center space-x-4 pl-6">
+            {/* Logo */}
+            <Link to="/" className="flex items-center group">
+              <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
+                FEEDS
+              </div>
+            </Link>
 
-          {/* Center Section - Search */}
-          <div className="flex-1 max-w-md mx-12">
-            <div className="relative group">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search feeds..."
-                className="w-full bg-black/40 border border-neon-cyan/30 rounded-full px-6 py-3 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan focus:bg-black/60 transition-all duration-300 backdrop-blur-sm"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neon-cyan hover:text-white transition-colors duration-200">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
+            {/* Search - Right next to logo */}
+            <div className="w-80">
+              <div className="relative group">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Search feeds..."
+                  className="w-full bg-black/40 border border-neon-cyan/30 rounded-full px-6 py-3 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan focus:bg-black/60 transition-all duration-300 backdrop-blur-sm"
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
+                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neon-cyan hover:text-white transition-colors duration-200">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Action Buttons - Clean & Minimal */}
           <div className="flex items-center space-x-3 pr-6">
+            {/* UPLOAD Button */}
+            <Link 
+              to="/app/upload"
+              className="relative group bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 font-mono text-sm rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center space-x-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <span>UPLOAD</span>
+              </span>
+            </Link>
+
             {/* GO LIVE Button */}
             <Link 
               to="/app/live"
@@ -101,11 +118,25 @@ const Navbar = () => {
           </Link>
 
           {/* Mobile Actions - Clean & Minimal */}
-          <div className="flex items-center space-x-3 pr-6">
+          <div className="flex items-center space-x-2 pr-6">
+            {/* UPLOAD Button */}
+            <Link 
+              to="/app/upload"
+              className="relative group bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center space-x-1">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <span>UP</span>
+              </span>
+            </Link>
+
             {/* GO LIVE Button */}
             <Link 
               to="/app/live"
-              className="relative group bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 font-mono text-xs rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-300 overflow-hidden"
+              className="relative group bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-2 font-mono text-xs rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-300 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative flex items-center space-x-1">

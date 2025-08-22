@@ -16590,3 +16590,125 @@ The profile gallery is now fully functional on both mobile and desktop! You can 
 
 ---
 
+_**User**_
+
+can you add the upload button back and fix the lining of the feeds logo right next to the search bar on the nav
+
+---
+
+_**Assistant**_
+
+I'll add the upload button back to the navbar and fix the FEEDS logo alignment next to the search bar. Let me check the current navbar and make those adjustments:
+
+---
+
+Read file: undefined
+
+---
+
+Let me see the rest of the navbar to understand the current structure:
+
+---
+
+Read file: undefined
+
+---
+
+Now I'll add the upload button and fix the FEEDS logo alignment to be right next to the search bar:
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 10, lines removed: 8
+
+```diff
+@@ -13,13 +13,15 @@
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between h-20">
+-           {/* Logo - aligned with categories */}
+-           <Link to="/" className="flex items-center group -ml-4">
+-             <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
+-               FEEDS
+-             </div>
+-           </Link>
++           {/* Left Section - Logo + Search */}
++           <div className="flex items-center space-x-4 pl-6">
++             {/* Logo */}
++             <Link to="/" className="flex items-center group">
++               <div className="text-3xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-cyan group-hover:from-white group-hover:to-neon-cyan transition-all duration-500 neon-text-enhanced">
++                 FEEDS
++               </div>
++             </Link>
+  
+-           {/* Center Section - Search */}
+-           <div className="flex-1 max-w-md mx-12">
++             {/* Search - Right next to logo */}
++             <div className="w-80">
+              <div className="relative group">
+                <input
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: src/components/Navbar.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 17, lines removed: 16
+
+```diff
+@@ -24,20 +24,21 @@
+              {/* Search - Right next to logo */}
+              <div className="w-80">
+-             <div className="relative group">
+-               <input
+-                 type="text"
+-                 value={searchTerm}
+-                 onChange={(e) => setSearchTerm(e.target.value)}
+-                 placeholder="Search feeds..."
+-                 className="w-full bg-black/40 border border-neon-cyan/30 rounded-full px-6 py-3 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan focus:bg-black/60 transition-all duration-300 backdrop-blur-sm"
+-               />
+-               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
+-               <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neon-cyan hover:text-white transition-colors duration-200">
+-                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+-                 </svg>
+-               </button>
+-             </div>
+-           </div>
++               <div className="relative group">
++                 <input
++                   type="text"
++                   value={searchTerm}
++                   onChange={(e) => setSearchTerm(e.target.value)}
++                   placeholder="Search feeds..."
++                   className="w-full bg-black/40 border border-neon-cyan/30 rounded-full px-6 py-3 font-mono text-white placeholder-gray-400 focus:outline-none focus:border-neon-cyan focus:bg-black/60 transition-all duration-300 backdrop-blur-sm"
++                 />
++                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
++                 <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neon-cyan hover:text-white transition-colors duration-200">
++                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
++                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
++                   </svg>
++                 </button>
++               </div>
++             </div>
++           </div>
+  
+            {/* Action Buttons - Clean & Minimal */}
+```
+
+</details>
+
+---
+
+Now I need to ad
+
+---
+
