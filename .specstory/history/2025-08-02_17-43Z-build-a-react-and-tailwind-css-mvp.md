@@ -17013,3 +17013,176 @@ Now let me also update the QuestNotification component to reset the detection wh
 
 ---
 
+Read file: undefined
+
+---
+
+Let me check the beginning of the QuestNotification to understand the stage progression:
+
+---
+
+Read file: undefined
+
+---
+
+Perfect! Now I understand the flow. The QuestNotification component handles the detection process automatically. For demo purposes, I should add a manual restart feature. Let me add a "DEMO: Restart Quest" button to the final stage and modify the flow:
+
+---
+
+<details><summary>Edit file: src/components/QuestNotification.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 24, lines removed: 10
+
+```diff
+@@ -123,15 +123,29 @@
+          </div>
+  
+-         {/* Action Button for final stage */}
++         {/* Action Buttons for final stage */}
+          {stage === 'rewarded' && (
+-           <button 
+-             onClick={() => {
+-               setIsVisible(false);
+-               setTimeout(() => onClose && onClose(), 500);
+-             }}
+-             className="w-full mt-3 bg-neon-cyan text-black font-mono text-sm py-2 rounded hover:bg-neon-cyan/80 transition-colors"
+-           >
+-             CONTINUE STREAMING
+-           </button>
++           <div className="space-y-2 mt-3">
++             <button 
++               onClick={() => {
++                 setIsVisible(false);
++                 setTimeout(() => onClose && onClose(), 500);
++               }}
++               className="w-full bg-neon-cyan text-black font-mono text-sm py-2 rounded hover:bg-neon-cyan/80 transition-colors"
++             >
++               CONTINUE STREAMING
++             </button>
++             
++             {/* Demo restart button */}
++             <button 
++               onClick={() => {
++                 // Reset to detecting stage for demo
++                 setStage('detecting');
++                 console.log('Restarting quest detection for demo...');
++               }}
++               className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-mono text-xs py-2 rounded hover:from-purple-600 hover:to-purple-700 transition-colors border border-purple-400"
++             >
++               🔄 RESTART DETECTION (DEMO)
++             </button>
++           </div>
+          )}
+        </div>
+```
+
+</details>
+
+---
+
+Perfect! ✨ I've successfully modified the quest system for demo purposes. Here's what I've implemented:
+
+## 🎮 **Demo-Ready Quest System:**
+
+### **🔄 Quest Restart Capability:**
+- ✅ **VisionQuest Page**: Completed quests now show "🔄 RESTART QUEST (DEMO)" button
+- ✅ **Green gradient styling** for completed quests instead of disabled state
+- ✅ **Always clickable** - no more disabled/cursor-not-allowed state
+
+### **📱 Multiple Completion Support:**
+- ✅ **Smart localStorage handling**: Removes previous completion of same quest before adding new one
+- ✅ **Timestamp tracking**: Each completion gets a `completedAt` timestamp
+- ✅ **Demo flagging**: All demo completions marked with `isDemo: true`
+- ✅ **Console logging**: Clear feedback in browser console for demo tracking
+
+### **🎯 In-Stream Quest Flow:**
+- ✅ **Preserved active quest**: Doesn't clear immediately after completion
+- ✅ **Instant re-detection**: Can restart the verification process right away
+- ✅ **Dual restart options**: 
+  1. **From Quest Page**: Click "🔄 RESTART QUEST (DEMO)" 
+  2. **From Stream**: Click "🔄 RESTART DETECTION (DEMO)" in notification
+
+### **🚀 Demo Experience:**
+
+#### **For Erewhon Quest:**
+1. **Start Quest** → Navigate to Erewhon feed stream
+2. **Watch AI Detection** → 3-second detection simulation
+3. **See Validation** → "ACTIVITY VALIDATED!" message
+4. **Get Reward** → "+600 PTS" notification
+5. **Choose Action**:
+   - **Continue Streaming** (normal flow)
+   - **🔄 RESTART DETECTION** (demo repeat)
+
+#### **Re-Demo Process:**
+1. **From Quest Page**: Click "🔄 RESTART QUEST (DEMO)" → Returns to stream
+2. **From Stream**: Click "🔄 RESTART DETECTION (DEMO)" → Immediate re-detection
+3. **Full Cycle**: Complete detection → validation → reward loop again
+
+## 🎨 **Visual Updates:**
+- ✅ **Completed quests**: Now green gradient instead of grayed out
+- ✅ **Demo buttons**: Purple gradient with clear "DEMO" labeling
+- ✅ **Status preservation**: Quest page correctly shows completed status
+- ✅ **Dual-action layout**: Two buttons in notification (Continue + Restart)
+
+Now you can demo the quest verification process as many times as needed! Both the Erewhon and Pebble Beach quests will allow infinite restarts while maintaining the full AI detection experience. 🥤🏎️✨
+
+---
+
+_**User**_
+
+can you change the video on the landing page to the video feeds_splash @videos/ 
+
+---
+
+_**Assistant**_
+
+I'll update the landing page to use the new `FEEDS_SPLASH.mp4` video instead of the current `FEEDS_TEASER.mp4`. Let me check the current landing page and make the change:
+
+---
+
+Read file: undefined
+
+---
+
+Let me find the video element in the landing page:
+
+---
+
+
+
+---
+
+Perfect! Now I'll update the video source to use the new `FEEDS_SPLASH.mp4` file:
+
+---
+
+<details><summary>Edit file: src/components/LandingPage.jsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -83,5 +83,5 @@
+            onLoadedData={handleVideoLoad}
+          >
+-           <source src="/videos/FEEDS_TEASER.mp4" type="video/mp4" />
++           <source src="/videos/FEEDS_SPLASH.mp4" type="video/mp4" />
+          </video>
+          
+```
+
+</details>
+
+---
+
+Perfect! ✨ I've successfully updated the landing page background video to use the new `FEEDS_SPLASH.mp4` file.
+
+## 🎬 **Video Updated:**
+
+---
+

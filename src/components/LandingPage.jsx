@@ -82,7 +82,7 @@ const LandingPage = () => {
           className="w-full h-full object-cover"
           onLoadedData={handleVideoLoad}
         >
-          <source src="/videos/FEEDS_TEASER.mp4" type="video/mp4" />
+          <source src="/videos/FEEDS_SPLASH.mp4" type="video/mp4" />
         </video>
         
         {/* Video Overlay */}
