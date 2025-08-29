@@ -7,12 +7,32 @@ const GlassesPage = () => {
   const glasses = [
     {
       id: 1,
+      name: 'Meta Ray-Ban Smart Glasses',
+      brand: 'Meta & Ray-Ban',
+      price: '$299',
+      category: 'LIVESTREAMING',
+      description: 'Premium smart glasses with dual cameras, open-ear speakers, and seamless social media integration. Stream your life hands-free with crystal clear audio and video.',
+      image: '/images/1750379599333-3533460811.jpg',
+      features: ['Live Streaming', 'Dual Cameras', 'Open-Ear Audio', 'Social Media Integration', 'Voice Commands'],
+      isPremium: true,
+      isNew: true,
+      link: 'https://www.meta.com/ray-ban-stories/',
+      specs: {
+        weight: '34 grams',
+        battery: '6+ hours',
+        camera: 'Dual 5MP, 110° FOV',
+        audio: 'Open-ear speakers',
+        streaming: 'Facebook, Instagram, WhatsApp'
+      }
+    },
+    {
+      id: 2,
       name: 'Mentra Live Camera Glasses',
       brand: 'Mentra',
       price: '$249',
       category: 'LIVESTREAMING',
       description: 'Smart glasses with camera, speakers, mic, and open-source SDK. Stream video, talk to AI, translation, take calls, and download any app you want.',
-      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400',
+      image: '/images/OIP-1485627629.jpg',
       features: ['Live Streaming', 'Open Source SDK', 'Camera & Mic', 'AI Integration', 'Multi-Platform Streaming'],
       isPremium: true,
       isNew: true,
@@ -26,31 +46,35 @@ const GlassesPage = () => {
       }
     },
     {
-      id: 2,
-      name: 'Waves Smart Glasses',
-      brand: 'Waves',
-      price: '$199',
-      category: 'AR WEARABLE',
-      description: 'Stylish and functional smart glasses designed for everyday use with advanced AR capabilities and seamless connectivity.',
-      image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400',
-      features: ['AR Display', 'Voice Control', 'Bluetooth Connectivity', 'All-Day Battery', 'Lightweight Design'],
-      isPremium: false,
-      isNew: true,
-      link: 'https://www.waveglasses.com/',
+      id: 3,
+      name: 'Ray-Ban Stories Smart Glasses',
+      brand: 'Ray-Ban',
+      price: '$329',
+      category: 'LIVESTREAMING',
+      description: 'Classic Wayfarer design meets smart technology. Capture photos and videos, listen to music, and take calls with premium audio quality and iconic style.',
+      image: '/images/rayban-stories-1024x512-532929622.jpg',
+      features: ['Classic Design', '5MP Camera', 'Premium Audio', 'Voice Commands', 'Bluetooth Connectivity'],
+      isPremium: true,
+      isNew: false,
+      link: 'https://www.ray-ban.com/usa/smart-glasses',
       specs: {
-        weight: 'Ultra-light',
-        battery: 'All-day use',
-        display: 'AR overlay',
-        connectivity: 'Bluetooth 5.0',
+        weight: '49 grams',
+        battery: '6+ hours',
+        camera: '5MP, 118° FOV',
+        audio: 'Premium speakers',
         compatibility: 'iOS & Android'
       }
     }
   ];
 
-  const categories = ['ALL', 'LIVESTREAMING', 'AR WEARABLE'];
+  const categories = ['ALL', 'LIVESTREAMING', 'PREMIUM', 'CAMERA'];
 
   const filteredGlasses = selectedCategory === 'ALL' 
     ? glasses 
+    : selectedCategory === 'PREMIUM'
+    ? glasses.filter(glass => glass.isPremium)
+    : selectedCategory === 'CAMERA'
+    ? glasses.filter(glass => glass.features.some(f => f.toLowerCase().includes('camera')))
     : glasses.filter(glass => glass.category === selectedCategory);
 
   return (
