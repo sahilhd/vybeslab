@@ -7,8 +7,8 @@ const GlassesPage = () => {
   const glasses = [
     {
       id: 1,
-      name: 'Meta Ray-Ban Smart Glasses',
-      brand: 'Meta & Ray-Ban',
+      name: 'Meta Oakley Smart Glasses',
+      brand: 'Meta & Oakley',
       price: '$299',
       category: 'LIVESTREAMING',
       description: 'Premium smart glasses with dual cameras, open-ear speakers, and seamless social media integration. Stream your life hands-free with crystal clear audio and video.',
@@ -220,4 +220,4 @@ const GlassesPage = () => {
   );
 };
 
-export default GlassesPage; 
+export default GlassesPage;
