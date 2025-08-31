@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [showDemoVideo, setShowDemoVideo] = useState(false);
   const videoRef = useRef(null);
+  const demoVideoRef = useRef(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll();
   
@@ -51,6 +53,18 @@ const LandingPage = () => {
 
   const handleVideoLoad = () => {
     setIsVideoLoaded(true);
+  };
+
+  const handleDemoClick = () => {
+    setShowDemoVideo(true);
+  };
+
+  const handleCloseDemo = () => {
+    setShowDemoVideo(false);
+    if (demoVideoRef.current) {
+      demoVideoRef.current.pause();
+      demoVideoRef.current.currentTime = 0;
+    }
   };
 
   return (
@@ -170,7 +184,10 @@ const LandingPage = () => {
               START STREAMING
             </Link>
             
-            <button className="border-2 border-neon-magenta text-neon-magenta px-8 py-4 text-xl font-mono rounded-lg hover:bg-neon-magenta hover:text-black transition-all duration-300 hover:scale-105">
+            <button 
+              onClick={handleDemoClick}
+              className="border-2 border-neon-magenta text-neon-magenta px-8 py-4 text-xl font-mono rounded-lg hover:bg-neon-magenta hover:text-black transition-all duration-300 hover:scale-105"
+            >
               WATCH DEMO
             </button>
           </motion.div>
@@ -360,6 +377,97 @@ const LandingPage = () => {
           </div>
         </div>
       </footer>
+
+      {/* Demo Video Modal */}
+      <AnimatePresence>
+        {showDemoVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-6"
+            onClick={handleCloseDemo}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-4xl w-full bg-cyber-black border-2 border-neon-cyan rounded-2xl overflow-hidden shadow-2xl shadow-neon-cyan/50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-neon-cyan/30">
+                <h3 className="text-2xl font-pixel text-neon-cyan">🎬 FEEDS DEMO</h3>
+                <button
+                  onClick={handleCloseDemo}
+                  className="w-10 h-10 bg-neon-cyan/20 border border-neon-cyan rounded-full flex items-center justify-center hover:bg-neon-cyan hover:text-black transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Video Player */}
+              <div className="relative aspect-video bg-black">
+                <video
+                  ref={demoVideoRef}
+                  className="w-full h-full object-contain"
+                  controls
+                  autoPlay
+                  muted
+                  onEnded={handleCloseDemo}
+                >
+                  <source src="/videos/FEEDS_Demo_082825.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-20 h-20 bg-neon-cyan/90 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="p-6 bg-gradient-to-r from-neon-cyan/10 to-neon-blue/10">
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                  <div className="text-center sm:text-left">
+                    <p className="text-gray-300 font-mono text-sm mb-2">
+                      See FEEDS in action! Watch how creators stream their world.
+                    </p>
+                    <div className="flex items-center gap-2 text-neon-cyan text-xs">
+                      <span>⏱️ 2-3 min demo</span>
+                      <span>•</span>
+                      <span>🎥 HD Quality</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <button
+                      onClick={handleCloseDemo}
+                      className="px-6 py-2 border border-neon-cyan text-neon-cyan font-mono rounded-lg hover:bg-neon-cyan hover:text-black transition-all duration-300"
+                    >
+                      CLOSE
+                    </button>
+                    <Link
+                      to="/app"
+                      onClick={handleCloseDemo}
+                      className="px-6 py-2 bg-neon-cyan text-black font-mono rounded-lg hover:bg-neon-cyan/80 transition-all duration-300"
+                    >
+                      START STREAMING
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

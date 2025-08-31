@@ -18019,3 +18019,17 @@ The glasses store now accurately represents the three leading smart glasses bran
 
 ---
 
+_**User**_
+
+on the main landing page, when a person click watch demo, I want you to play this video that I attached at this path: /Users/sahilhanda/Desktop/projects/vybes/vybeslab/public/videos/FEEDS_Demo_082825.mp4
+
+i want you to decide how the video plays, but ensure it is intutive and lets them continue on the site 
+
+---
+
+_**Assistant**_
+
+I'll add a demo video player to the landing page that plays when someone clicks "Watch
+
+---
+
