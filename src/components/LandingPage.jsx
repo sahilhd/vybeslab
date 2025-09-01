@@ -67,6 +67,15 @@ const LandingPage = () => {
     }
   };
 
+  const handleVideoPlay = () => {
+    // Ensure video can play with audio after user interaction
+    if (demoVideoRef.current) {
+      demoVideoRef.current.play().catch(error => {
+        console.log('Video play failed:', error);
+      });
+    }
+  };
+
   return (
     <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* Loading Screen */}
@@ -416,20 +425,17 @@ const LandingPage = () => {
                   className="w-full h-full object-contain"
                   controls
                   autoPlay
-                  muted
                   onEnded={handleCloseDemo}
+                  onPlay={handleVideoPlay}
+                  onPause={handleVideoPlay}
                 >
                   <source src="/videos/FEEDS_Demo_082825.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-20 h-20 bg-neon-cyan/90 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
+                {/* Audio Indicator */}
+                <div className="absolute top-4 left-4 bg-neon-cyan/90 text-black px-3 py-1 rounded-full font-mono text-xs font-bold">
+                  🔊 AUDIO ENABLED
                 </div>
               </div>
 
